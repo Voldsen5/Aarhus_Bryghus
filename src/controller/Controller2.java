@@ -1,15 +1,14 @@
 package controller;
 
 
-import model.Ordre;
 import model.Kunde;
-import model.Betalingsmetode;
+import model.Ordre;
 import storage.Storage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Controller {
+public class Controller2 {
 
     /**
      * Create a new Company.
@@ -17,8 +16,8 @@ public class Controller {
      */
     public static Ordre createOrdre(int antal, double samletPris, LocalDate dato, Kunde kunde, String status){
         Ordre ordre = new Ordre(antal, samletPris,dato,kunde,status);
-        Storage.storeOrdre(company);
-        return company;
+        Storage.storeOrdre(ordre);
+        return ordre;
     }
 
     /**
