@@ -12,5 +12,7 @@ public class Betalingsmetode {
     public String getNavn() {
         return navn;
     }
+
+
 }
 
