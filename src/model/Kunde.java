@@ -36,4 +36,24 @@ public class Kunde {
     public ArrayList<Ordre> getOrdres() {
         return ordres;
     }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public void setAlder(int alder) {
+        this.alder = alder;
+    }
+
+    public void setTlfNr(int tlfNr) {
+        this.tlfNr = tlfNr;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setOrdres(ArrayList<Ordre> ordres) {
+        this.ordres = ordres;
+    }
 }

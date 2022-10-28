@@ -42,4 +42,28 @@ public class Ordre {
     public String getStatus() {
         return status;
     }
+
+    public void setAntal(int antal) {
+        this.antal = antal;
+    }
+
+    public void setSamletPris(double samletPris) {
+        this.samletPris = samletPris;
+    }
+
+    public void setKunde(Kunde kunde) {
+        this.kunde = kunde;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setRabat(Rabat rabat) {
+        this.rabat = rabat;
+    }
+
+    public void setSalg(Salg salg) {
+        this.salg = salg;
+    }
 }
