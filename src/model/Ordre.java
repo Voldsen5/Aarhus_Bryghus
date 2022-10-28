@@ -31,6 +31,10 @@ public class Ordre {
         return dato;
     }
 
+    public void setDato(LocalDate dato) {
+        this.dato = dato;
+    }
+
     public Kunde getKunde() {
         return kunde;
     }
