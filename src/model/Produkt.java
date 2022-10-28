@@ -10,8 +10,8 @@ public class Produkt {
     private final ArrayList<Pris> priser = new ArrayList<>();
 
 
-
     private final ArrayList<Rundvisning>rundvisninger = new ArrayList<>();
+
 
     public ArrayList<Rundvisning>getRundvisninger(){
         return new ArrayList<>(rundvisninger);

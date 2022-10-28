@@ -1,17 +1,22 @@
 package gui;
 
+import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import storage.Storage;
+
+import java.util.List;
 
 public class StartVindueGui extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage.setTitle("Kas-Project");
+        stage.setTitle("AarhusBryghus");
         GridPane pane = new GridPane();
         this.initContent(pane);
 
@@ -22,9 +27,8 @@ public class StartVindueGui extends Application {
 
     // -------------------------------------------------------------------------
 
-    private final Button tilmelding = new Button("Opret Tilmelding");
-    private final Button oversigt = new Button("Vis Oversigt");
-    private final Button admin = new Button("Administration");
+    private final ListView ProduktKategoriLw = new ListView();
+    private final ListView Produktvisning =new ListView<>();
 
     private void initContent(GridPane pane) {
         // show or hide grid lines
@@ -36,18 +40,24 @@ public class StartVindueGui extends Application {
         // set vertical gap between components
         pane.setVgap(10);
 
-        pane.add(tilmelding, 0, 20);
-        tilmelding.setPrefSize(150, 10);
+        pane.add(ProduktKategoriLw, 0, 0);
+        pane.add(Produktvisning, 1, 0);
+
+        Controller.createProduktkategori("Flaskeøl");
+        Controller.createProduktkategori("Fadøl");
+        Controller.createProduktkategori("Spiritus");
+        Controller.createProduktkategori("Fustage");
+        Controller.createProduktkategori("Kulsyre");
+        Controller.createProduktkategori("Malt");
+        Controller.createProduktkategori("Anlæg");
+        Controller.createProduktkategori("Rundvisning");
+        ProduktKategoriLw.getItems().addAll(Storage.getProduktkategori());
 
 
-        pane.add(oversigt, 4, 20);
-        oversigt.setPrefSize(150, 10);
-
-
-        pane.add(admin, 8, 20);
-        admin.setPrefSize(150, 10);
 
     }
+
+
 
     // -------------------------------------------------------------------------
 
