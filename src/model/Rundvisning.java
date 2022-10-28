@@ -7,10 +7,16 @@ public class Rundvisning {
     private int antalDeltagelser;
     private String navn;
 
-    public Rundvisning(LocalDateTime dato, int antalDeltagelser, String navn) {
+    Produkt produkt;
+
+    Rundvisning(LocalDateTime dato, int antalDeltagelser, String navn) {
         this.dato = dato;
         this.antalDeltagelser = antalDeltagelser;
         this.navn = navn;
+    }
+
+    public Produkt getProdukt(){
+        return produkt;
     }
 
     public LocalDateTime getDato() {
