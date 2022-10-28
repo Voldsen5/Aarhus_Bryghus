@@ -7,14 +7,14 @@ public class Kunde {
     private int alder;
     private int tlfNr;
     private String email;
-    ArrayList<Ordre> ordres;
+   private final ArrayList<Ordre> ordrer = new ArrayList<>();
 
-    public Kunde(String navn, int alder, int tlfNr, String email, ArrayList<Ordre> ordres) {
+    public Kunde(String navn, int alder, int tlfNr, String email) {
         this.navn = navn;
         this.alder = alder;
         this.tlfNr = tlfNr;
         this.email = email;
-        this.ordres = ordres;
+
     }
 
     public String getNavn() {
@@ -33,8 +33,8 @@ public class Kunde {
         return email;
     }
 
-    public ArrayList<Ordre> getOrdres() {
-        return ordres;
+    public ArrayList<Ordre> getOrdrer() {
+        return new ArrayList<>(ordrer);
     }
 
     public void setNavn(String navn) {
@@ -53,7 +53,15 @@ public class Kunde {
         this.email = email;
     }
 
-    public void setOrdres(ArrayList<Ordre> ordres) {
-        this.ordres = ordres;
+
+    public void addOrdre(Ordre ordre){
+        ordrer.add(ordre);
+        ordre.kunde = this;
     }
+
+    public void removeOrdre(Ordre ordre){
+        ordrer.remove(ordre);
+        ordre.kunde = null;
+    }
+
 }
