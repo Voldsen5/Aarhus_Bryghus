@@ -7,6 +7,8 @@ public class Produkt {
     private String navn;
     private double pris;
     private int antal;
+    private final ArrayList<Pris> priser = new ArrayList<>();
+
 
 
     private final ArrayList<Rundvisning>rundvisninger = new ArrayList<>();
@@ -50,5 +52,21 @@ public class Produkt {
 
     public void setAntal(int antal) {
         this.antal = antal;
+    }
+
+    public ArrayList<Pris> getPriser() {
+        return new ArrayList<>(priser);
+    }
+
+    /** Pre: The pris is not connected to a produkt. */
+    public void addPris (Pris pris) {
+        priser.add(pris);
+        pris.produkt = this;
+    }
+
+    /** Pre: The pris is connected to this produkt. */
+    public void removePris (Pris pris) {
+        priser.remove(pris);
+        pris.produkt = null;
     }
 }
