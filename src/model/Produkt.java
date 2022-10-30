@@ -6,8 +6,18 @@ import java.util.ArrayList;
 public class Produkt {
     private String navn;
     private double pris;
-    private int antal;
     private final ArrayList<Pris> priser = new ArrayList<>();
+
+    ProduktKategori produktKategori;
+
+    public ProduktKategori getProduktKategori() {
+        return produktKategori;
+    }
+
+    public void setProduktKategori(ProduktKategori produktKategori) {
+        this.produktKategori = produktKategori;
+    }
+
 
 
     private final ArrayList<Rundvisning>rundvisninger = new ArrayList<>();
@@ -17,10 +27,11 @@ public class Produkt {
         return new ArrayList<>(rundvisninger);
     }
 
-    public Produkt(String navn, double pris, int antal) {
+    public Produkt(String navn, double pris) {
         this.navn = navn;
         this.pris = pris;
-        this.antal = antal;
+        this.produktKategori = produktKategori;
+//        this.antal = antal;
     }
 
     public Rundvisning CreateRundvisning(String navn, int antalDeltagelser, LocalDateTime dato) {
@@ -46,13 +57,6 @@ public class Produkt {
         this.pris = pris;
     }
 
-    public int getAntal() {
-        return antal;
-    }
-
-    public void setAntal(int antal) {
-        this.antal = antal;
-    }
 
     public ArrayList<Pris> getPriser() {
         return new ArrayList<>(priser);
@@ -68,5 +72,10 @@ public class Produkt {
     public void removePris (Pris pris) {
         priser.remove(pris);
         pris.produkt = null;
+    }
+
+    @Override
+    public String toString() {
+        return "Navn: "+navn+" Pris: "+pris;
     }
 }

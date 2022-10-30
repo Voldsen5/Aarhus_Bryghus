@@ -4,13 +4,15 @@ import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.Produkt;
+import model.ProduktKategori;
 import storage.Storage;
 
-import java.util.List;
+import java.sql.SQLOutput;
 
 public class StartVindueGui extends Application {
 
@@ -27,8 +29,8 @@ public class StartVindueGui extends Application {
 
     // -------------------------------------------------------------------------
 
-    private final ListView ProduktKategoriLw = new ListView();
-    private final ListView Produktvisning =new ListView<>();
+    private final ListView<ProduktKategori> LvwProduktKategori = new ListView<>();
+    private final ListView<Produkt> LvwProduktvisning = new ListView<>();
 
     private void initContent(GridPane pane) {
         // show or hide grid lines
@@ -40,26 +42,37 @@ public class StartVindueGui extends Application {
         // set vertical gap between components
         pane.setVgap(10);
 
-        pane.add(ProduktKategoriLw, 0, 0);
-        pane.add(Produktvisning, 1, 0);
+        pane.add(LvwProduktKategori, 0, 0);
+        pane.add(LvwProduktvisning, 1, 0);
 
-        Controller.createProduktkategori("Flaskeøl");
-        Controller.createProduktkategori("Fadøl");
-        Controller.createProduktkategori("Spiritus");
-        Controller.createProduktkategori("Fustage");
-        Controller.createProduktkategori("Kulsyre");
-        Controller.createProduktkategori("Malt");
-        Controller.createProduktkategori("Anlæg");
-        Controller.createProduktkategori("Rundvisning");
-        ProduktKategoriLw.getItems().addAll(Storage.getProduktkategori());
+        LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
 
+
+
+
+
+
+
+        LvwProduktKategori.getItems().addAll(Storage.getProduktkategori());
+
+
+
+    }
+
+    private void visProdukter() {
+        if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == -1) {
+            return;
+        }
+        ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+        LvwProduktvisning.getItems().addAll(f.getProdukter());
+        //lav event brug addprodukt metode samt create produkt
+        //lav nyt vindue med info.
 
 
     }
 
 
 
-    // -------------------------------------------------------------------------
 
 
 }

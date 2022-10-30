@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Storage {
     private static final ArrayList<ProduktKategori> produktkategori = new ArrayList<>();
-//    private static final ArrayList<Employee> employees = new ArrayList<>();
+    private static final ArrayList<Produkt> produkts = new ArrayList<>();
 //    private static final ArrayList<Customer> customers = new ArrayList<>();
 
     // -------------------------------------------------------------------------
@@ -28,17 +28,17 @@ public class Storage {
 
     // -------------------------------------------------------------------------
 
-//    public static ArrayList<Employee> getEmployees() {
-//        return new ArrayList<>(employees);
-//    }
-//
-//    public static void storeEmployee(Employee employee) {
-//        employees.add(employee);
-//    }
-//
-//    public static void deleteEmployee(Employee employee) {
-//        employees.remove(employee);
-//    }
+    public static ArrayList<Produkt> getProdukts() {
+        return new ArrayList<>(produkts);
+    }
+
+    public static void storeProdukt(Produkt produkt) {
+        produkts.add(produkt);
+    }
+
+    public static void deleteEmployee(Produkt produkt) {
+        produkts.remove(produkt);
+    }
 //
 //    // -------------------------------------------------------------------------
 //

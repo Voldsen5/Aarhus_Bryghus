@@ -20,11 +20,16 @@ public class Controller {
         return produktKategori;
     }
 
-//    public static Produkt createProdukt(String name) {
-//        ProduktKategori produktKategori = new ProduktKategori(name);
-//        Storage.storeCompany(produktKategori);
-//        return produktKategori;
-//    }
+    public static Produkt createProdukt(String name, double pris) {
+        Produkt produkt = new Produkt(name,pris);
+        Storage.storeProdukt(produkt);
+        return produkt;
+    }
+
+    public static void addProduktTilKategori(ProduktKategori produktKategori, Produkt produkt) {
+        produktKategori.addProdukt(produkt);
+        produkt.setProduktKategori(produktKategori);
+    }
 
 //    /**
 //     * Delete the company.
