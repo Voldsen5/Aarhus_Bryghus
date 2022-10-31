@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="javafx.controls1" level="application" />
+    <orderEntry type="library" name="javafx.base32" level="application" />
   </component>
 </module>
