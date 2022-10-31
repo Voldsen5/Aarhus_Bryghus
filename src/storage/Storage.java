@@ -1,6 +1,8 @@
 package storage;
 
 
+import model.Kunde;
+import model.Ordre;
 import model.Produkt;
 import model.ProduktKategori;
 
@@ -10,7 +12,9 @@ import java.util.ArrayList;
 public class Storage {
     private static final ArrayList<ProduktKategori> produktkategori = new ArrayList<>();
     private static final ArrayList<Produkt> produkts = new ArrayList<>();
-//    private static final ArrayList<Customer> customers = new ArrayList<>();
+    private static final ArrayList<Ordre> ordrer = new ArrayList<>();
+    private static final ArrayList<Kunde> kunder = new ArrayList<>();
+
 
     // -------------------------------------------------------------------------
 
@@ -18,11 +22,11 @@ public class Storage {
         return new ArrayList<>(produktkategori);
     }
 
-    public static void storeCompany(ProduktKategori produktKategori) {
+    public static void storeProduktKatagori(ProduktKategori produktKategori) {
         produktkategori.add(produktKategori);
     }
 
-    public static void deleteCompany(ProduktKategori produktKategori) {
+    public static void deleteProduktKatagori(ProduktKategori produktKategori) {
         produktkategori.remove(produktKategori);
     }
 
@@ -36,7 +40,7 @@ public class Storage {
         produkts.add(produkt);
     }
 
-    public static void deleteEmployee(Produkt produkt) {
+    public static void deleteProdukt(Produkt produkt) {
         produkts.remove(produkt);
     }
 //
@@ -53,4 +57,30 @@ public class Storage {
 //    public static void deleteCustomer(Customer customer) {
 //        customers.remove(customer);
 //    }
+    public static ArrayList<Ordre> getOrdrer() {
+    return new ArrayList<>(ordrer);
+}
+
+    public static void storeOrdre(Ordre ordre) {
+        ordrer.add(ordre);
+    }
+
+    public static void deleteOrdre(Ordre ordre) {
+        ordrer.remove(ordre);
+    }
+
+    //    // -------------------------------------------------------------------------
+
+    public static ArrayList<Kunde> getKunder() {
+        return new ArrayList<>(kunder);
+    }
+
+    public static void storeKunde(Kunde kunde) {
+        kunder.add(kunde);
+    }
+
+    public static void deleteKunde(Kunde kunde) {
+        kunder.remove(kunde);
+    }
+
 }

@@ -28,4 +28,20 @@ public class Salg {
     public Ordre getOrdre() {
         return ordre;
     }
+
+    public void setPris(double pris) {
+        this.pris = pris;
+    }
+
+    public void setDato(LocalDate dato) {
+        this.dato = dato;
+    }
+
+    public void setBetalingsmetode(Betalingsmetode betalingsmetode) {
+        this.betalingsmetode = betalingsmetode;
+    }
+
+    public void setOrdre(Ordre ordre) {
+        this.ordre = ordre;
+    }
 }
