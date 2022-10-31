@@ -3,9 +3,11 @@ package gui;
 import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Produkt;
@@ -31,6 +33,8 @@ public class StartVindueGui extends Application {
 
     private final ListView<ProduktKategori> LvwProduktKategori = new ListView<>();
     private final ListView<Produkt> LvwProduktvisning = new ListView<>();
+    private final TextField txfnavn = new TextField();
+    private final TextField txfpris = new TextField();
 
     private void initContent(GridPane pane) {
         // show or hide grid lines
@@ -44,6 +48,14 @@ public class StartVindueGui extends Application {
 
         pane.add(LvwProduktKategori, 0, 0);
         pane.add(LvwProduktvisning, 1, 0);
+
+
+
+
+        pane.add(txfnavn, 1, 1);
+        txfnavn.setMaxWidth(100);
+
+
 
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
 
