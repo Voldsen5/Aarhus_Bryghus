@@ -4,8 +4,6 @@ import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -14,13 +12,11 @@ import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
 
-import java.sql.SQLOutput;
-
-public class StartVindueGui extends Application {
+public class OpretProdukt extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage.setTitle("AarhusBryghus");
+        stage.setTitle("Opret Produkt");
         GridPane pane = new GridPane();
         this.initContent(pane);
 
