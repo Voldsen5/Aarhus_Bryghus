@@ -1,15 +1,20 @@
 package gui;
 
+import controller.Controller;
 import javafx.application.Application;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
+
+import java.sql.SQLOutput;
 
 public class StartVindueGui extends Application {
 
@@ -30,6 +35,7 @@ public class StartVindueGui extends Application {
     private final ListView<Produkt> LvwProduktvisning = new ListView<>();
     private final TextField txfnavn = new TextField();
     private final TextField txfpris = new TextField();
+    private final Button    tilfojProdukt = new Button("Tilføj Produkt");
 
     private void initContent(GridPane pane) {
         // show or hide grid lines
@@ -47,23 +53,28 @@ public class StartVindueGui extends Application {
 
 
 
-        pane.add(txfnavn, 1, 1);
+        pane.add(txfnavn, 0, 1);
         txfnavn.setMaxWidth(100);
+        GridPane.setHalignment(txfnavn, HPos.CENTER);
 
+        Label navntext = new Label("Navn:");
+        pane.add(navntext, 0, 1);
+
+        pane.add(txfpris, 0, 2);
+        txfpris.setMaxWidth(100);
+        GridPane.setHalignment(txfpris, HPos.CENTER);
+
+        Label prisText = new Label("Pris:");
+        pane.add(prisText, 0, 2);
+
+        pane.add(tilfojProdukt, 0, 3);
+        GridPane.setHalignment(tilfojProdukt, HPos.CENTER);
 
 
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
-
-
-
-
-
-
-
         LvwProduktKategori.getItems().addAll(Storage.getProduktkategori());
 
-
-
+        tilfojProdukt.setOnAction(event -> this.skabProdukt());
     }
 
     private void visProdukter() {
@@ -71,10 +82,18 @@ public class StartVindueGui extends Application {
             return;
         }
         ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+        LvwProduktvisning.getItems().clear();
         LvwProduktvisning.getItems().addAll(f.getProdukter());
-        //lav event brug addprodukt metode samt create produkt
-        //lav nyt vindue med info.
+    }
 
+    private void skabProdukt(){
+        Produkt p = Controller.createProdukt(txfnavn.getText(), Double.parseDouble(txfpris.getText()));
+        ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+        Controller.addProduktTilKategori(f,p);
+        LvwProduktvisning.getItems().clear();
+        LvwProduktvisning.getItems().addAll(f.getProdukter());
+        txfpris.clear();
+        txfnavn.clear();
 
     }
 
