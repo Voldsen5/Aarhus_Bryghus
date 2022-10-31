@@ -1,12 +1,9 @@
 package controller;
 
 
-import storage.Storage;
 import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
-
-import java.util.ArrayList;
 
 public class Controller {
 
@@ -16,7 +13,7 @@ public class Controller {
      */
     public static ProduktKategori createProduktkategori(String name) {
         ProduktKategori produktKategori = new ProduktKategori(name);
-        Storage.storeCompany(produktKategori);
+        Storage.storeProduktKatagori(produktKategori);
         return produktKategori;
     }
 
