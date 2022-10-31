@@ -43,7 +43,7 @@ public class Controller2 {
     }
 
     public static ArrayList<Ordre> getOrdre() {
-        return Storage.getOrdre();
+        return Storage.getOrdrer();
     }
 
     // -------------------------------------------------------------------------
@@ -72,8 +72,8 @@ public class Controller2 {
 
 
     public static ArrayList<Kunde> getKunde() {
-        return Storage.getKunde();
+        return Storage.getKunder();
     }
 }
-    // -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 
