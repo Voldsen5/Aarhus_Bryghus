@@ -76,6 +76,6 @@ public class Produkt {
 
     @Override
     public String toString() {
-        return "Navn: "+navn+" Pris: "+pris;
+        return "Navn: "+navn+" Pris: - "+pris;
     }
 }
