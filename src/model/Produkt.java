@@ -7,6 +7,11 @@ public class Produkt {
     private String navn;
     private double pris;
     private final ArrayList<Pris> priser = new ArrayList<>();
+    OrdreLinje ordreLinje;
+
+    public OrdreLinje getOrdreLinje() {
+        return ordreLinje;
+    }
 
     ProduktKategori produktKategori;
 
