@@ -8,8 +8,13 @@ public class OrdreLinje {
     private String vareNavn;
     private double pris;
     private double samletPris;
+    Produkt produkt;
 
-    public OrdreLinje(String vareNavn,int antal,double pris,double samletPris) {
+    public Produkt getProdukt() {
+        return produkt;
+    }
+
+    public OrdreLinje(String vareNavn, int antal, double pris, double samletPris) {
         this.antal = antal;
         this.vareNavn = vareNavn;
         this.pris = pris;

@@ -7,10 +7,10 @@ public class Produkt {
     private String navn;
     private double pris;
     private final ArrayList<Pris> priser = new ArrayList<>();
-    OrdreLinje ordreLinje;
+    private final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
 
-    public OrdreLinje getOrdreLinje() {
-        return ordreLinje;
+    public ArrayList <OrdreLinje> getOrdreLinjer() {
+        return new ArrayList<>(ordreLinjer);
     }
 
     ProduktKategori produktKategori;
@@ -78,6 +78,19 @@ public class Produkt {
         priser.remove(pris);
         pris.produkt = null;
     }
+
+    /** Pre: The ordreLinje is not connected to a produkt. */
+    public void addOrdreLinje (OrdreLinje ordreLinje) {
+        ordreLinjer.add(ordreLinje);
+        ordreLinje.produkt = this;
+    }
+
+    /** Pre: The ordreLinje is connected to this produkt. */
+    public void removeOrdreLinje (OrdreLinje ordreLinje) {
+        ordreLinjer.remove(ordreLinje);
+        ordreLinje.produkt = null;
+    }
+
 
     @Override
     public String toString() {
