@@ -4,11 +4,9 @@ import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.OrdreLinje;
@@ -16,7 +14,7 @@ import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
 
-public class OrdrePane extends Application {
+public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
         stage.setTitle("AarhusBryghus");
         GridPane pane = new GridPane();
@@ -100,13 +98,14 @@ public class OrdrePane extends Application {
     }
 
     private void opretOrdreLinje(){
-        Produkt f = Storage.getProdukts().get(LvwProduktvisning.getSelectionModel().getSelectedIndex());
+        Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
         String k = Storage.getProdukts().get(LvwProduktKategori.getSelectionModel().getSelectedIndex()).getNavn();
         double p = Storage.getProdukts().get(LvwProduktKategori.getSelectionModel().getSelectedIndex()).getPris();
-        int u = Integer.parseInt(txfAntal.getText());
+        int kk = Integer.parseInt(txfAntal.getText());
 
-        Controller.createOrdreLinje(k,Integer.parseInt(txfAntal.getText()),p, 5.5);
-
+        OrdreLinje hej = Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
+        System.out.println(Storage.getOrdreLinjer().size());
+        LvwOrdreLinje.getItems().addAll(hej);
 
 
     }

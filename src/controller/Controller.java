@@ -18,14 +18,14 @@ public class Controller {
         return produktKategori;
     }
 
-    public static Produkt createProdukt(String name, double pris) {
-        Produkt produkt = new Produkt(name,pris);
+    public static Produkt createProdukt(String navn, double pris) {
+        Produkt produkt = new Produkt(navn,pris);
         Storage.storeProdukt(produkt);
         return produkt;
     }
 
-    public static OrdreLinje createOrdreLinje(String vareNavn, int antal, double pris, double samletPris) {
-        OrdreLinje ordreLinje = new OrdreLinje(vareNavn,antal,pris,samletPris);
+    public static OrdreLinje createOrdreLinje(Produkt produkt, int antal) {
+        OrdreLinje ordreLinje = new OrdreLinje(produkt,antal);
         Storage.storeOrdreLinjer(ordreLinje);
         return ordreLinje;
     }

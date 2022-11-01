@@ -4,21 +4,22 @@ import java.util.ArrayList;
 
 public class OrdreLinje {
     private int antal;
-    private ArrayList<Produkt> produkter;
     private String vareNavn;
     private double pris;
     private double samletPris;
     Produkt produkt;
 
+    public void setProdukt(Produkt produkt) {
+        this.produkt = produkt;
+    }
+
     public Produkt getProdukt() {
         return produkt;
     }
 
-    public OrdreLinje(String vareNavn, int antal, double pris, double samletPris) {
+    public OrdreLinje(Produkt produkt, int antal) {
         this.antal = antal;
-        this.vareNavn = vareNavn;
-        this.pris = pris;
-        this.samletPris = samletPris;
+       this.produkt = produkt;
     }
 
     public int getAntal() {
@@ -37,8 +38,14 @@ public class OrdreLinje {
         return pris;
     }
 
-    public double getSamletPris() {
-        return samletPris;
+    public double ordreLinjePris() {
+       double p = 0.0;
+       p = getProdukt().getPris()*antal;
+       return p;
     }
 
+    @Override
+    public String toString() {
+        return produkt.getNavn()+" "+antal+" "+produkt.getPris()+" "+ordreLinjePris();
+    }
 }

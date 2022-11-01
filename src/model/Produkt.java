@@ -50,16 +50,9 @@ public class Produkt {
         return navn;
     }
 
-    public void setNavn(String navn) {
-        this.navn = navn;
-    }
 
     public double getPris() {
         return pris;
-    }
-
-    public void setPris(double pris) {
-        this.pris = pris;
     }
 
 
