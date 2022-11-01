@@ -5,9 +5,15 @@ import java.util.ArrayList;
 public class OrdreLinje {
     private int antal;
     private ArrayList<Produkt> produkter;
+    private String vareNavn;
+    private double pris;
+    private double samletPris;
 
-    public OrdreLinje(int antal) {
+    public OrdreLinje(String vareNavn,int antal,double pris,double samletPris) {
         this.antal = antal;
+        this.vareNavn = vareNavn;
+        this.pris = pris;
+        this.samletPris = samletPris;
     }
 
     public int getAntal() {
@@ -26,17 +32,16 @@ public class OrdreLinje {
         this.produkter = produkter;
     }
 
-    /** Pre: The produkt is not connected to a ordreLinje. */
-    public void addProdukt(Produkt produkt) {
-        produkter.add(produkt);
-        produkt.ordreLinje = this;
+    public String getVareNavn() {
+        return vareNavn;
     }
 
-    /** Pre: The produkt is connected to this ordreLinje. */
-    public void removeProdukt(Produkt produkt) {
-        produkter.remove(produkt);
-        produkt.ordreLinje = null;
+    public double getPris() {
+        return pris;
     }
 
+    public double getSamletPris() {
+        return samletPris;
+    }
 
 }

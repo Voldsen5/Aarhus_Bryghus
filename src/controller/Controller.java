@@ -1,9 +1,10 @@
 package controller;
 
 
-import model.Produkt;
-import model.ProduktKategori;
+import model.*;
 import storage.Storage;
+
+import java.time.LocalDate;
 
 public class Controller {
 
@@ -23,10 +24,18 @@ public class Controller {
         return produkt;
     }
 
+    public static OrdreLinje createOrdreLinje(String vareNavn, int antal, double pris, double samletPris) {
+        OrdreLinje ordreLinje = new OrdreLinje(vareNavn,antal,pris,samletPris);
+        Storage.storeOrdreLinjer(ordreLinje);
+        return ordreLinje;
+    }
+
+
     public static void addProduktTilKategori(ProduktKategori produktKategori, Produkt produkt) {
         produktKategori.addProdukt(produkt);
         produkt.setProduktKategori(produktKategori);
     }
+
 
 //    /**
 //     * Delete the company.
