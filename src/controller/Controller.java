@@ -1,12 +1,9 @@
 package controller;
 
 
-import storage.Storage;
 import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
-
-import java.util.ArrayList;
 
 public class Controller {
 
