@@ -34,7 +34,7 @@ public class OpretOrdreLinje extends Application {
     private final Label lblSamletPris = new Label("Samlet Pris:");
     private final Label lblProduktKatagori = new Label("Produkt katagori:");
     private final Label lblProdukter = new Label("Produkter:");
-    private final Label lblKvittering = new Label("Kvittering:");
+    private final Label lblKvittering = new Label("   Navn     Antal   Pris     SamletPris");
     private final Label lblAntal = new Label("Antal:");
     private final Button btnBetal = new Button("Betal");
 
@@ -98,16 +98,11 @@ public class OpretOrdreLinje extends Application {
     }
 
     private void opretOrdreLinje(){
+        LvwOrdreLinje.getItems().clear();
         Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
-        String k = Storage.getProdukts().get(LvwProduktKategori.getSelectionModel().getSelectedIndex()).getNavn();
-        double p = Storage.getProdukts().get(LvwProduktKategori.getSelectionModel().getSelectedIndex()).getPris();
-        int kk = Integer.parseInt(txfAntal.getText());
-
-        OrdreLinje hej = Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
+        Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
         System.out.println(Storage.getOrdreLinjer().size());
-        LvwOrdreLinje.getItems().addAll(hej);
-
-
+        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
     }
 
 

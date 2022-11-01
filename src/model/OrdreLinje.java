@@ -46,6 +46,6 @@ public class OrdreLinje {
 
     @Override
     public String toString() {
-        return produkt.getNavn()+" "+antal+" "+produkt.getPris()+" "+ordreLinjePris();
+        return produkt.getNavn()+"     "+antal+"      "+produkt.getPris()+"      "+ordreLinjePris();
     }
 }
