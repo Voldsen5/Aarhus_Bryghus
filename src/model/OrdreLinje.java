@@ -7,18 +7,18 @@ public class OrdreLinje {
     private ArrayList<Produkt> produkter;
     private String vareNavn;
     private double pris;
-    private double samletPris;
+    private double ordreLinjePris;
     Produkt produkt;
 
     public Produkt getProdukt() {
         return produkt;
     }
 
-    public OrdreLinje(String vareNavn, int antal, double pris, double samletPris) {
+    public OrdreLinje(String vareNavn, int antal, double pris, double ordreLinjePris) {
         this.antal = antal;
         this.vareNavn = vareNavn;
         this.pris = pris;
-        this.samletPris = samletPris;
+        this.ordreLinjePris = ordreLinjePris;
     }
 
     public int getAntal() {
@@ -37,8 +37,8 @@ public class OrdreLinje {
         return pris;
     }
 
-    public double getSamletPris() {
-        return samletPris;
+    public double getOrdreLinjePris() {
+        return ordreLinjePris;
     }
 
 }
