@@ -1,12 +1,10 @@
 package controller;
 
 
-import storage.Storage;
-import model.Produkt;
-import model.ProduktKategori;
+import model.*;
 import storage.Storage;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Controller {
 
@@ -20,16 +18,24 @@ public class Controller {
         return produktKategori;
     }
 
-    public static Produkt createProdukt(String name, double pris) {
-        Produkt produkt = new Produkt(name,pris);
+    public static Produkt createProdukt(String navn, double pris) {
+        Produkt produkt = new Produkt(navn,pris);
         Storage.storeProdukt(produkt);
         return produkt;
     }
+
+    public static OrdreLinje createOrdreLinje(Produkt produkt, int antal) {
+        OrdreLinje ordreLinje = new OrdreLinje(produkt,antal);
+        Storage.storeOrdreLinjer(ordreLinje);
+        return ordreLinje;
+    }
+
 
     public static void addProduktTilKategori(ProduktKategori produktKategori, Produkt produkt) {
         produktKategori.addProdukt(produkt);
         produkt.setProduktKategori(produktKategori);
     }
+
 
 //    /**
 //     * Delete the company.
