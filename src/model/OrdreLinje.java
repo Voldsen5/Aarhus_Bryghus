@@ -29,14 +29,6 @@ public class OrdreLinje {
         this.antal = antal;
     }
 
-    public ArrayList<Produkt> getProdukter() {
-        return produkter;
-    }
-
-    public void setProdukter(ArrayList<Produkt> produkter) {
-        this.produkter = produkter;
-    }
-
     public String getVareNavn() {
         return vareNavn;
     }
