@@ -4,12 +4,14 @@ import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import model.Produkt;
 import model.ProduktKategori;
@@ -30,9 +32,9 @@ public class StartSide extends Application {
 
     // -------------------------------------------------------------------------
 
-        Label Ledelse = new Label("Ledelse : ");
-        Label Kunde = new Label("Kunde : ");
-        Button OpretProdukt = new Button("Opret Produkt");
+        Button btnLedelse = new Button("Ledelse");
+        Button btnKunde = new Button("Medarbejder");
+        Button btnOpretProdukt = new Button("Opret Produkt");
 
     private void initContent(GridPane pane) {
         // show or hide grid lines
@@ -44,10 +46,18 @@ public class StartSide extends Application {
         // set vertical gap between components
         pane.setVgap(10);
 
+        btnLedelse.setPrefSize(100,50);
+        btnKunde.setPrefSize(100,50);
+        btnOpretProdukt.setPrefSize(100,50);
 
-        pane.add(Ledelse, 0, 0);
-        pane.add(Kunde, 1, 1);
-        pane.add(OpretProdukt, 0, 1);
+
+        HBox hBoxBtn = new HBox(btnLedelse, btnKunde,btnOpretProdukt);
+        pane.add(hBoxBtn,0,0);
+        hBoxBtn.setSpacing(80);
+        GridPane.setHalignment(hBoxBtn,HPos.CENTER);
+        GridPane.setValignment(hBoxBtn,VPos.CENTER);
+
+        btnOpretProdukt.setOnAction(e -> OpretProdukt.launch());
 
     }
 
