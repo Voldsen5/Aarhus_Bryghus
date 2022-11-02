@@ -36,6 +36,12 @@ public class Controller {
         return kontekst;
     }
 
+    public static Pris createPris(double beløb) {
+        Pris pris = new Pris(beløb);
+        Storage.storePris(pris);
+        return pris;
+    }
+
 
     public static void addProduktTilKategori(ProduktKategori produktKategori, Produkt produkt) {
         produktKategori.addProdukt(produkt);

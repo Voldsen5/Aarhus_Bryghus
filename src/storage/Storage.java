@@ -13,6 +13,7 @@ public class Storage {
     private static final ArrayList<Kunde> kunder = new ArrayList<>();
     private static final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
     private static final ArrayList<Kontekst> kontekster = new ArrayList<>();
+    private static final ArrayList<Pris> priser = new ArrayList<>();
 
 
 
@@ -92,5 +93,19 @@ public class Storage {
 
     public static void deleteKontekst(Kontekst kontekst) {
         kontekster.remove(kontekst);
+    }
+
+    //----------------------------------------------------------------------------------
+
+    public static ArrayList<Produkt> getPriser() {
+        return new ArrayList<>();
+    }
+
+    public static void storePris(Pris pris) {
+        priser.add(pris);
+    }
+
+    public static void deletePris(Pris pris) {
+        priser.remove(pris);
     }
 }

@@ -37,6 +37,8 @@ public class StartVindueApp {
         Kontekst fredagsbar = Controller.createKontekst("Fredagsbar");
         Kontekst butik = Controller.createKontekst("Butik");
 
+        Pris fredagsbar2 = Controller.createPris(70);
+
 
 
 
