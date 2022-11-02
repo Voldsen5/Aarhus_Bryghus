@@ -23,6 +23,7 @@ public class OpretOrdreLinje extends Application {
         Scene scene = new Scene(pane, 500, 500);
         stage.setScene(scene);
         stage.show();
+        salgVindue = new OpretSalg("",stage);
     }
 
     private final ListView<ProduktKategori> LvwProduktKategori = new ListView<>();
@@ -34,9 +35,11 @@ public class OpretOrdreLinje extends Application {
     private final Label lblSamletPris = new Label("Samlet Pris:");
     private final Label lblProduktKatagori = new Label("Produkt katagori:");
     private final Label lblProdukter = new Label("Produkter:");
-    private final Label lblKvittering = new Label("   Navn     Antal   Pris     SamletPris");
+    private final Label lblKvittering = new Label("   Navn     Antal   Pris     OrdreLinjePris");
     private final Label lblAntal = new Label("Antal:");
     private final Button btnBetal = new Button("Betal");
+    private OpretSalg salgVindue;
+
 
 
     private void initContent(GridPane pane) {
@@ -84,6 +87,8 @@ public class OpretOrdreLinje extends Application {
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
         LvwProduktKategori.getItems().addAll(Storage.getProduktkategori());
 
+        btnBetal.setOnAction(event -> this.betalNu());
+
         LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
 
     }
@@ -101,10 +106,19 @@ public class OpretOrdreLinje extends Application {
         LvwOrdreLinje.getItems().clear();
         Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
         Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
-        System.out.println(Storage.getOrdreLinjer().size());
+        txfAntal.clear();
         LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
         txfSamletPris.clear();
-        txfSamletPris.setText(""+Controller.SamletPrisOrdreLinje());
+        txfSamletPris.setText(""+Controller.SamletOrdrePris());
+    }
+
+    private void betalNu() {
+        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+       this.salgVindue.showAndWait();
+
+
+
+
     }
 
 
