@@ -4,8 +4,6 @@ package controller;
 import model.*;
 import storage.Storage;
 
-import java.time.LocalDate;
-
 public class Controller {
 
     /**
@@ -36,7 +34,7 @@ public class Controller {
         produkt.setProduktKategori(produktKategori);
     }
 
-    public static double SamletPrisOrdreLinje() {
+    public static double SamletOrdrePris() {
         double samlet = 0.0;
         for (OrdreLinje p : Storage.getOrdreLinjer()){
             samlet = samlet + p.ordreLinjePris();

@@ -1,32 +1,42 @@
 package gui;
 
-import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import model.OrdreLinje;
+import storage.Storage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class OpretSalg extends Application {
+public class OpretSalg extends Stage {
 
-    @Override
-    public void start(Stage stage) {
-        stage.setTitle("Opret Salg");
+
+    public OpretSalg(String title, Stage owner) {
+        this.initOwner(owner);
+        this.initStyle(StageStyle.UTILITY);
+        this.initModality(Modality.APPLICATION_MODAL);
+        this.setMinHeight(100);
+        this.setMinWidth(200);
+        this.setResizable(false);
+
+        this.setTitle("Oversigt");
         GridPane pane = new GridPane();
         this.initContent(pane);
 
-        Scene scene = new Scene(pane, 500, 500);
-        stage.setScene(scene);
-        stage.show();
+        Scene scene = new Scene(pane);
+        this.setScene(scene);
     }
+
 
     // -------------------------------------------------------------------------
 
-    ListView ordre = new ListView<>();
+    ListView<OrdreLinje> lvwordre = new ListView<>();
     LocalDate now = LocalDate.from(LocalDateTime.now());
     Label datoVisning = new Label("Dato :  "+now);
     Button gennemført = new Button("Fuldføre Betaling");
@@ -45,8 +55,8 @@ public class OpretSalg extends Application {
         pane.add(ordreNavn, 8, 0);
         GridPane.setHalignment(ordreNavn, HPos.CENTER);
 
-        pane.add(ordre, 8, 1);
-        GridPane.setHalignment(ordre, HPos.CENTER);
+        pane.add(lvwordre, 8, 1);
+        GridPane.setHalignment(lvwordre, HPos.CENTER);
 
         String[] betalingmetode = {"Dankort    ","MobilPay  ","Kontant    ","Klippekort","Regning   "};
         for (int i = 0; i < betalingmetode.length ; i++) {
@@ -63,18 +73,15 @@ public class OpretSalg extends Application {
         GridPane.setHalignment(datoVisning, HPos.RIGHT);
 
 
-        Label SamletPris = new Label("Samlet Pris : ");
+        Label SamletPris = new Label("");
         pane.add(SamletPris, 9, 9);
         GridPane.setHalignment(SamletPris, HPos.LEFT);
 
         pane.add(gennemført, 9, 10);
         GridPane.setHalignment(gennemført, HPos.LEFT);
 
-
-
-
-
-
+        lvwordre.getItems().addAll(Storage.getOrdreLinjer());
+        System.out.println(Storage.getOrdreLinjer().size());
 
     }
 }
