@@ -30,6 +30,12 @@ public class Controller {
         return ordreLinje;
     }
 
+    public static Kontekst createKontekst(String event) {
+        Kontekst kontekst = new Kontekst(event);
+        Storage.storeKontekst(kontekst);
+        return kontekst;
+    }
+
 
     public static void addProduktTilKategori(ProduktKategori produktKategori, Produkt produkt) {
         produktKategori.addProdukt(produkt);
