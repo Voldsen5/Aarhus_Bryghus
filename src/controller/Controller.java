@@ -45,11 +45,7 @@ public class Controller {
         return samlet;
     }
 
-    public static ArrayList<OrdreLinje> visAlleOrdrelinjer() {
-        ArrayList<OrdreLinje> temp = new ArrayList<>();
-        temp.addAll(Storage.getOrdreLinjer());
-        return temp;
-    }
+
 
 
 
