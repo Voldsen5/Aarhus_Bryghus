@@ -14,18 +14,22 @@ import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
 
+import java.util.ArrayList;
+
 public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
         stage.setTitle("AarhusBryghus");
         GridPane pane = new GridPane();
         this.initContent(pane);
+        this.owner = stage;
 
         Scene scene = new Scene(pane, 500, 500);
         stage.setScene(scene);
         stage.show();
-        salgVindue = new OpretSalg("",stage);
+
     }
 
+    private Stage owner;
     private final ListView<ProduktKategori> LvwProduktKategori = new ListView<>();
     private final ListView<Produkt> LvwProduktvisning = new ListView<>();
     private final ListView<OrdreLinje> LvwOrdreLinje = new ListView<>();
@@ -87,7 +91,7 @@ public class OpretOrdreLinje extends Application {
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
         LvwProduktKategori.getItems().addAll(Storage.getProduktkategori());
 
-        btnBetal.setOnAction(event -> this.betalNu());
+        btnBetal.setOnAction(event -> this.betalNu(new Stage()));
 
         LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
 
@@ -112,9 +116,9 @@ public class OpretOrdreLinje extends Application {
         txfSamletPris.setText(""+Controller.SamletOrdrePris());
     }
 
-    private void betalNu() {
-        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
-       this.salgVindue.showAndWait();
+    private void betalNu(Stage owner) {
+        salgVindue = new OpretSalg("",owner,Storage.getOrdreLinjer());
+        this.salgVindue.showAndWait();
 
 
 
