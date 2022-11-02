@@ -23,12 +23,21 @@ public class StartVindueApp {
         ProduktKategori anlæg =  Controller.createProduktkategori("Anlæg");
         ProduktKategori rundvisning =  Controller.createProduktkategori("Rundvisning");
 
+
         //Produkter
-        Produkt pilsner = Controller.createProdukt("Pilsner", 160);
-        Produkt stavns = Controller.createProdukt("sortØl", 150);
-        flaskeØl.addProdukt(pilsner);
-        fadøl.addProdukt(pilsner);
-        spiritus.addProdukt(stavns);
+        Produkt klosterbryg = Controller.createProdukt("Klosterbryg", 36);
+        Produkt sweetgeorgiabrown = Controller.createProdukt("Sweet Georgia Brown", 36);
+        Produkt extrapilsner = Controller.createProdukt("Extra Pilsner", 36);
+        flaskeØl.addProdukt(klosterbryg);
+        flaskeØl.addProdukt(sweetgeorgiabrown);
+        flaskeØl.addProdukt(extrapilsner);
+        fadøl.addProdukt(klosterbryg);
+        fadøl.addProdukt(extrapilsner);
+
+        Kontekst fredagsbar = Controller.createKontekst("Fredagsbar");
+        Kontekst butik = Controller.createKontekst("Butik");
+
+        Pris fredagsbar2 = Controller.createPris(70);
 
 
 

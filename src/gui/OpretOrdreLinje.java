@@ -14,17 +14,22 @@ import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
 
+import java.util.ArrayList;
+
 public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
         stage.setTitle("AarhusBryghus");
         GridPane pane = new GridPane();
         this.initContent(pane);
+        this.owner = stage;
 
         Scene scene = new Scene(pane, 500, 500);
         stage.setScene(scene);
         stage.show();
+
     }
 
+    private Stage owner;
     private final ListView<ProduktKategori> LvwProduktKategori = new ListView<>();
     private final ListView<Produkt> LvwProduktvisning = new ListView<>();
     private final ListView<OrdreLinje> LvwOrdreLinje = new ListView<>();
@@ -34,9 +39,11 @@ public class OpretOrdreLinje extends Application {
     private final Label lblSamletPris = new Label("Samlet Pris:");
     private final Label lblProduktKatagori = new Label("Produkt katagori:");
     private final Label lblProdukter = new Label("Produkter:");
-    private final Label lblKvittering = new Label("   Navn     Antal   Pris     SamletPris");
+    private final Label lblKvittering = new Label("   Navn     Antal   Pris     OrdreLinjePris");
     private final Label lblAntal = new Label("Antal:");
     private final Button btnBetal = new Button("Betal");
+    private OpretSalg salgVindue;
+
 
 
     private void initContent(GridPane pane) {
@@ -84,6 +91,8 @@ public class OpretOrdreLinje extends Application {
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
         LvwProduktKategori.getItems().addAll(Storage.getProduktkategori());
 
+        btnBetal.setOnAction(event -> this.betalNu(new Stage()));
+
         LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
 
     }
@@ -101,8 +110,19 @@ public class OpretOrdreLinje extends Application {
         LvwOrdreLinje.getItems().clear();
         Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
         Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
-        System.out.println(Storage.getOrdreLinjer().size());
+        txfAntal.clear();
         LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+        txfSamletPris.clear();
+        txfSamletPris.setText(""+Controller.SamletOrdrePris());
+    }
+
+    private void betalNu(Stage owner) {
+        salgVindue = new OpretSalg("",owner,Storage.getOrdreLinjer());
+        this.salgVindue.showAndWait();
+
+
+
+
     }
 
 
