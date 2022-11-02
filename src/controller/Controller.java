@@ -4,7 +4,7 @@ package controller;
 import model.*;
 import storage.Storage;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -36,7 +36,7 @@ public class Controller {
         produkt.setProduktKategori(produktKategori);
     }
 
-    public static double SamletPrisOrdreLinje() {
+    public static double SamletOrdrePris() {
         double samlet = 0.0;
         for (OrdreLinje p : Storage.getOrdreLinjer()){
             samlet = samlet + p.ordreLinjePris();
@@ -44,6 +44,14 @@ public class Controller {
 
         return samlet;
     }
+
+    public static ArrayList<OrdreLinje> visAlleOrdrelinjer() {
+        ArrayList<OrdreLinje> temp = new ArrayList<>();
+        temp.addAll(Storage.getOrdreLinjer());
+        return temp;
+    }
+
+
 
 
 
