@@ -36,6 +36,17 @@ public class Controller {
         produkt.setProduktKategori(produktKategori);
     }
 
+    public static double SamletPrisOrdreLinje() {
+        double samlet = 0.0;
+        for (OrdreLinje p : Storage.getOrdreLinjer()){
+            samlet = samlet + p.ordreLinjePris();
+        }
+
+        return samlet;
+    }
+
+
+
 
 //    /**
 //     * Delete the company.

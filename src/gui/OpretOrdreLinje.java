@@ -103,6 +103,8 @@ public class OpretOrdreLinje extends Application {
         Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
         System.out.println(Storage.getOrdreLinjer().size());
         LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+        txfSamletPris.clear();
+        txfSamletPris.setText(""+Controller.SamletPrisOrdreLinje());
     }
 
 
