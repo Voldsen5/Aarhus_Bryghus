@@ -1,20 +1,20 @@
 package gui;
 
+import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.OrdreLinje;
 import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
 
-public class OrdrePane extends Application {
+public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
         stage.setTitle("AarhusBryghus");
         GridPane pane = new GridPane();
@@ -27,14 +27,14 @@ public class OrdrePane extends Application {
 
     private final ListView<ProduktKategori> LvwProduktKategori = new ListView<>();
     private final ListView<Produkt> LvwProduktvisning = new ListView<>();
-    private final ListView<Produkt> LvwOrdreLinje = new ListView<>();
+    private final ListView<OrdreLinje> LvwOrdreLinje = new ListView<>();
     private final Button btnTilfojProdukt = new Button("Tilføj Produkt");
     private final TextField txfAntal = new TextField();
     private final TextField txfSamletPris = new TextField();
     private final Label lblSamletPris = new Label("Samlet Pris:");
     private final Label lblProduktKatagori = new Label("Produkt katagori:");
     private final Label lblProdukter = new Label("Produkter:");
-    private final Label lblKvittering = new Label("Kvittering:");
+    private final Label lblKvittering = new Label("   Navn     Antal   Pris     SamletPris");
     private final Label lblAntal = new Label("Antal:");
     private final Button btnBetal = new Button("Betal");
 
@@ -76,7 +76,37 @@ public class OrdrePane extends Application {
         pane.add(txfSamletPris,0,2);
         GridPane.setHalignment(txfSamletPris,HPos.RIGHT);
         txfSamletPris.setMaxWidth(145);
+        txfSamletPris.setEditable(false);
 
+
+        btnTilfojProdukt.setOnAction(event -> this.opretOrdreLinje());
+
+        LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
         LvwProduktKategori.getItems().addAll(Storage.getProduktkategori());
+
+        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+
     }
+
+    private void visProdukter() {
+        if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == -1) {
+            return;
+        }
+        ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+        LvwProduktvisning.getItems().clear();
+        LvwProduktvisning.getItems().addAll(f.getProdukter());
+    }
+
+    private void opretOrdreLinje(){
+        LvwOrdreLinje.getItems().clear();
+        Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
+        Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
+        System.out.println(Storage.getOrdreLinjer().size());
+        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+        txfSamletPris.clear();
+        txfSamletPris.setText(""+Controller.SamletPrisOrdreLinje());
+    }
+
+
+
 }

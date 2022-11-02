@@ -1,10 +1,7 @@
 package storage;
 
 
-import model.Kunde;
-import model.Ordre;
-import model.Produkt;
-import model.ProduktKategori;
+import model.*;
 
 
 import java.util.ArrayList;
@@ -14,6 +11,7 @@ public class Storage {
     private static final ArrayList<Produkt> produkts = new ArrayList<>();
     private static final ArrayList<Ordre> ordrer = new ArrayList<>();
     private static final ArrayList<Kunde> kunder = new ArrayList<>();
+    private static final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
 
 
     // -------------------------------------------------------------------------
@@ -26,9 +24,6 @@ public class Storage {
         produktkategori.add(produktKategori);
     }
 
-    public static void deleteProduktKatagori(ProduktKategori produktKategori) {
-        produktkategori.remove(produktKategori);
-    }
 
     // -------------------------------------------------------------------------
 
@@ -45,18 +40,18 @@ public class Storage {
     }
 //
 //    // -------------------------------------------------------------------------
-//
-//    public static ArrayList<Customer> getCustomers() {
-//        return new ArrayList<>(customers);
-//    }
-//
-//    public static void storeCustomer(Customer customer) {
-//        customers.add(customer);
-//    }
-//
-//    public static void deleteCustomer(Customer customer) {
-//        customers.remove(customer);
-//    }
+
+  public static ArrayList<OrdreLinje> getOrdreLinjer() {
+        return new ArrayList<>(ordreLinjer);
+    }
+
+    public static void storeOrdreLinjer(OrdreLinje ordreLinje) {
+        ordreLinjer.add(ordreLinje);
+    }
+
+
+
+
     public static ArrayList<Ordre> getOrdrer() {
     return new ArrayList<>(ordrer);
 }
