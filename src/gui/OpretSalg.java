@@ -1,5 +1,6 @@
 package gui;
 
+import controller.Controller;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -13,11 +14,12 @@ import storage.Storage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class OpretSalg extends Stage {
 
 
-    public OpretSalg(String title, Stage owner) {
+    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>temp) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
         this.initModality(Modality.APPLICATION_MODAL);
@@ -25,7 +27,7 @@ public class OpretSalg extends Stage {
         this.setMinWidth(200);
         this.setResizable(false);
 
-        this.setTitle("Oversigt");
+        this.setTitle("Salg");
         GridPane pane = new GridPane();
         this.initContent(pane);
 
@@ -40,6 +42,8 @@ public class OpretSalg extends Stage {
     LocalDate now = LocalDate.from(LocalDateTime.now());
     Label datoVisning = new Label("Dato :  "+now);
     Button gennemført = new Button("Fuldføre Betaling");
+    ArrayList<OrdreLinje>temp = new ArrayList<>();
+
 
     private void initContent(GridPane pane) {
         // show or hide grid lines
@@ -81,7 +85,9 @@ public class OpretSalg extends Stage {
         GridPane.setHalignment(gennemført, HPos.LEFT);
 
         lvwordre.getItems().addAll(Storage.getOrdreLinjer());
-        System.out.println(Storage.getOrdreLinjer().size());
+
+
+
 
     }
 }

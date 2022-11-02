@@ -4,6 +4,8 @@ package controller;
 import model.*;
 import storage.Storage;
 
+import java.util.ArrayList;
+
 public class Controller {
 
     /**
@@ -42,6 +44,14 @@ public class Controller {
 
         return samlet;
     }
+
+    public static ArrayList<OrdreLinje> visAlleOrdrelinjer() {
+        ArrayList<OrdreLinje> temp = new ArrayList<>();
+        temp.addAll(Storage.getOrdreLinjer());
+        return temp;
+    }
+
+
 
 
 
