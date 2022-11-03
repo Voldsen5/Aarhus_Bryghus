@@ -25,23 +25,55 @@ public class StartVindueApp {
 
 
         //Produkter
-        Produkt klosterbryg = Controller.createProdukt("Klosterbryg", 36);
-        Produkt sweetgeorgiabrown = Controller.createProdukt("Georgia Brown", 36);
-        Produkt extrapilsner = Controller.createProdukt("Extra Pilsner", 36);
+        Produkt klosterbryg = Controller.createProdukt("Klosterbryg");
+        Produkt sweetgeorgiabrown = Controller.createProdukt("Sweet Georgia Brown");
+        Produkt extrapilsner = Controller.createProdukt("Extra Pilsner");
+        Produkt celebration = Controller.createProdukt("Celebration");
+        Produkt blondie = Controller.createProdukt("Blondie");
+        Produkt forårsbryg = Controller.createProdukt("Forårsbryg");
+        Produkt indiapaleale = Controller.createProdukt("India Pale Ale");
+        Produkt julebryg = Controller.createProdukt("Julebryg");
+        Produkt juletønden = Controller.createProdukt("Juletønden");
+        Produkt oldstrongale = Controller.createProdukt("Old Strong Ale");
+        Produkt fregattenjylland = Controller.createProdukt("Fregatten Jylland");
+        Produkt imperialstout = Controller.createProdukt("Imperial Stout");
+        Produkt tribute = Controller.createProdukt("Tribute");
+        Produkt blackmonster = Controller.createProdukt("Black Monster");
+
+        Produkt jazzclassic = Controller.createProdukt("Jazz Classic");
+        Produkt special = Controller.createProdukt("Special");
+
+
+
+
+
+
         flaskeØl.addProdukt(klosterbryg);
         flaskeØl.addProdukt(sweetgeorgiabrown);
         flaskeØl.addProdukt(extrapilsner);
+        flaskeØl.addProdukt(celebration);
+        flaskeØl.addProdukt(blondie);
+        flaskeØl.addProdukt(forårsbryg);
+        flaskeØl.addProdukt(indiapaleale);
+        flaskeØl.addProdukt(julebryg);
+        flaskeØl.addProdukt(juletønden);
+        flaskeØl.addProdukt(oldstrongale);
+        flaskeØl.addProdukt(fregattenjylland);
+        flaskeØl.addProdukt(imperialstout);
+        flaskeØl.addProdukt(tribute);
+        flaskeØl.addProdukt(blackmonster);
+
+
+
         fadøl.addProdukt(klosterbryg);
         fadøl.addProdukt(extrapilsner);
 
         Kontekst fredagsbar = Controller.createKontekst("Fredagsbar");
         Kontekst butik = Controller.createKontekst("Butik");
 
-        Pris fredagsbarPris = Controller.createPris(70);
-        Pris butikPris = Controller.createPris(36);
+        Pris prisButikKlosterbryg = Controller.createPris(36, butik, klosterbryg);
+        Pris prisButikSweetGeorgiaBrown = Controller.createPris(36, butik, sweetgeorgiabrown);
 
-        klosterbryg.addPris(fredagsbarPris);
-        klosterbryg.addPris(butikPris);
 
 
 

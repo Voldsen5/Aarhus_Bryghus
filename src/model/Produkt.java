@@ -5,15 +5,19 @@ import java.util.ArrayList;
 
 public class Produkt {
     private String navn;
-    private double pris;
     private final ArrayList<Pris> priser = new ArrayList<>();
     private final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
+    private ProduktKategori produktKategori;
+
+    public Produkt(String navn) {
+        this.navn = navn;
+        this.produktKategori = produktKategori;
+//        this.antal = antal;
+    }
 
     public ArrayList <OrdreLinje> getOrdreLinjer() {
         return new ArrayList<>(ordreLinjer);
     }
-
-    ProduktKategori produktKategori;
 
     public ProduktKategori getProduktKategori() {
         return produktKategori;
@@ -32,12 +36,7 @@ public class Produkt {
         return new ArrayList<>(rundvisninger);
     }
 
-    public Produkt(String navn, double pris) {
-        this.navn = navn;
-        this.pris = pris;
-        this.produktKategori = produktKategori;
-//        this.antal = antal;
-    }
+
 
     public Rundvisning CreateRundvisning(String navn, int antalDeltagelser, LocalDateTime dato) {
         Rundvisning rundvisning = new Rundvisning(dato,antalDeltagelser, navn);
@@ -49,15 +48,6 @@ public class Produkt {
     public String getNavn() {
         return navn;
     }
-
-
-    public double getPris() {
-        return pris;
-    }
-
-  //  public void setPris(Pris pris) {
-  //      this.pris=pris;
-  //  }
 
     public ArrayList<Pris> getPriser() {
         return new ArrayList<>(priser);
@@ -90,6 +80,6 @@ public class Produkt {
 
     @Override
     public String toString() {
-        return "Navn: "+navn+ " -  Pris: " +pris;
+        return "Navn: " + navn;
     }
 }

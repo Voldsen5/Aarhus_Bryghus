@@ -1,13 +1,8 @@
 package controller;
 
 
-import gui.OpretSalg;
-import javafx.stage.Stage;
 import model.*;
 import storage.Storage;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Controller {
 
@@ -15,15 +10,14 @@ public class Controller {
      * Create a new Company.
      * Pre: name not empty, hours >= 0.
      */
-
     public static ProduktKategori createProduktkategori(String name) {
         ProduktKategori produktKategori = new ProduktKategori(name);
         Storage.storeProduktKatagori(produktKategori);
         return produktKategori;
     }
 
-    public static Produkt createProdukt(String navn, double pris) {
-        Produkt produkt = new Produkt(navn,pris);
+    public static Produkt createProdukt(String navn) {
+        Produkt produkt = new Produkt(navn);
         Storage.storeProdukt(produkt);
         return produkt;
     }
@@ -40,8 +34,8 @@ public class Controller {
         return kontekst;
     }
 
-    public static Pris createPris(double beløb) {
-        Pris pris = new Pris(beløb);
+    public static Pris createPris(double beløb, Kontekst kontekst, Produkt produkt) {
+        Pris pris = new Pris(beløb, kontekst, produkt);
         Storage.storePris(pris);
         return pris;
     }
@@ -64,22 +58,6 @@ public class Controller {
 
         return samlet;
     }
-
-    public static Statistik createStatistik(int dagligsalg) {
-        Statistik statistik = new Statistik(dagligsalg);
-        Storage.storeStatistik(statistik);
-        return statistik;
-    }
-
-    public static Salg createSalg() {
-        Salg salg = new Salg(0, LocalDate.of(2022,02,01));
-        Storage.storeSalg(salg);
-        return salg;
-    }
-
-    }
-
-
 
 
 
@@ -189,3 +167,8 @@ public class Controller {
 //        return Storage.getCustomers();
 //    }
 
+
+
+
+
+}
