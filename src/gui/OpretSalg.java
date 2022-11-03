@@ -9,12 +9,14 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Betalingsmetode;
 import model.OrdreLinje;
 import storage.Storage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class OpretSalg extends Stage {
 
@@ -43,6 +45,9 @@ public class OpretSalg extends Stage {
     Label datoVisning = new Label("Dato :  "+now);
     Button gennemført = new Button("Fuldføre Betaling");
     ArrayList<OrdreLinje>temp = new ArrayList<>();
+    private Stage owner;
+    TextArea kvittering = new TextArea();
+    ArrayList<CheckBox>tempCheckbox = new ArrayList<>();
 
 
     private void initContent(GridPane pane) {
@@ -64,7 +69,8 @@ public class OpretSalg extends Stage {
 
         String[] betalingmetode = {"Dankort    ","MobilPay  ","Kontant    ","Klippekort","Regning   "};
         for (int i = 0; i < betalingmetode.length ; i++) {
-            CheckBox betalingsbox = new CheckBox(""+betalingmetode[i]);
+            CheckBox betalingsbox = new CheckBox(betalingmetode[i]);
+            tempCheckbox.add(betalingsbox);
             pane.add(betalingsbox, 8, i+4);
             GridPane.setHalignment(betalingsbox, HPos.CENTER);
         }
@@ -73,8 +79,8 @@ public class OpretSalg extends Stage {
         pane.add(lblbetaling, 8, 2);
         GridPane.setHalignment(lblbetaling, HPos.CENTER);
 
-        pane.add(datoVisning, 9, 0);
-        GridPane.setHalignment(datoVisning, HPos.RIGHT);
+//        pane.add(datoVisning, 9, 0);
+//        GridPane.setHalignment(datoVisning, HPos.RIGHT);
 
 
         Label SamletPris = new Label("");
@@ -84,10 +90,30 @@ public class OpretSalg extends Stage {
         pane.add(gennemført, 9, 10);
         GridPane.setHalignment(gennemført, HPos.LEFT);
 
+        lvwordre.setMaxHeight(250);
         lvwordre.getItems().addAll(Storage.getOrdreLinjer());
+
+        pane.add(kvittering, 9, 1);
+        kvittering.setMaxWidth(250);
+
+        gennemført.setOnAction(event -> this.fulføreBetaling());
 
 
 
 
     }
+
+    public void fulføreBetaling(){
+        String temp = "";
+        for (CheckBox p : tempCheckbox){
+            if (p.isSelected()){
+                temp = p.getText().toUpperCase(Locale.ROOT);
+            }
+        }
+        kvittering.appendText(""+Storage.getOrdreLinjer()+"\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
+        //Controler liste appent new line
+
+    }
+
+
 }

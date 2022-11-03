@@ -14,8 +14,6 @@ import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
 
-import java.util.ArrayList;
-
 public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
         stage.setTitle("AarhusBryghus");
