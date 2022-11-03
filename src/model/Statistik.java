@@ -19,6 +19,6 @@ public class Statistik implements Observer{
 
     @Override
     public void update() {
-
+        System.out.println("Dagligsag : "+dagligSalg++);
     }
 }

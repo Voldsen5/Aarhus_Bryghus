@@ -26,7 +26,7 @@ public class StartVindueApp {
 
         //Produkter
         Produkt klosterbryg = Controller.createProdukt("Klosterbryg", 36);
-        Produkt sweetgeorgiabrown = Controller.createProdukt("Sweet Georgia Brown", 36);
+        Produkt sweetgeorgiabrown = Controller.createProdukt("Georgia Brown", 36);
         Produkt extrapilsner = Controller.createProdukt("Extra Pilsner", 36);
         flaskeØl.addProdukt(klosterbryg);
         flaskeØl.addProdukt(sweetgeorgiabrown);
