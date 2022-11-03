@@ -11,5 +11,6 @@
     <orderEntry type="library" name="javafx.base32" level="application" />
     <orderEntry type="library" name="javafx.base3" level="application" />
     <orderEntry type="library" name="javafx.base" level="application" />
+    <orderEntry type="library" name="javafx.controls" level="application" />
   </component>
 </module>

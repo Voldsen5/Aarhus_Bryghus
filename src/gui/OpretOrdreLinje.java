@@ -14,8 +14,6 @@ import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
 
-import javax.swing.text.html.ListView;
-
 public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
         stage.setTitle("AarhusBryghus");
@@ -108,13 +106,16 @@ public class OpretOrdreLinje extends Application {
     }
 
     private void opretOrdreLinje(){
-        LvwOrdreLinje.getItems().clear();
-        Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
-        Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
-        txfAntal.clear();
-        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
-        txfSamletPris.clear();
-        txfSamletPris.setText(""+Controller.SamletOrdrePris());
+        if (!txfAntal.getText().isEmpty()){
+            LvwOrdreLinje.getItems().clear();
+            Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
+            Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
+            txfAntal.clear();
+            LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+            txfSamletPris.clear();
+            txfSamletPris.setText(""+Controller.SamletOrdrePris());
+        }
+
     }
 
     private void betalNu(Stage owner) {
