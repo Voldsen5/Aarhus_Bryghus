@@ -48,6 +48,10 @@ public class Controller {
         produkt.setProduktKategori(produktKategori);
     }
 
+    public static void addPristilProdukt(Pris pris, Produkt produkt) {
+        produkt.addPris(pris);
+    }
+
     public static double SamletOrdrePris() {
         double samlet = 0.0;
         for (OrdreLinje p : Storage.getOrdreLinjer()){
