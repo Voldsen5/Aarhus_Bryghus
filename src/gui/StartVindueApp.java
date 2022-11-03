@@ -9,7 +9,7 @@ public class StartVindueApp {
 
     public static void main(String[] args) {
         initStorage();
-        Application.launch(StartSide.class);
+        Application.launch(OpretOrdreLinje.class);
     }
 
     public static void initStorage() {
@@ -39,6 +39,7 @@ public class StartVindueApp {
         Produkt imperialstout = Controller.createProdukt("Imperial Stout");
         Produkt tribute = Controller.createProdukt("Tribute");
         Produkt blackmonster = Controller.createProdukt("Black Monster");
+
 
         Produkt jazzclassic = Controller.createProdukt("Jazz Classic");
         Produkt special = Controller.createProdukt("Special");

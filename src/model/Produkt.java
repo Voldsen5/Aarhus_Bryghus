@@ -77,9 +77,17 @@ public class Produkt {
         ordreLinje.produkt = null;
     }
 
+    public double produktPris () {
+        double p = 0.0;
+        for (Pris k : priser){
+            p = k.getBeløb();
+        }
+        return p;
+    }
+
 
     @Override
     public String toString() {
-        return "Navn: " + navn;
+        return "Navn: " + navn+" Pris: "+produktPris();
     }
 }
