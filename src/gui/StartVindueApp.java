@@ -52,6 +52,30 @@ public class StartVindueApp {
         Produkt vand = Controller.createProdukt("Vand");
         Produkt ølpølser = Controller.createProdukt("Ølpølser");
 
+        Produkt whisky45ProcentRør = Controller.createProdukt("Whisky 45% 50cl rør");
+        Produkt whisky4cl = Controller.createProdukt("Whisky 4 cl");
+        Produkt whisky43ProcentRør = Controller.createProdukt("Whisky 43% 50cl rør");
+        Produkt whiskyGlasBrikker = Controller.createProdukt("2*whisky glas + brikker");
+        Produkt liquorofAarhus = Controller.createProdukt("Liquor of Aarhus");
+        Produkt lynggin50cl = Controller.createProdukt("Lyng gin 50 cl");
+        Produkt lynggin4cl = Controller.createProdukt("Lyng gin 4 cl");
+
+        Produkt klosterbryg20liter = Controller.createProdukt("Klosterbryg, 20 liter");
+        Produkt jazzClassic25liter = Controller.createProdukt("Jazz Classic, 25 liter");
+        Produkt extraPilsner25liter = Controller.createProdukt("Extra Pilsner, 25 liter");
+        Produkt celebration20liter = Controller.createProdukt("Celebration, 20 liter");
+        Produkt blondie25liter = Controller.createProdukt("Blondie, 25 liter");
+        Produkt forårsbryg20liter = Controller.createProdukt("Forårsbryg, 20 liter");
+        Produkt indiapaleale20liter = Controller.createProdukt("India Pale Ale, 20 liter");
+        Produkt Julebryg20liter = Controller.createProdukt("Julebryg, 20 liter");
+        Produkt imperialstout20liter = Controller.createProdukt("Imperial Stout, 20 liter");
+        Produkt pant = Controller.createProdukt("Pant");
+
+
+
+
+
+
 
 
 
@@ -91,6 +115,25 @@ public class StartVindueApp {
         fadøl.addProdukt(sevenup);
         fadøl.addProdukt(vand);
         fadøl.addProdukt(ølpølser);
+
+        spiritus.addProdukt(whisky45ProcentRør);
+        spiritus.addProdukt(whisky4cl);
+        spiritus.addProdukt(whisky43ProcentRør);
+        spiritus.addProdukt(whiskyGlasBrikker);
+        spiritus.addProdukt(liquorofAarhus);
+        spiritus.addProdukt(lynggin50cl);
+        spiritus.addProdukt(lynggin4cl);
+
+        fustage.addProdukt(klosterbryg20liter);
+        fustage.addProdukt(jazzClassic25liter);
+        fustage.addProdukt(extraPilsner25liter);
+        fustage.addProdukt(celebration20liter);
+        fustage.addProdukt(blondie25liter);
+        fustage.addProdukt(forårsbryg20liter);
+        fustage.addProdukt(indiapaleale20liter);
+        fustage.addProdukt(Julebryg20liter);
+        fustage.addProdukt(imperialstout20liter);
+        fustage.addProdukt(pant);
 
         Kontekst fredagsbar = Controller.createKontekst("Fredagsbar");
         Kontekst butik = Controller.createKontekst("Butik");
@@ -135,6 +178,43 @@ public class StartVindueApp {
         Pris prisFredagsbarFadølJulebryg = Controller.createPris(38, fredagsbar, julebryg);
         Pris prisFredagsbarFadølImperialStout = Controller.createPris(38, fredagsbar, imperialstout);
         Pris prisFredagsbarFadølSpecial = Controller.createPris(38, fredagsbar, special);
+        Pris prisFredagsbarFadølÆblebrus = Controller.createPris(15, fredagsbar, æblebrus);
+        Pris prisFredagsbarFadølChips = Controller.createPris(10, fredagsbar, chips);
+        Pris prisFredagsbarFadølPeanuts = Controller.createPris(15, fredagsbar, peanuts);
+        Pris prisFredagsbarFadølCola = Controller.createPris(15, fredagsbar, cola);
+        Pris prisFredagsbarFadølNikoline = Controller.createPris(15, fredagsbar, nikoline);
+        Pris prisFredagsbarFadøl7Up = Controller.createPris(15, fredagsbar, sevenup);
+        Pris prisFredagsbarFadølVand = Controller.createPris(10, fredagsbar, vand);
+        Pris prisFredagsbarFadølØlpølser = Controller.createPris(30, fredagsbar, ølpølser);
+
+        Pris prisFredagsbarWhisky45procentRør = Controller.createPris(599, fredagsbar, whisky45ProcentRør);
+        Pris prisButikWhisky45procentRør = Controller.createPris(599, butik, whisky45ProcentRør);
+        Pris prisFredagsbarWhisky4cl = Controller.createPris(50, fredagsbar, whisky4cl);
+        Pris prisFredagsbarWhisky43procentRør = Controller.createPris(499, fredagsbar, whisky43ProcentRør);
+        Pris prisButikWhisky43procentRør = Controller.createPris(499, butik, whisky43ProcentRør);
+        Pris prisFredagsbarWhiskyGlasBrikker = Controller.createPris(80, fredagsbar, whiskyGlasBrikker);
+        Pris prisButikWhiskyGlasBrikker = Controller.createPris(80, butik, whiskyGlasBrikker);
+        Pris prisFredagsbarLiquorofAarhus = Controller.createPris(175, fredagsbar, liquorofAarhus);
+        Pris prisButikLiquorofAarhus = Controller.createPris(175, butik, liquorofAarhus);
+        Pris prisFredagsbarLyngGin50cl = Controller.createPris(350, fredagsbar, lynggin50cl);
+        Pris prisButikLyngGin50cl = Controller.createPris(350, butik, lynggin50cl);
+        Pris prisFredagsbarLyngGin4cl = Controller.createPris(40, fredagsbar, lynggin4cl);
+
+        Pris prisButikFustageKlosterbryg = Controller.createPris(775, butik, klosterbryg20liter);
+        Pris prisButikFustageJazzClassic = Controller.createPris(625, butik, jazzClassic25liter);
+        Pris prisButikFustageExtraPilsner = Controller.createPris(575, butik, extraPilsner25liter);
+        Pris prisButikFustageCelebration = Controller.createPris(775, butik, celebration20liter);
+        Pris prisButikFustageBlondie = Controller.createPris(700, butik, blondie25liter);
+        Pris prisButikFustageForårsbryg = Controller.createPris(775, butik, forårsbryg20liter);
+        Pris prisButikFustageIndiaPaleAle = Controller.createPris(775, butik, indiapaleale20liter);
+        Pris prisButikFustageJulebryg = Controller.createPris(775, butik, Julebryg20liter);
+        Pris prisButikFustageImperialStout = Controller.createPris(775, butik, imperialstout20liter);
+        Pris prisButikFustagePant = Controller.createPris(200, butik, pant);
+
+
+
+
+
 
 
 
