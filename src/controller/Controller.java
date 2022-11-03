@@ -4,8 +4,6 @@ package controller;
 import model.*;
 import storage.Storage;
 
-import java.util.ArrayList;
-
 public class Controller {
 
     /**
@@ -18,8 +16,8 @@ public class Controller {
         return produktKategori;
     }
 
-    public static Produkt createProdukt(String navn, double pris) {
-        Produkt produkt = new Produkt(navn,pris);
+    public static Produkt createProdukt(String navn) {
+        Produkt produkt = new Produkt(navn);
         Storage.storeProdukt(produkt);
         return produkt;
     }
@@ -36,8 +34,8 @@ public class Controller {
         return kontekst;
     }
 
-    public static Pris createPris(double beløb) {
-        Pris pris = new Pris(beløb);
+    public static Pris createPris(double beløb, Kontekst kontekst, Produkt produkt) {
+        Pris pris = new Pris(beløb, kontekst, produkt);
         Storage.storePris(pris);
         return pris;
     }
