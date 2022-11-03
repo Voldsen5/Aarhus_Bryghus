@@ -30,6 +30,18 @@ public class Controller {
         return ordreLinje;
     }
 
+    public static Kontekst createKontekst(String event) {
+        Kontekst kontekst = new Kontekst(event);
+        Storage.storeKontekst(kontekst);
+        return kontekst;
+    }
+
+    public static Pris createPris(double beløb) {
+        Pris pris = new Pris(beløb);
+        Storage.storePris(pris);
+        return pris;
+    }
+
 
     public static void addProduktTilKategori(ProduktKategori produktKategori, Produkt produkt) {
         produktKategori.addProdukt(produkt);
@@ -45,11 +57,7 @@ public class Controller {
         return samlet;
     }
 
-    public static ArrayList<OrdreLinje> visAlleOrdrelinjer() {
-        ArrayList<OrdreLinje> temp = new ArrayList<>();
-        temp.addAll(Storage.getOrdreLinjer());
-        return temp;
-    }
+
 
 
 

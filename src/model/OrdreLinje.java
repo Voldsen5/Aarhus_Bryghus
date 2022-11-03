@@ -1,12 +1,9 @@
 package model;
 
-import java.util.ArrayList;
-
 public class OrdreLinje {
     private int antal;
     private String vareNavn;
     private double pris;
-    private double samletPris;
     Produkt produkt;
 
     public void setProdukt(Produkt produkt) {
