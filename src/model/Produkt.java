@@ -5,10 +5,19 @@ import java.util.ArrayList;
 
 public class Produkt {
     private String navn;
-    private double pris;
     private final ArrayList<Pris> priser = new ArrayList<>();
+    private final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
+    private ProduktKategori produktKategori;
 
-    ProduktKategori produktKategori;
+    public Produkt(String navn) {
+        this.navn = navn;
+        this.produktKategori = produktKategori;
+//        this.antal = antal;
+    }
+
+    public ArrayList <OrdreLinje> getOrdreLinjer() {
+        return new ArrayList<>(ordreLinjer);
+    }
 
     public ProduktKategori getProduktKategori() {
         return produktKategori;
@@ -27,12 +36,7 @@ public class Produkt {
         return new ArrayList<>(rundvisninger);
     }
 
-    public Produkt(String navn, double pris) {
-        this.navn = navn;
-        this.pris = pris;
-        this.produktKategori = produktKategori;
-//        this.antal = antal;
-    }
+
 
     public Rundvisning CreateRundvisning(String navn, int antalDeltagelser, LocalDateTime dato) {
         Rundvisning rundvisning = new Rundvisning(dato,antalDeltagelser, navn);
@@ -44,19 +48,6 @@ public class Produkt {
     public String getNavn() {
         return navn;
     }
-
-    public void setNavn(String navn) {
-        this.navn = navn;
-    }
-
-    public double getPris() {
-        return pris;
-    }
-
-    public void setPris(double pris) {
-        this.pris = pris;
-    }
-
 
     public ArrayList<Pris> getPriser() {
         return new ArrayList<>(priser);
@@ -74,8 +65,21 @@ public class Produkt {
         pris.produkt = null;
     }
 
+    /** Pre: The ordreLinje is not connected to a produkt. */
+    public void addOrdreLinje (OrdreLinje ordreLinje) {
+        ordreLinjer.add(ordreLinje);
+        ordreLinje.produkt = this;
+    }
+
+    /** Pre: The ordreLinje is connected to this produkt. */
+    public void removeOrdreLinje (OrdreLinje ordreLinje) {
+        ordreLinjer.remove(ordreLinje);
+        ordreLinje.produkt = null;
+    }
+
+
     @Override
     public String toString() {
-        return "Navn: "+navn+" Pris: "+pris;
+        return "Navn: " + navn;
     }
 }

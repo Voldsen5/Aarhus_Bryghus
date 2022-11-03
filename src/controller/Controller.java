@@ -1,12 +1,8 @@
 package controller;
 
 
-
-import model.Produkt;
-import model.ProduktKategori;
+import model.*;
 import storage.Storage;
-
-import java.util.ArrayList;
 
 public class Controller {
 
@@ -16,20 +12,59 @@ public class Controller {
      */
     public static ProduktKategori createProduktkategori(String name) {
         ProduktKategori produktKategori = new ProduktKategori(name);
-        Storage.storeCompany(produktKategori);
+        Storage.storeProduktKatagori(produktKategori);
         return produktKategori;
     }
 
-    public static Produkt createProdukt(String name, double pris) {
-        Produkt produkt = new Produkt(name,pris);
+    public static Produkt createProdukt(String navn) {
+        Produkt produkt = new Produkt(navn);
         Storage.storeProdukt(produkt);
         return produkt;
     }
+
+    public static OrdreLinje createOrdreLinje(Produkt produkt, int antal) {
+        OrdreLinje ordreLinje = new OrdreLinje(produkt,antal);
+        Storage.storeOrdreLinjer(ordreLinje);
+        return ordreLinje;
+    }
+
+    public static Kontekst createKontekst(String event) {
+        Kontekst kontekst = new Kontekst(event);
+        Storage.storeKontekst(kontekst);
+        return kontekst;
+    }
+
+    public static Pris createPris(double beløb, Kontekst kontekst, Produkt produkt) {
+        Pris pris = new Pris(beløb, kontekst, produkt);
+        Storage.storePris(pris);
+        return pris;
+    }
+
 
     public static void addProduktTilKategori(ProduktKategori produktKategori, Produkt produkt) {
         produktKategori.addProdukt(produkt);
         produkt.setProduktKategori(produktKategori);
     }
+
+    public static void addPristilProdukt(Pris pris, Produkt produkt) {
+        produkt.addPris(pris);
+    }
+
+    public static double SamletOrdrePris() {
+        double samlet = 0.0;
+        for (OrdreLinje p : Storage.getOrdreLinjer()){
+            samlet = samlet + p.ordreLinjePris();
+        }
+
+        return samlet;
+    }
+
+
+
+
+
+
+
 
 //    /**
 //     * Delete the company.

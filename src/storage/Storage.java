@@ -1,8 +1,8 @@
 package storage;
 
 
-import model.Produkt;
-import model.ProduktKategori;
+import gui.OpretSalg;
+import model.*;
 
 
 import java.util.ArrayList;
@@ -10,7 +10,15 @@ import java.util.ArrayList;
 public class Storage {
     private static final ArrayList<ProduktKategori> produktkategori = new ArrayList<>();
     private static final ArrayList<Produkt> produkts = new ArrayList<>();
-//    private static final ArrayList<Customer> customers = new ArrayList<>();
+    private static final ArrayList<Ordre> ordrer = new ArrayList<>();
+    private static final ArrayList<Kunde> kunder = new ArrayList<>();
+    private static final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
+    private static final ArrayList<Kontekst> kontekster = new ArrayList<>();
+    private static final ArrayList<Pris> priser = new ArrayList<>();
+    private static final ArrayList<Statistik> statistiks = new ArrayList<>();
+    private static final ArrayList<Salg> salgs = new ArrayList<>();
+
+
 
     // -------------------------------------------------------------------------
 
@@ -18,13 +26,10 @@ public class Storage {
         return new ArrayList<>(produktkategori);
     }
 
-    public static void storeCompany(ProduktKategori produktKategori) {
+    public static void storeProduktKatagori(ProduktKategori produktKategori) {
         produktkategori.add(produktKategori);
     }
 
-    public static void deleteCompany(ProduktKategori produktKategori) {
-        produktkategori.remove(produktKategori);
-    }
 
     // -------------------------------------------------------------------------
 
@@ -36,21 +41,90 @@ public class Storage {
         produkts.add(produkt);
     }
 
-    public static void deleteEmployee(Produkt produkt) {
+    public static void deleteProdukt(Produkt produkt) {
         produkts.remove(produkt);
     }
 //
 //    // -------------------------------------------------------------------------
-//
-//    public static ArrayList<Customer> getCustomers() {
-//        return new ArrayList<>(customers);
-//    }
-//
-//    public static void storeCustomer(Customer customer) {
-//        customers.add(customer);
-//    }
-//
-//    public static void deleteCustomer(Customer customer) {
-//        customers.remove(customer);
-//    }
+
+  public static ArrayList<OrdreLinje> getOrdreLinjer() {
+        return new ArrayList<>(ordreLinjer);
+    }
+
+    public static void storeOrdreLinjer(OrdreLinje ordreLinje) {
+        ordreLinjer.add(ordreLinje);
+    }
+
+
+    public static ArrayList<Statistik> getStatistiks() {
+        return new ArrayList<>(statistiks);
+    }
+
+    public static void storeStatistik(Statistik statistik) {
+        statistiks.add(statistik);
+    }
+
+
+    public static ArrayList<Salg> getSalg() {
+        return new ArrayList<>(salgs);
+    }
+
+    public static void storeSalg(Salg salg) {
+        salgs.add(salg);
+    }
+
+
+    public static ArrayList<Ordre> getOrdrer() {
+    return new ArrayList<>(ordrer);
+}
+
+    public static void storeOrdre(Ordre ordre) {
+        ordrer.add(ordre);
+    }
+
+    public static void deleteOrdre(Ordre ordre) {
+        ordrer.remove(ordre);
+    }
+
+    //    // -------------------------------------------------------------------------
+
+    public static ArrayList<Kunde> getKunder() {
+        return new ArrayList<>(kunder);
+    }
+
+    public static void storeKunde(Kunde kunde) {
+        kunder.add(kunde);
+    }
+
+    public static void deleteKunde(Kunde kunde) {
+        kunder.remove(kunde);
+    }
+
+    //----------------------------------------------------------------------------------
+
+    public static ArrayList<Kontekst> getKontekster() {
+        return new ArrayList<>();
+    }
+
+    public static void storeKontekst(Kontekst kontekst) {
+        kontekster.add(kontekst);
+    }
+
+    public static void deleteKontekst(Kontekst kontekst) {
+        kontekster.remove(kontekst);
+    }
+
+    //----------------------------------------------------------------------------------
+
+    public static ArrayList<Produkt> getPriser() {
+        return new ArrayList<>();
+    }
+
+    public static void storePris(Pris pris) {
+        priser.add(pris);
+    }
+
+    public static void deletePris(Pris pris) {
+        priser.remove(pris);
+    }
 }

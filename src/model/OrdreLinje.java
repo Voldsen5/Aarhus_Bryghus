@@ -1,13 +1,22 @@
 package model;
 
-import java.util.ArrayList;
-
 public class OrdreLinje {
     private int antal;
-    private ArrayList<Produkt> produkter;
+    private String vareNavn;
+    private double pris;
+    Produkt produkt;
 
-    public OrdreLinje(int antal) {
+    public void setProdukt(Produkt produkt) {
+        this.produkt = produkt;
+    }
+
+    public Produkt getProdukt() {
+        return produkt;
+    }
+
+    public OrdreLinje(Produkt produkt, int antal) {
         this.antal = antal;
+       this.produkt = produkt;
     }
 
     public int getAntal() {
@@ -18,11 +27,22 @@ public class OrdreLinje {
         this.antal = antal;
     }
 
-    public ArrayList<Produkt> getProdukter() {
-        return produkter;
+    public String getVareNavn() {
+        return vareNavn;
     }
 
-    public void setProdukter(ArrayList<Produkt> produkter) {
-        this.produkter = produkter;
+    public double getPris() {
+        return pris;
+    }
+
+    public double ordreLinjePris() {
+       double p = 0.0;
+       p = getProdukt().getPris()*antal;
+       return p;
+    }
+
+    @Override
+    public String toString() {
+        return produkt.getNavn()+"     "+antal+"      "+produkt.getPris()+"      "+ordreLinjePris();
     }
 }

@@ -35,8 +35,8 @@ public class Ordre {
         this.dato = dato;
     }
 
-    public Kunde getKunde() {
-        return kunde;
+    public Kunde getKunde(Kunde kunde) {
+        return this.kunde;
     }
 
     public String getStatus() {
@@ -66,4 +66,6 @@ public class Ordre {
     public void setSalg(Salg salg) {
         this.salg = salg;
     }
+
+
 }
