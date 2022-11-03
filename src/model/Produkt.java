@@ -55,6 +55,9 @@ public class Produkt {
         return pris;
     }
 
+  //  public void setPris(Pris pris) {
+  //      this.pris=pris;
+  //  }
 
     public ArrayList<Pris> getPriser() {
         return new ArrayList<>(priser);

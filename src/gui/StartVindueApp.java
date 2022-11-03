@@ -9,7 +9,7 @@ public class StartVindueApp {
 
     public static void main(String[] args) {
         initStorage();
-        Application.launch(OpretOrdreLinje.class);
+        Application.launch(StartSide.class);
     }
 
     public static void initStorage() {
@@ -37,7 +37,13 @@ public class StartVindueApp {
         Kontekst fredagsbar = Controller.createKontekst("Fredagsbar");
         Kontekst butik = Controller.createKontekst("Butik");
 
-        Pris fredagsbar2 = Controller.createPris(70);
+        Pris fredagsbarPris = Controller.createPris(70);
+        Pris butikPris = Controller.createPris(36);
+
+        klosterbryg.addPris(fredagsbarPris);
+        klosterbryg.addPris(butikPris);
+
+
 
 
 
