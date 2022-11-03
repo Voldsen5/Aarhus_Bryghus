@@ -85,9 +85,5 @@ public class OpretSalg extends Stage {
         GridPane.setHalignment(gennemført, HPos.LEFT);
 
         lvwordre.getItems().addAll(Storage.getOrdreLinjer());
-
-
-
-
     }
 }

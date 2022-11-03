@@ -1,21 +1,14 @@
 package gui;
 
-import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import model.Produkt;
-import model.ProduktKategori;
-import storage.Storage;
 
 public class StartSide extends Application {
 
@@ -32,9 +25,11 @@ public class StartSide extends Application {
 
     // -------------------------------------------------------------------------
 
+        private Stage owner;
         Button btnLedelse = new Button("Ledelse");
         Button btnKunde = new Button("Medarbejder");
         Button btnOpretProdukt = new Button("Opret Produkt");
+        private OpretProdukt opretProdukt;
 
     private void initContent(GridPane pane) {
         // show or hide grid lines
@@ -57,8 +52,12 @@ public class StartSide extends Application {
         GridPane.setHalignment(hBoxBtn,HPos.CENTER);
         GridPane.setValignment(hBoxBtn,VPos.CENTER);
 
-        btnOpretProdukt.setOnAction(e -> OpretProdukt.launch());
+        btnOpretProdukt.setOnAction(event -> this.openOpretProdukt(new Stage()));
+    }
 
+    private void openOpretProdukt(Stage owner){
+        opretProdukt = new OpretProdukt("",owner);
+        this.opretProdukt.showAndWait();
     }
 
 
