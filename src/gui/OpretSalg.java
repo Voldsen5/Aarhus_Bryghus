@@ -9,8 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import model.Betalingsmetode;
-import model.OrdreLinje;
+import model.*;
 import storage.Storage;
 
 import java.time.LocalDate;
@@ -48,6 +47,7 @@ public class OpretSalg extends Stage {
     private Stage owner;
     TextArea kvittering = new TextArea();
     ArrayList<CheckBox>tempCheckbox = new ArrayList<>();
+    private final ArrayList<Observer> observers = new ArrayList<>();
 
 
     private void initContent(GridPane pane) {
@@ -63,6 +63,10 @@ public class OpretSalg extends Stage {
         Label ordreNavn = new Label("Ordre");
         pane.add(ordreNavn, 8, 0);
         GridPane.setHalignment(ordreNavn, HPos.CENTER);
+
+        Label kvitteringNavn = new Label("Kvittering");
+        pane.add(kvitteringNavn, 9, 0);
+        GridPane.setHalignment(kvitteringNavn, HPos.CENTER);
 
         pane.add(lvwordre, 8, 1);
         GridPane.setHalignment(lvwordre, HPos.CENTER);
@@ -95,12 +99,9 @@ public class OpretSalg extends Stage {
 
         pane.add(kvittering, 9, 1);
         kvittering.setMaxWidth(250);
+        kvittering.setEditable(false);
 
         gennemført.setOnAction(event -> this.fulføreBetaling());
-
-
-
-
     }
 
     public void fulføreBetaling(){
@@ -110,7 +111,13 @@ public class OpretSalg extends Stage {
                 temp = p.getText().toUpperCase(Locale.ROOT);
             }
         }
-        kvittering.appendText(""+Storage.getOrdreLinjer()+"\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
+        for (OrdreLinje c : Storage.getOrdreLinjer()){
+            kvittering.appendText(""+c+"\n");
+        }
+        kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
+
+
+//        kvittering.appendText(""+Storage.getOrdreLinjer()+"\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
         //Controler liste appent new line
 
     }
