@@ -3,7 +3,6 @@ package model;
 public class OrdreLinje {
     private int antal;
     private String vareNavn;
-    private double pris;
     Produkt produkt;
 
     public void setProdukt(Produkt produkt) {
@@ -31,18 +30,24 @@ public class OrdreLinje {
         return vareNavn;
     }
 
-    public double getPris() {
-        return pris;
-    }
-
     public double ordreLinjePris() {
        double p = 0.0;
-       p = getProdukt().getPris()*antal;
+       for (Pris k : produkt.getPriser()){
+           p = k.getBeløb()*antal;
+       }
        return p;
+    }
+
+    public double produktPris () {
+        double p = 0.0;
+        for (Pris k : produkt.getPriser()){
+            p = k.getBeløb();
+        }
+        return p;
     }
 
     @Override
     public String toString() {
-        return produkt.getNavn()+"     "+antal+"      "+produkt.getPris()+"      "+ordreLinjePris();
+        return produkt.getNavn()+"     "+antal+"      "+produktPris()+"      "+ordreLinjePris();
     }
 }

@@ -40,6 +40,7 @@ public class StartVindueApp {
         Produkt tribute = Controller.createProdukt("Tribute");
         Produkt blackmonster = Controller.createProdukt("Black Monster");
 
+
         Produkt jazzclassic = Controller.createProdukt("Jazz Classic");
         Produkt special = Controller.createProdukt("Special");
         Produkt æblebrus = Controller.createProdukt("Æblebrus");
