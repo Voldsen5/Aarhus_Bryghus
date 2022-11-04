@@ -20,8 +20,12 @@ public class StartVindueApp {
         ProduktKategori fustage =  Controller.createProduktkategori("Fustage");
         ProduktKategori kulsyre =  Controller.createProduktkategori("Kulsyre");
         ProduktKategori malt =  Controller.createProduktkategori("Malt");
+        ProduktKategori beklædning =  Controller.createProduktkategori("Beklædning");
         ProduktKategori anlæg =  Controller.createProduktkategori("Anlæg");
+        ProduktKategori glas =  Controller.createProduktkategori("Glas");
+        ProduktKategori sampakning =  Controller.createProduktkategori("Sampakning");
         ProduktKategori rundvisning =  Controller.createProduktkategori("Rundvisning");
+        ProduktKategori klippekort = Controller.createProduktkategori("Klippekort");
 
 
         //Produkter
@@ -70,14 +74,36 @@ public class StartVindueApp {
         Produkt imperialstout20liter = Controller.createProdukt("Imperial Stout, 20 liter");
         Produkt pant = Controller.createProdukt("Pant");
 
+        Produkt kulsyre6kg = Controller.createProdukt("Kulsyre 6kg");
+        Produkt kulsyrePant = Controller.createProdukt("Kulsyre Pant");
+        Produkt kulsyre4kg = Controller.createProdukt("Kulsyre 4kg");
+        Produkt kulsyre10kg = Controller.createProdukt("Kulsyre 10kg");
 
+        Produkt malt25kgSæk = Controller.createProdukt("Malt 25kg sæk");
 
+        Produkt tshirt = Controller.createProdukt("T-shirt");
+        Produkt polo = Controller.createProdukt("Polo");
+        Produkt cap = Controller.createProdukt("Cap");
 
+        Produkt anlæg1Hane = Controller.createProdukt("Anlæg 1 Hane");
+        Produkt anlæg2Haner = Controller.createProdukt("Anlæg 2 Haner");
+        Produkt barFlereHaner = Controller.createProdukt("Bar med flere haner");
+        Produkt anlægLevering = Controller.createProdukt("Anlæg Levering");
+        Produkt krus = Controller.createProdukt("Krus");
 
+        Produkt drikkeglas = Controller.createProdukt("Glas");
 
+        Produkt gaveæske2Øl2Glas = Controller.createProdukt("Gaveæske 2 øl, 2 glas");
+        Produkt gaveæske4Øl = Controller.createProdukt("Gaveæske 4 øl");
+        Produkt trækasse6Øl = Controller.createProdukt("Trækasse 6 øl");
+        Produkt gavekurv6Øl2Glas = Controller.createProdukt("Gavekurv 6 øl, 2 glas");
+        Produkt trækasse6Øl6Glas = Controller.createProdukt("Gaveæske 2 øl, 2 glas");
+        Produkt trækasse12Øl = Controller.createProdukt("Trækasse 12 øl");
+        Produkt papkasse12øl = Controller.createProdukt("Papkasse 12 øl");
 
+        Produkt rundvisningPrPersonDag = Controller.createProdukt("Rundvisning pr person pr dag");
 
-
+        Produkt klippekort4Klip = Controller.createProdukt("Klippekort, 4 klip");
 
 
 
@@ -133,6 +159,39 @@ public class StartVindueApp {
         fustage.addProdukt(Julebryg20liter);
         fustage.addProdukt(imperialstout20liter);
         fustage.addProdukt(pant);
+
+        kulsyre.addProdukt(kulsyre6kg);
+        kulsyre.addProdukt(kulsyrePant);
+        kulsyre.addProdukt(kulsyre4kg);
+        kulsyre.addProdukt(kulsyre10kg);
+
+        malt.addProdukt(malt25kgSæk);
+
+        beklædning.addProdukt(tshirt);
+        beklædning.addProdukt(polo);
+        beklædning.addProdukt(cap);
+
+        anlæg.addProdukt(anlæg1Hane);
+        anlæg.addProdukt(anlæg2Haner);
+        anlæg.addProdukt(barFlereHaner);
+        anlæg.addProdukt(anlægLevering);
+        anlæg.addProdukt(krus);
+
+        glas.addProdukt(drikkeglas);
+
+        sampakning.addProdukt(gaveæske2Øl2Glas);
+        sampakning.addProdukt(gaveæske4Øl);
+        sampakning.addProdukt(trækasse6Øl);
+        sampakning.addProdukt(gavekurv6Øl2Glas);
+        sampakning.addProdukt(trækasse6Øl6Glas);
+        sampakning.addProdukt(trækasse12Øl);
+        sampakning.addProdukt(papkasse12øl);
+
+        rundvisning.addProdukt(rundvisningPrPersonDag);
+
+        klippekort.addProdukt(klippekort4Klip);
+
+
 
         Kontekst fredagsbar = Controller.createKontekst("Fredagsbar");
         Kontekst butik = Controller.createKontekst("Butik");
@@ -209,6 +268,51 @@ public class StartVindueApp {
         Pris prisButikFustageJulebryg = Controller.createPris(775, butik, Julebryg20liter);
         Pris prisButikFustageImperialStout = Controller.createPris(775, butik, imperialstout20liter);
         Pris prisButikFustagePant = Controller.createPris(200, butik, pant);
+
+        Pris prisFredagsbarKulsyre6kg = Controller.createPris(400, fredagsbar, kulsyre6kg);
+        Pris prisButikKulsyre6kg = Controller.createPris(400, butik, kulsyre6kg);
+        Pris prisFredagsbarKulsyrePant = Controller.createPris(1000, fredagsbar, kulsyrePant);
+        Pris prisButikKulsyrePant = Controller.createPris(1000, butik, kulsyrePant);
+
+        Pris prisButikMalt25kgSæk = Controller.createPris(300, butik, malt25kgSæk);
+
+        Pris prisFredagsbarTshirt = Controller.createPris(70, fredagsbar, tshirt);
+        Pris prisButikTshirt = Controller.createPris(70, butik, tshirt);
+        Pris prisFredagsbarPolo = Controller.createPris(100, fredagsbar, polo);
+        Pris prisButikPolo = Controller.createPris(100, butik, polo);
+        Pris prisFredagsbarCap = Controller.createPris(30, fredagsbar, cap);
+        Pris prisButikCap = Controller.createPris(30, butik, cap);
+
+        Pris prisButikAnlæg1Hane = Controller.createPris(250, butik, anlæg1Hane);
+        Pris prisButikAnlæg2Haner = Controller.createPris(400, butik, anlæg2Haner);
+        Pris prisButikBarFlereHaner = Controller.createPris(500, butik, barFlereHaner);
+        Pris prisButikAnlægLevering = Controller.createPris(500, butik, anlægLevering);
+        Pris prisButikKrus = Controller.createPris(60, butik, krus);
+
+        Pris prisButikDrikkeglas = Controller.createPris(15, butik, drikkeglas);
+
+        Pris prisFredagsbarGaveæske2ØL2Glas = Controller.createPris(110, fredagsbar, gaveæske2Øl2Glas);
+        Pris prisFredagsbarGaveæske4Øl = Controller.createPris(140, fredagsbar, gaveæske4Øl);
+        Pris prisFredagsbarTrækasse6Øl = Controller.createPris(260, fredagsbar, trækasse6Øl);
+        Pris prisFredagsbarGavekurv6Øl2Glas = Controller.createPris(260, fredagsbar, gavekurv6Øl2Glas);
+        Pris prisFredagsbarTrækasse6Øl6Glas = Controller.createPris(350, fredagsbar, trækasse6Øl6Glas);
+        Pris prisFredagsbarTrækasse12Øl = Controller.createPris(410, fredagsbar, trækasse12Øl);
+        Pris prisFredagsbarPapkasse12Øl = Controller.createPris(370, fredagsbar, papkasse12øl);
+        Pris prisButikGaveæske2ØL2Glas = Controller.createPris(110, fredagsbar, gaveæske2Øl2Glas);
+        Pris prisButikGaveæske4Øl = Controller.createPris(140, fredagsbar, gaveæske4Øl);
+        Pris prisButikTrækasse6Øl = Controller.createPris(260, fredagsbar, trækasse6Øl);
+        Pris prisButikGavekurv6Øl2Glas = Controller.createPris(260, fredagsbar, gavekurv6Øl2Glas);
+        Pris prisButikTrækasse6Øl6Glas = Controller.createPris(350, fredagsbar, trækasse6Øl6Glas);
+        Pris prisButikTrækasse12Øl = Controller.createPris(410, fredagsbar, trækasse12Øl);
+        Pris prisButikPapkasse12Øl = Controller.createPris(370, fredagsbar, papkasse12øl);
+
+        Pris prisButikRundvisningPrPersonDag = Controller.createPris(100, butik, rundvisningPrPersonDag);
+
+        Pris prisFredagsbarKlippekort4Klip = Controller.createPris(130, fredagsbar, klippekort4Klip);
+        Pris prisButikKlippekort4Klip = Controller.createPris(130, butik, klippekort4Klip);
+
+
+
 
 
 
