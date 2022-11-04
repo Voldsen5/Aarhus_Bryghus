@@ -9,7 +9,7 @@ public class StartVindueApp {
 
     public static void main(String[] args) {
         initStorage();
-        Application.launch(StartSide.class);
+        Application.launch(OpretOrdreLinje.class);
     }
 
     public static void initStorage() {
