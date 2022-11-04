@@ -1,12 +1,14 @@
 package storage;
 
 
+import gui.OpretSalg;
 import model.*;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Storage {
+public class Storage implements Serializable {
     private static final ArrayList<ProduktKategori> produktkategori = new ArrayList<>();
     private static final ArrayList<Produkt> produkts = new ArrayList<>();
     private static final ArrayList<Ordre> ordrer = new ArrayList<>();
@@ -14,6 +16,8 @@ public class Storage {
     private static final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
     private static final ArrayList<Kontekst> kontekster = new ArrayList<>();
     private static final ArrayList<Pris> priser = new ArrayList<>();
+    private static final ArrayList<Statistik> statistiks = new ArrayList<>();
+    private static final ArrayList<Salg> salgs = new ArrayList<>();
 
 
 
@@ -53,6 +57,22 @@ public class Storage {
     }
 
 
+    public static ArrayList<Statistik> getStatistiks() {
+        return new ArrayList<>(statistiks);
+    }
+
+    public static void storeStatistik(Statistik statistik) {
+        statistiks.add(statistik);
+    }
+
+
+    public static ArrayList<Salg> getSalg() {
+        return new ArrayList<>(salgs);
+    }
+
+    public static void storeSalg(Salg salg) {
+        salgs.add(salg);
+    }
 
 
     public static ArrayList<Ordre> getOrdrer() {

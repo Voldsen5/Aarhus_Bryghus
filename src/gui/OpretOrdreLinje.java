@@ -38,7 +38,7 @@ public class OpretOrdreLinje extends Application {
     private final Label lblSamletPris = new Label("Samlet Pris:");
     private final Label lblProduktKatagori = new Label("Produkt katagori:");
     private final Label lblProdukter = new Label("Produkter:");
-    private final Label lblKvittering = new Label("   Navn     Antal   Pris     OrdreLinjePris");
+    private final Label lblKvittering = new Label("   Navn           Antal   Pris     OrdreLinjePris");
     private final Label lblAntal = new Label("Antal:");
     private final Button btnBetal = new Button("Betal");
     private OpretSalg salgVindue;
@@ -107,6 +107,7 @@ public class OpretOrdreLinje extends Application {
         btnBetal.setOnAction(event -> this.betalNu(new Stage()));
 
         LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+        
 
     }
 
@@ -120,13 +121,16 @@ public class OpretOrdreLinje extends Application {
     }
 
     private void opretOrdreLinje(){
-        LvwOrdreLinje.getItems().clear();
-        Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
-        Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
-        txfAntal.clear();
-        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
-        txfSamletPris.clear();
-        txfSamletPris.setText(""+Controller.SamletOrdrePris());
+        if (!txfAntal.getText().isEmpty()){
+            LvwOrdreLinje.getItems().clear();
+            Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
+            Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
+            txfAntal.clear();
+            LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+            txfSamletPris.clear();
+            txfSamletPris.setText(""+Controller.SamletOrdrePris());
+        }
+
     }
 
     private void betalNu(Stage owner) {

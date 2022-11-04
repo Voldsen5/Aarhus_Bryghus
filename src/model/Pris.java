@@ -7,8 +7,11 @@ public class Pris {
 
 
 
-    public Pris(double beløb) {
+    public Pris(double beløb, Kontekst kontekst, Produkt produkt) {
         this.beløb = beløb;
+        this.kontekst = kontekst;
+        this.produkt = produkt;
+        produkt.addPris(this);
     }
 
     public double getBeløb() {
@@ -25,5 +28,9 @@ public class Pris {
 
     public Produkt getProdukt() {
         return produkt;
+    }
+
+    public void setProdukt(Produkt produkt) {
+        this.produkt = produkt;
     }
 }

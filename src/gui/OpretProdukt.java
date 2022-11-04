@@ -102,7 +102,7 @@ public class OpretProdukt extends Stage {
     }
 
     private void skabProdukt(){
-        Produkt p = Controller.createProdukt(txfnavn.getText(), Double.parseDouble(txfpris.getText()));
+        Produkt p = Controller.createProdukt(txfnavn.getText());
         ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
         Controller.addProduktTilKategori(f,p);
         LvwProduktvisning.getItems().clear();
