@@ -11,6 +11,7 @@ public class Pris {
         this.beløb = beløb;
         this.kontekst = kontekst;
         this.produkt = produkt;
+        produkt.addPris(this);
     }
 
     public double getBeløb() {

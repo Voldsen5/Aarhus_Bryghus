@@ -5,9 +5,10 @@ import gui.OpretSalg;
 import model.*;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Storage {
+public class Storage implements Serializable {
     private static final ArrayList<ProduktKategori> produktkategori = new ArrayList<>();
     private static final ArrayList<Produkt> produkts = new ArrayList<>();
     private static final ArrayList<Ordre> ordrer = new ArrayList<>();

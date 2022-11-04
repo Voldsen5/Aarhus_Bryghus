@@ -55,8 +55,17 @@ public class Controller {
         for (OrdreLinje p : Storage.getOrdreLinjer()){
             samlet = samlet + p.ordreLinjePris();
         }
-
         return samlet;
+    }
+
+    public static double procentRabat(double procent){
+        double x = 0.0;
+        x = ((SamletOrdrePris() * procent) / 100);
+        return x - SamletOrdrePris();
+    }
+
+    public static double fastPris(double nyPris){
+        return nyPris;
     }
 
 

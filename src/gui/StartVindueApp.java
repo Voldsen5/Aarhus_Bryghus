@@ -3,12 +3,20 @@ package gui;
 import controller.Controller;
 import javafx.application.Application;
 import model.*;
+import storage.Storage;
+
+import java.io.*;
 
 
 public class StartVindueApp {
 
     public static void main(String[] args) {
         initStorage();
+
+//      Storage p = new Storage();
+      Storage p = getSaveStorage();
+        saveStorage(p);
+//        Storage k = getSaveStorage();
         Application.launch(StartSide.class);
     }
 
@@ -30,7 +38,7 @@ public class StartVindueApp {
 
         //Produkter
         Produkt klosterbryg = Controller.createProdukt("Klosterbryg");
-        Produkt sweetgeorgiabrown = Controller.createProdukt("Sweet Georgia Brown");
+        Produkt sweetgeorgiabrown = Controller.createProdukt("Georgia Brown");
         Produkt extrapilsner = Controller.createProdukt("Extra Pilsner");
         Produkt celebration = Controller.createProdukt("Celebration");
         Produkt blondie = Controller.createProdukt("Blondie");
@@ -43,6 +51,7 @@ public class StartVindueApp {
         Produkt imperialstout = Controller.createProdukt("Imperial Stout");
         Produkt tribute = Controller.createProdukt("Tribute");
         Produkt blackmonster = Controller.createProdukt("Black Monster");
+
 
         Produkt jazzclassic = Controller.createProdukt("Jazz Classic");
         Produkt special = Controller.createProdukt("Special");
@@ -336,5 +345,52 @@ public class StartVindueApp {
 
 
     }
+
+    public static void saveStorage(Storage temp){
+    String fileName = "Aarhus_Bryghus\\src\\storage\\storageGem.ser";
+    try(
+            FileOutputStream fileOut = new FileOutputStream(fileName);
+            ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+            ) {
+               objOut.writeObject(temp);
+                } catch (Exception e){
+                System.out.println(e);
+                }
+    }
+    public static Storage getSaveStorage(){
+        try(
+                FileInputStream fileIn = new FileInputStream("Aarhus_Bryghus\\src\\storage\\storageGem.ser");
+                ObjectInputStream objIn = new ObjectInputStream(fileIn);
+
+        )
+        {
+            Object obj = objIn.readObject();
+            return (Storage) obj;
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
+
+//    public static void saveStorage3(ArrayList<Ordre>temp){
+//
+//    }
+//    public static void saveStorage4(ArrayList<OrdreLinje>temp){
+//
+//    }
+//    public static void saveStorage5(ArrayList<Pris>temp){
+//
+//    }
+//    public static void saveStorage6(ArrayList<Statistik>temp){
+//
+//    }
+//    public static void saveStorage7(ArrayList<Salg>temp){
+//
+//    }
+
+
+
 }
 

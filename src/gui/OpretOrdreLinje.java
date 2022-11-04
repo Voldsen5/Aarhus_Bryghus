@@ -4,6 +4,7 @@ import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -41,6 +42,13 @@ public class OpretOrdreLinje extends Application {
     private final Label lblAntal = new Label("Antal:");
     private final Button btnBetal = new Button("Betal");
     private OpretSalg salgVindue;
+    private final Label lblRabat = new Label("Rabatter:");
+    private final TextField txfRabat = new TextField();
+    private final RadioButton rbRabatProcent = new RadioButton("Procent Rabat");
+    private final RadioButton rbAftaltPris = new RadioButton("Aftalt Pris");
+    private final ToggleGroup tg = new ToggleGroup();
+
+
 
 
 
@@ -75,14 +83,21 @@ public class OpretOrdreLinje extends Application {
         GridPane.setHalignment(txfAntal,HPos.RIGHT);
         txfAntal.setMaxWidth(85);
 
-        pane.add(lblSamletPris,0,2);
+        pane.add(lblSamletPris,0,3);
         GridPane.setHalignment(lblSamletPris,HPos.LEFT);
 
-        pane.add(txfSamletPris,0,2);
+        pane.add(txfSamletPris,0,3);
         GridPane.setHalignment(txfSamletPris,HPos.RIGHT);
         txfSamletPris.setMaxWidth(145);
         txfSamletPris.setEditable(false);
 
+        VBox vboxRabat = new VBox(lblRabat, rbRabatProcent, rbAftaltPris, txfRabat);
+        vboxRabat.setSpacing(10);
+        txfRabat.setMaxWidth(100);
+        rbAftaltPris.setToggleGroup(tg);
+        rbRabatProcent.setToggleGroup(tg);
+        GridPane.setValignment(vboxRabat, VPos.BOTTOM);
+        pane.add(vboxRabat,0,2);
 
         btnTilfojProdukt.setOnAction(event -> this.opretOrdreLinje());
 
@@ -106,24 +121,20 @@ public class OpretOrdreLinje extends Application {
     }
 
     private void opretOrdreLinje(){
-        LvwOrdreLinje.getItems().clear();
-        Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
-        Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
-        txfAntal.clear();
-        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
-        txfSamletPris.clear();
-        txfSamletPris.setText(""+Controller.SamletOrdrePris());
+        if (!txfAntal.getText().isEmpty()){
+            LvwOrdreLinje.getItems().clear();
+            Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
+            Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
+            txfAntal.clear();
+            LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+            txfSamletPris.clear();
+            txfSamletPris.setText(""+Controller.SamletOrdrePris());
+        }
+
     }
 
     private void betalNu(Stage owner) {
         salgVindue = new OpretSalg("",owner,Storage.getOrdreLinjer());
         this.salgVindue.showAndWait();
-
-
-
-
     }
-
-
-
 }
