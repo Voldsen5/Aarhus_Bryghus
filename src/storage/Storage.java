@@ -18,6 +18,7 @@ public class Storage implements Serializable {
     private static final ArrayList<Pris> priser = new ArrayList<>();
     private static final ArrayList<Statistik> statistiks = new ArrayList<>();
     private static final ArrayList<Salg> salgs = new ArrayList<>();
+    private static final ArrayList<ProduktMedPant> produktMedPants = new ArrayList<>();
 
 
 
@@ -56,6 +57,14 @@ public class Storage implements Serializable {
         ordreLinjer.add(ordreLinje);
     }
 
+
+    public static ArrayList<ProduktMedPant> getProduktMedPants() {
+        return new ArrayList<>(produktMedPants);
+    }
+
+    public static void storeProduktMedPant(ProduktMedPant produktMedPant) {
+        produktMedPants.add(produktMedPant);
+    }
 
     public static ArrayList<Statistik> getStatistiks() {
         return new ArrayList<>(statistiks);

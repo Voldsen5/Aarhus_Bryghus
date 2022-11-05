@@ -12,12 +12,11 @@ public class StartVindueApp {
 
     public static void main(String[] args) {
         initStorage();
-
 //      Storage p = new Storage();
       Storage p = getSaveStorage();
         saveStorage(p);
 //        Storage k = getSaveStorage();
-        Application.launch(StartSide.class);
+        Application.launch(OpretOrdreLinje.class);
     }
 
     public static void initStorage() {
@@ -68,16 +67,17 @@ public class StartVindueApp {
         Produkt lynggin50cl = Controller.createProdukt("Lyng gin 50 cl");
         Produkt lynggin4cl = Controller.createProdukt("Lyng gin 4 cl");
 
-        Produkt klosterbryg20liter = Controller.createProdukt("Klosterbryg, 20 liter");
-        Produkt jazzClassic25liter = Controller.createProdukt("Jazz Classic, 25 liter");
-        Produkt extraPilsner25liter = Controller.createProdukt("Extra Pilsner, 25 liter");
-        Produkt celebration20liter = Controller.createProdukt("Celebration, 20 liter");
-        Produkt blondie25liter = Controller.createProdukt("Blondie, 25 liter");
-        Produkt forårsbryg20liter = Controller.createProdukt("Forårsbryg, 20 liter");
-        Produkt indiapaleale20liter = Controller.createProdukt("India Pale Ale, 20 liter");
-        Produkt Julebryg20liter = Controller.createProdukt("Julebryg, 20 liter");
-        Produkt imperialstout20liter = Controller.createProdukt("Imperial Stout, 20 liter");
+        Produkt klosterbryg20liter = Controller.createProdukt("Klosterbryg, 20L");
+        Produkt jazzClassic25liter = Controller.createProdukt("Jazz Classic, 25L");
+        Produkt extraPilsner25liter = Controller.createProdukt("Extra Pilsner, 25L");
+        Produkt celebration20liter = Controller.createProdukt("Celebration, 20L");
+        Produkt blondie25liter = Controller.createProdukt("Blondie, 25L");
+        Produkt forårsbryg20liter = Controller.createProdukt("Forårsbryg, 20L");
+        Produkt indiapaleale20liter = Controller.createProdukt("India Pale Ale, 20L");
+        Produkt Julebryg20liter = Controller.createProdukt("Julebryg, 20L");
+        Produkt imperialstout20liter = Controller.createProdukt("Imperial Stout, 20L");
         Produkt pant = Controller.createProdukt("Pant");
+
 
 
 

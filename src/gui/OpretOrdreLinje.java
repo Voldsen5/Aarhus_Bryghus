@@ -4,6 +4,7 @@ import controller.Controller;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import model.OrdreLinje;
 import model.Produkt;
 import model.ProduktKategori;
+import model.ProduktMedPant;
 import storage.Storage;
 
 public class OpretOrdreLinje extends Application {
@@ -31,10 +33,13 @@ public class OpretOrdreLinje extends Application {
     private final ListView<ProduktKategori> LvwProduktKategori = new ListView<>();
     private final ListView<Produkt> LvwProduktvisning = new ListView<>();
     private final ListView<OrdreLinje> LvwOrdreLinje = new ListView<>();
+    private final ListView<ProduktMedPant> LvwProductmedPant = new ListView<>();
     private final Button btnTilfojProdukt = new Button("Tilføj Produkt");
     private final TextField txfAntal = new TextField();
     private final TextField txfSamletPris = new TextField();
+    private final TextField txfPantPris = new TextField();
     private final Label lblSamletPris = new Label("Samlet Pris:");
+    private final Label lblPantPris = new Label("Pant Pris:");
     private final Label lblProduktKatagori = new Label("Produkt katagori:");
     private final Label lblProdukter = new Label("Produkter:");
     private final Label lblKvittering = new Label("   Navn           Antal   Pris     OrdreLinjePris");
@@ -65,6 +70,9 @@ public class OpretOrdreLinje extends Application {
         VBox vboxK = new VBox(lblKvittering,LvwOrdreLinje);
         pane.add(vboxK,1,2);
 
+        VBox vboxO = new VBox(lblKvittering,LvwProductmedPant);
+        pane.add(vboxO,1,2);
+
         pane.add(btnTilfojProdukt,1,1);
         GridPane.setHalignment(btnTilfojProdukt,HPos.LEFT);
 
@@ -83,6 +91,19 @@ public class OpretOrdreLinje extends Application {
         txfSamletPris.setMaxWidth(145);
         txfSamletPris.setEditable(false);
 
+        pane.add(txfPantPris,0,2);
+        GridPane.setValignment(txfPantPris, VPos.BOTTOM);
+        GridPane.setHalignment(txfPantPris,HPos.RIGHT);
+        txfPantPris.setMaxWidth(145);
+        txfPantPris.setEditable(false);
+        txfPantPris.setDisable(true);
+
+        pane.add(lblPantPris,0,2);
+        GridPane.setValignment(lblPantPris, VPos.BOTTOM);
+        GridPane.setHalignment(lblPantPris,HPos.LEFT);
+        lblPantPris.setDisable(true);
+
+
 
         btnTilfojProdukt.setOnAction(event -> this.opretOrdreLinje());
 
@@ -100,9 +121,23 @@ public class OpretOrdreLinje extends Application {
         if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == -1) {
             return;
         }
-        ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
-        LvwProduktvisning.getItems().clear();
-        LvwProduktvisning.getItems().addAll(f.getProdukter());
+        if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3) {
+            txfAntal.setDisable(true);
+            txfAntal.setVisible(false);
+            lblAntal.setText("");
+            GridPane.setHalignment(btnTilfojProdukt, HPos.CENTER);
+        }else {
+            txfAntal.setDisable(false);
+            txfAntal.setVisible(true);
+            lblAntal.setText("Antal");
+            GridPane.setHalignment(btnTilfojProdukt, HPos.LEFT);
+            ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+            LvwProduktvisning.getItems().clear();
+            LvwProduktvisning.getItems().addAll(f.getProdukter());
+
+        }
+
+
     }
 
     private void opretOrdreLinje(){
@@ -116,10 +151,29 @@ public class OpretOrdreLinje extends Application {
             txfSamletPris.setText(""+Controller.SamletOrdrePris());
         }
 
+        if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3) {
+            LvwProductmedPant.getItems().clear();
+            Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
+            Controller.createProduktMedPant(j,200);
+            lblKvittering.setText("  Produkt                               PantPris");
+            LvwOrdreLinje.getItems().clear();
+            LvwOrdreLinje.setDisable(true);
+            txfSamletPris.setDisable(true);
+            lblSamletPris.setText("");
+            txfPantPris.setDisable(false);
+            lblPantPris.setDisable(false);
+            txfPantPris.setText(""+Controller.samletPantPris());
+            LvwProductmedPant.getItems().addAll(Storage.getProduktMedPants());
+
+
+
+        }
+
+
     }
 
     private void betalNu(Stage owner) {
-        salgVindue = new OpretSalg("",owner,Storage.getOrdreLinjer());
+        salgVindue = new OpretSalg("",owner,Storage.getOrdreLinjer(),Storage.getProduktMedPants());
         this.salgVindue.showAndWait();
 
 
