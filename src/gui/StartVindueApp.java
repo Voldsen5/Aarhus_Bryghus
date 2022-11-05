@@ -82,6 +82,24 @@ public class StartVindueApp {
         Produkt imperialstout20liter = Controller.createProdukt("Imperial Stout, 20L");
         Produkt pant = Controller.createProdukt("Pant");
 
+        Controller.createProduktMedPant(klosterbryg20liter,200);
+        Controller.createProduktMedPant(jazzClassic25liter,200);
+        Controller.createProduktMedPant(extraPilsner25liter,200);
+        Controller.createProduktMedPant(celebration20liter,200);
+        Controller.createProduktMedPant(blondie25liter,200);
+        Controller.createProduktMedPant(forårsbryg20liter,200);
+        Controller.createProduktMedPant(indiapaleale20liter,200);
+        Controller.createProduktMedPant(Julebryg20liter,200);
+        Controller.createProduktMedPant(imperialstout20liter,200);
+
+
+
+
+
+
+
+
+
         Produkt kulsyre6kg = Controller.createProdukt("Kulsyre 6kg");
         Produkt kulsyrePant = Controller.createProdukt("Kulsyre Pant");
         Produkt kulsyre4kg = Controller.createProdukt("Kulsyre 4kg");

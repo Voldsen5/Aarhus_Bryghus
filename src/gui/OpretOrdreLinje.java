@@ -32,6 +32,7 @@ public class OpretOrdreLinje extends Application {
     private Stage owner;
     private final ListView<ProduktKategori> LvwProduktKategori = new ListView<>();
     private final ListView<Produkt> LvwProduktvisning = new ListView<>();
+    private final ListView<ProduktMedPant> LvwProduktmedpantVisning= new ListView<>();
     private final ListView<OrdreLinje> LvwOrdreLinje = new ListView<>();
     private final ListView<ProduktMedPant> LvwProductmedPant = new ListView<>();
     private final Button btnTilfojProdukt = new Button("Tilføj Produkt");
@@ -61,17 +62,22 @@ public class OpretOrdreLinje extends Application {
 
         pane.add(btnBetal,1,3);
 
+//        VBox vboxL = new VBox(lblProdukter,LvwProduktmedpantVisning);
+//        pane.add(vboxL,1,0);
+
+
         VBox vboxPK = new VBox(lblProduktKatagori,LvwProduktKategori);
         pane.add(vboxPK,0,0);
 
         VBox vboxP = new VBox(lblProdukter,LvwProduktvisning);
         pane.add(vboxP,1,0);
 
+
         VBox vboxK = new VBox(lblKvittering,LvwOrdreLinje);
         pane.add(vboxK,1,2);
 
-        VBox vboxO = new VBox(lblKvittering,LvwProductmedPant);
-        pane.add(vboxO,1,2);
+//        VBox vboxO = new VBox(lblKvittering,LvwProductmedPant);
+//        pane.add(vboxO,1,2);
 
         pane.add(btnTilfojProdukt,1,1);
         GridPane.setHalignment(btnTilfojProdukt,HPos.LEFT);
@@ -126,16 +132,22 @@ public class OpretOrdreLinje extends Application {
             txfAntal.setVisible(false);
             lblAntal.setText("");
             GridPane.setHalignment(btnTilfojProdukt, HPos.CENTER);
-        }else {
-            txfAntal.setDisable(false);
-            txfAntal.setVisible(true);
-            lblAntal.setText("Antal");
-            GridPane.setHalignment(btnTilfojProdukt, HPos.LEFT);
+            LvwProduktvisning.getItems().clear();
+            LvwProduktvisning.setVisible(false);
+            LvwProduktvisning.setDisable(true);
+            LvwProduktmedpantVisning.getItems().addAll(Storage.getProduktMedPants());
+        }
             ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
             LvwProduktvisning.getItems().clear();
             LvwProduktvisning.getItems().addAll(f.getProdukter());
+//            LvwProduktmedpantVisning.getItems().clear();
+//            LvwProduktvisning.setVisible(true);
+//            LvwProduktvisning.setDisable(false);
+//            txfAntal.setDisable(false);
+//            txfAntal.setVisible(true);
+//            lblAntal.setText("Antal");
+//            GridPane.setHalignment(btnTilfojProdukt, HPos.LEFT);
 
-        }
 
 
     }

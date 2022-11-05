@@ -69,6 +69,7 @@ public class Controller {
         produktMedPant.setProdukt(produkt);
     }
 
+
     public static double samletPantPris() {
         double samlet = 0.0;
         for (ProduktMedPant p : Storage.getProduktMedPants()){
