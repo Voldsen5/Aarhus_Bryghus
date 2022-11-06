@@ -48,6 +48,11 @@ public class OpretOrdreLinje extends Application {
     private final Label lblAntal = new Label("Antal:");
     private final Button btnBetal = new Button("Betal");
     private OpretSalg salgVindue;
+    private final Label lblRabat = new Label("Rabatter:");
+    private final TextField txfRabat = new TextField();
+    private final RadioButton rbRabatProcent = new RadioButton("Procent Rabat");
+    private final RadioButton rbAftaltPris = new RadioButton("Aftalt Pris");
+    private final ToggleGroup tg = new ToggleGroup();
 
 
 
@@ -110,7 +115,13 @@ public class OpretOrdreLinje extends Application {
         GridPane.setHalignment(lblPantPris,HPos.LEFT);
         lblPantPris.setDisable(true);
 
-
+        VBox vboxRabat = new VBox(lblRabat, rbRabatProcent, rbAftaltPris, txfRabat);
+        vboxRabat.setSpacing(10);
+        txfRabat.setMaxWidth(100);
+        rbAftaltPris.setToggleGroup(tg);
+        rbRabatProcent.setToggleGroup(tg);
+        GridPane.setValignment(vboxRabat, VPos.BOTTOM);
+        pane.add(vboxRabat,0,1);
 
         btnTilfojProdukt.setOnAction(event -> this.opretOrdreLinje());
 
@@ -161,7 +172,14 @@ public class OpretOrdreLinje extends Application {
             txfAntal.clear();
             LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
             txfSamletPris.clear();
-            txfSamletPris.setText(""+Controller.SamletOrdrePris());
+            if (txfRabat.getText() == null) {
+                txfSamletPris.setText("" + Controller.SamletOrdrePris());
+            } else if (rbRabatProcent.isSelected()) {
+                txfSamletPris.setText("" + Controller.procentRabat(Integer.parseInt(txfRabat.getText())));
+            } else if (rbAftaltPris.isSelected()) {
+                txfSamletPris.setText("" + Controller.fastPris(Integer.parseInt(txfRabat.getText())));
+            }
+
         }
 
         if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3) {
@@ -181,15 +199,13 @@ public class OpretOrdreLinje extends Application {
 
 
         }
-
-
     }
 
     private double rabatfelt(){
        if (rbRabatProcent.isSelected()) {
             return Controller.procentRabat(Integer.parseInt(txfRabat.getText()));
         }
-        else if (rbAftaltPris.isSelected()){
+       else if (rbAftaltPris.isSelected()){
             return Controller.fastPris(Integer.parseInt(txfRabat.getText()));
         }
         return 0;
@@ -203,7 +219,4 @@ public class OpretOrdreLinje extends Application {
 
 
     }
-
-
-
 }

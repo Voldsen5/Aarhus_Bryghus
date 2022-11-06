@@ -1,6 +1,7 @@
 package controller;
 
 
+import gui.OpretOrdreLinje;
 import model.*;
 import storage.Storage;
 
@@ -52,7 +53,6 @@ public class Controller {
 
     public static double SamletOrdrePris() {
         double samlet = 0.0;
-
         for (OrdreLinje p : Storage.getOrdreLinjer()){
             samlet = samlet + p.ordreLinjePris();
         }
