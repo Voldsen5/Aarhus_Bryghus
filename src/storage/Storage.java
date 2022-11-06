@@ -146,10 +146,10 @@ public class Storage implements Serializable {
     }
 
     public static void storeKlippekort(Klippekort klippekort) {
-        klippekort.add(klip);
+        klippekort.add(klippekort);
     }
 
-    public static void deleteKlippekort(Klippekort klippekort) {
-        klippekort.remove(klip);
+    public static void removeKlip(Klippekort klippekort) {
+        klippekort.remove(klippekort);
     }
 }
