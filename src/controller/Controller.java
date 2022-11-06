@@ -89,6 +89,12 @@ public class Controller {
         return nyPris;
     }
 
+    public static Klippekort createKlippekort(Kunde kunde, int klip) {
+        Klippekort klippekort = new Klippekort(kunde, klip);
+        Storage.storeKlippekort(klippekort);
+        return klippekort;
+    }
+
 
 
 
