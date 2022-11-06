@@ -17,7 +17,7 @@ public class StartVindueApp {
       Storage p = getSaveStorage();
         saveStorage(p);
 //        Storage k = getSaveStorage();
-        Application.launch(StartSide.class);
+        Application.launch(OpretOrdreLinje.class);
     }
 
     public static void initStorage() {

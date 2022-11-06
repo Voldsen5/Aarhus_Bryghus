@@ -11,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.OrdreLinje;
+import model.ProcentRabat;
 import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
@@ -131,6 +132,16 @@ public class OpretOrdreLinje extends Application {
             txfSamletPris.setText(""+Controller.SamletOrdrePris());
         }
 
+    }
+
+    private double rabatfelt(){
+       if (rbRabatProcent.isSelected()) {
+            return Controller.procentRabat(Integer.parseInt(txfRabat.getText()));
+        }
+        else if (rbAftaltPris.isSelected()){
+            return Controller.fastPris(Integer.parseInt(txfRabat.getText()));
+        }
+        return 0;
     }
 
     private void betalNu(Stage owner) {
