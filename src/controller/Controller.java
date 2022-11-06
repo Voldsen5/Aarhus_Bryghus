@@ -79,6 +79,16 @@ public class Controller {
         return samlet;
     }
 
+    public static double procentRabat(double procent){
+        double x = 0.0;
+        x = ((SamletOrdrePris() * procent) / 100);
+        return x - SamletOrdrePris();
+    }
+
+    public static double fastPris(double nyPris){
+        return nyPris;
+    }
+
 
 
 
