@@ -52,8 +52,29 @@ public class Controller {
 
     public static double SamletOrdrePris() {
         double samlet = 0.0;
+
         for (OrdreLinje p : Storage.getOrdreLinjer()){
             samlet = samlet + p.ordreLinjePris();
+        }
+
+        return samlet;
+    }
+
+    public static ProduktMedPant createProduktMedPant(Produkt produkt,double pantPris) {
+        ProduktMedPant produktMedPant = new ProduktMedPant(produkt,pantPris);
+        Storage.storeProduktMedPant(produktMedPant);
+        return produktMedPant;
+    }
+
+    public static void addPanttoProduktkategori(Produkt produkt, ProduktMedPant produktMedPant) {
+        produktMedPant.setProdukt(produkt);
+    }
+
+
+    public static double samletPantPris() {
+        double samlet = 0.0;
+        for (ProduktMedPant p : Storage.getProduktMedPants()){
+            samlet = samlet + p.getPantPris();
         }
         return samlet;
     }
@@ -67,7 +88,6 @@ public class Controller {
     public static double fastPris(double nyPris){
         return nyPris;
     }
-
 
 
 

@@ -20,7 +20,7 @@ import java.util.Locale;
 public class OpretSalg extends Stage {
 
 
-    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>temp) {
+    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer,ArrayList<ProduktMedPant>tempPant) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
         this.initModality(Modality.APPLICATION_MODAL);
