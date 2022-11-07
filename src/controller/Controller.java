@@ -1,6 +1,7 @@
 package controller;
 
 
+import gui.OpretOrdreLinje;
 import model.*;
 import storage.Storage;
 
@@ -55,19 +56,44 @@ public class Controller {
         for (OrdreLinje p : Storage.getOrdreLinjer()){
             samlet = samlet + p.ordreLinjePris();
         }
+
+        return samlet;
+    }
+
+    public static ProduktMedPant createProduktMedPant(Produkt produkt,double pantPris) {
+        ProduktMedPant produktMedPant = new ProduktMedPant(produkt,pantPris);
+        Storage.storeProduktMedPant(produktMedPant);
+        return produktMedPant;
+    }
+
+    public static void addPanttoProduktkategori(Produkt produkt, ProduktMedPant produktMedPant) {
+        produktMedPant.setProdukt(produkt);
+    }
+
+
+    public static double samletPantPris() {
+        double samlet = 0.0;
+        for (ProduktMedPant p : Storage.getProduktMedPants()){
+            samlet = samlet + p.getPantPris();
+        }
         return samlet;
     }
 
     public static double procentRabat(double procent){
         double x = 0.0;
         x = ((SamletOrdrePris() * procent) / 100);
-        return x - SamletOrdrePris();
+        return SamletOrdrePris() - x;
     }
 
     public static double fastPris(double nyPris){
         return nyPris;
     }
 
+    public static Klippekort createKlippekort(Kunde kunde, int klip) {
+        Klippekort klippekort = new Klippekort(kunde, klip);
+        Storage.storeKlippekort(klippekort);
+        return klippekort;
+    }
 
 
 
