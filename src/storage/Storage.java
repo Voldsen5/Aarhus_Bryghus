@@ -1,9 +1,7 @@
 package storage;
 
 
-import gui.OpretSalg;
 import model.*;
-
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,7 +18,8 @@ public class Storage implements Serializable {
     private static final ArrayList<Salg> salgs = new ArrayList<>();
     private static final ArrayList<ProduktMedPant> produktMedPants = new ArrayList<>();
     private static final ArrayList<Klippekort> klippekorts = new ArrayList<>();
-
+    private static final ArrayList<Pris> fredagsbarsPriser = new ArrayList<>();
+    private static final ArrayList<Pris> butiksPriser = new ArrayList<>();
 
 
     // -------------------------------------------------------------------------
@@ -50,7 +49,7 @@ public class Storage implements Serializable {
 //
 //    // -------------------------------------------------------------------------
 
-  public static ArrayList<OrdreLinje> getOrdreLinjer() {
+    public static ArrayList<OrdreLinje> getOrdreLinjer() {
         return new ArrayList<>(ordreLinjer);
     }
 
@@ -86,8 +85,8 @@ public class Storage implements Serializable {
 
 
     public static ArrayList<Ordre> getOrdrer() {
-    return new ArrayList<>(ordrer);
-}
+        return new ArrayList<>(ordrer);
+    }
 
     public static void storeOrdre(Ordre ordre) {
         ordrer.add(ordre);
@@ -127,7 +126,7 @@ public class Storage implements Serializable {
 
     //----------------------------------------------------------------------------------
 
-    public static ArrayList<Produkt> getPriser() {
+    public static ArrayList<Pris> getPriser() {
         return new ArrayList<>();
     }
 
@@ -152,4 +151,34 @@ public class Storage implements Serializable {
     public static void removeKlip(Klippekort klippekort) {
         klippekorts.remove(klippekort);
     }
+
+    //----------------------------------------------------------------------------------
+
+    public static ArrayList<Pris> getFredagsbarsPriser() {
+        return new ArrayList<>(fredagsbarsPriser);
+    }
+
+    public static void storeFredagsbarsPriser(Pris fredagsbarsPris) {
+        fredagsbarsPriser.add(fredagsbarsPris);
+    }
+
+    public static void removeFredagsbarsPriser(Pris fredagsbarsPris) {
+        fredagsbarsPriser.remove(fredagsbarsPris);
+    }
+
+    //----------------------------------------------------------------------------------
+
+    public static ArrayList<Pris> getButiksPriser() {
+        return new ArrayList<>(butiksPriser);
+    }
+
+    public static void storeButiksPriser(Pris butiksPris) {
+        butiksPriser.add(butiksPris);
+    }
+
+    public static void removeButiksPriser(Pris butiksPris) {
+        butiksPriser.remove(butiksPris);
+    }
+
+
 }

@@ -11,7 +11,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.OrdreLinje;
-import model.ProcentRabat;
 import model.Produkt;
 import model.ProduktKategori;
 import model.ProduktMedPant;
@@ -37,6 +36,7 @@ public class OpretOrdreLinje extends Application {
     private final ListView<OrdreLinje> LvwOrdreLinje = new ListView<>();
     private final ListView<ProduktMedPant> LvwProductmedPant = new ListView<>();
     private final Button btnTilfojProdukt = new Button("Tilføj Produkt");
+    private final CheckBox chbVælgKontekst = new CheckBox("Vælg Kontekst");
     private final TextField txfAntal = new TextField();
     private final TextField txfSamletPris = new TextField();
     private final TextField txfPantPris = new TextField();
@@ -88,6 +88,8 @@ public class OpretOrdreLinje extends Application {
         pane.add(btnTilfojProdukt,1,1);
         GridPane.setHalignment(btnTilfojProdukt,HPos.LEFT);
 
+        pane.add(chbVælgKontekst,0,1);
+
         pane.add(lblAntal,1,1);
         GridPane.setHalignment(lblAntal,HPos.CENTER);
 
@@ -124,6 +126,10 @@ public class OpretOrdreLinje extends Application {
         pane.add(vboxRabat,0,4);
 
         btnTilfojProdukt.setOnAction(event -> this.opretOrdreLinje());
+
+        chbVælgKontekst.setOnAction(event -> this.vælgKontekst());
+
+
 
 
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
@@ -184,5 +190,10 @@ public class OpretOrdreLinje extends Application {
 
 
 
+    }
+
+    private void vælgKontekst() {
+        if(chbVælgKontekst.isSelected()) {
+            Controller.vælgKontekst();
     }
 }

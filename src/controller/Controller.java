@@ -1,7 +1,6 @@
 package controller;
 
 
-import gui.OpretOrdreLinje;
 import model.*;
 import storage.Storage;
 
@@ -93,6 +92,16 @@ public class Controller {
         Klippekort klippekort = new Klippekort(kunde, klip);
         Storage.storeKlippekort(klippekort);
         return klippekort;
+    }
+
+    public static String  vælgKontekst() {
+        String p = "";
+        for (Pris pris : Storage.getPriser()) {
+            if (pris.getKontekst().equals("Butik")) {
+                p = String.valueOf(pris.getBeløb()+" "+pris.getProdukt().getNavn());
+            }
+        }
+        return p;
     }
 
 
