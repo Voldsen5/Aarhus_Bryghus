@@ -23,7 +23,7 @@ public class Controller {
     }
 
     public static OrdreLinje createOrdreLinje(Produkt produkt, int antal) {
-        OrdreLinje ordreLinje = new OrdreLinje(produkt,antal);
+        OrdreLinje ordreLinje = new OrdreLinje(produkt, antal);
         Storage.storeOrdreLinjer(ordreLinje);
         return ordreLinje;
     }
@@ -40,6 +40,12 @@ public class Controller {
         return pris;
     }
 
+    public static Pris createPrisMedKlip(double beløb, Kontekst kontekst, Produkt produkt, Klip klip) {
+        Pris prismedKlip = new Pris(beløb, kontekst, produkt, klip);
+        Storage.storePris(prismedKlip);
+        return prismedKlip;
+    }
+
 
     public static void addProduktTilKategori(ProduktKategori produktKategori, Produkt produkt) {
         produktKategori.addProdukt(produkt);
@@ -52,15 +58,15 @@ public class Controller {
 
     public static double SamletOrdrePris() {
         double samlet = 0.0;
-        for (OrdreLinje p : Storage.getOrdreLinjer()){
+        for (OrdreLinje p : Storage.getOrdreLinjer()) {
             samlet = samlet + p.ordreLinjePris();
         }
 
         return samlet;
     }
 
-    public static ProduktMedPant createProduktMedPant(Produkt produkt,double pantPris) {
-        ProduktMedPant produktMedPant = new ProduktMedPant(produkt,pantPris);
+    public static ProduktMedPant createProduktMedPant(Produkt produkt, double pantPris) {
+        ProduktMedPant produktMedPant = new ProduktMedPant(produkt, pantPris);
         Storage.storeProduktMedPant(produktMedPant);
         return produktMedPant;
     }
@@ -72,13 +78,13 @@ public class Controller {
 
     public static double samletPantPris() {
         double samlet = 0.0;
-        for (ProduktMedPant p : Storage.getProduktMedPants()){
+        for (ProduktMedPant p : Storage.getProduktMedPants()) {
             samlet = samlet + p.getPantPris();
         }
         return samlet;
     }
 
-    public static double procentRabat(double procent){
+    public static double procentRabat(double procent) {
         double x = 0.0;
         x = ((SamletOrdrePris() * procent) / 100);
         return SamletOrdrePris() - x;
@@ -91,16 +97,23 @@ public class Controller {
         return x;
     }
 
-    public static double fastPris(double nyPris){
+    public static double fastPris(double nyPris) {
         return nyPris;
     }
 
-    public static Klippekort createKlippekort(Kunde kunde, int klip) {
-        Klippekort klippekort = new Klippekort(kunde, klip);
+    public static Betalingsmetode createKlippekort(String navn, Ordre ordre, Salg salg, Kunde kunde, int klip) {
+        Betalingsmetode klippekort = new Betalingsmetode(navn, klip);
         Storage.storeKlippekort(klippekort);
         return klippekort;
     }
 
+    public static Klip createKlip(int klip) {
+        Klip klipper = new Klip(klip);
+        Storage.storeKlip(klipper);
+        return klipper;
+    }
+
+}
 
 
 
@@ -209,7 +222,3 @@ public class Controller {
 //    }
 
 
-
-
-
-}
