@@ -128,27 +128,9 @@ public class OpretOrdreLinje extends Application {
         if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == -1) {
             return;
         }
-        if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3) {
-            txfAntal.setDisable(true);
-            txfAntal.setVisible(false);
-            lblAntal.setText("");
-            GridPane.setHalignment(btnTilfojProdukt, HPos.CENTER);
-            LvwProduktvisning.getItems().clear();
-            LvwProduktvisning.setVisible(false);
-            LvwProduktvisning.setDisable(true);
-            LvwProduktmedpantVisning.getItems().addAll(Storage.getProduktMedPants());
-        }
-            ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
-            LvwProduktvisning.getItems().clear();
-            LvwProduktvisning.getItems().addAll(f.getProdukter());
-//            LvwProduktmedpantVisning.getItems().clear();
-//            LvwProduktvisning.setVisible(true);
-//            LvwProduktvisning.setDisable(false);
-//            txfAntal.setDisable(false);
-//            txfAntal.setVisible(true);
-//            lblAntal.setText("Antal");
-//            GridPane.setHalignment(btnTilfojProdukt, HPos.LEFT);
-
+        ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+        LvwProduktvisning.getItems().clear();
+        LvwProduktvisning.getItems().addAll(f.getProdukter());
 
 
     }
@@ -164,36 +146,19 @@ public class OpretOrdreLinje extends Application {
             txfSamletPris.setText(""+Controller.SamletOrdrePris());
         }
 
-        if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3) {
-            LvwProductmedPant.getItems().clear();
-            Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
-            Controller.createProduktMedPant(j,200);
-            lblKvittering.setText("  Produkt                               PantPris");
-            LvwOrdreLinje.getItems().clear();
-            LvwOrdreLinje.setDisable(true);
-            txfSamletPris.setDisable(true);
-            lblSamletPris.setText("");
-            txfPantPris.setDisable(false);
-            lblPantPris.setDisable(false);
-            txfPantPris.setText(""+Controller.samletPantPris());
-            LvwProductmedPant.getItems().addAll(Storage.getProduktMedPants());
-
-
-
-        }
 
 
     }
 
-    private double rabatfelt(){
-       if (rbRabatProcent.isSelected()) {
-            return Controller.procentRabat(Integer.parseInt(txfRabat.getText()));
-        }
-        else if (rbAftaltPris.isSelected()){
-            return Controller.fastPris(Integer.parseInt(txfRabat.getText()));
-        }
-        return 0;
-    }
+//    private double rabatfelt(){
+//       if (rbRabatProcent.isSelected()) {
+//            return Controller.procentRabat(Integer.parseInt(txfRabat.getText()));
+//        }
+//        else if (rbAftaltPris.isSelected()){
+//            return Controller.fastPris(Integer.parseInt(txfRabat.getText()));
+//        }
+//        return 0;
+//    }
 
     private void betalNu(Stage owner) {
         salgVindue = new OpretSalg("",owner,Storage.getOrdreLinjer(),Storage.getProduktMedPants());
