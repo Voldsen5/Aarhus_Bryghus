@@ -4,6 +4,7 @@ public class Pris {
     private double beløb;
     Kontekst kontekst;
     Produkt produkt;
+    Klip klip;
 
 
 
@@ -13,6 +14,15 @@ public class Pris {
         this.produkt = produkt;
         produkt.addPris(this);
     }
+
+    public Pris(double beløb, Kontekst kontekst, Produkt produkt, Klip klip) {
+        this.beløb = beløb;
+        this.kontekst = kontekst;
+        this.produkt = produkt;
+        this.klip = klip;
+        produkt.addPris(this);
+    }
+
 
     public double getBeløb() {
         return beløb;

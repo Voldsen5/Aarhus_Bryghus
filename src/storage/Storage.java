@@ -19,7 +19,9 @@ public class Storage implements Serializable {
     private static final ArrayList<Statistik> statistiks = new ArrayList<>();
     private static final ArrayList<Salg> salgs = new ArrayList<>();
     private static final ArrayList<ProduktMedPant> produktMedPants = new ArrayList<>();
-    private static final ArrayList<Klippekort> klippekorts = new ArrayList<>();
+    private static final ArrayList<Betalingsmetode> klippekorts = new ArrayList<>();
+    private static final ArrayList<Klip> klips = new ArrayList<>();
+
 
 
 
@@ -141,15 +143,19 @@ public class Storage implements Serializable {
 
     //----------------------------------------------------------------------------------
 
-    public static ArrayList<Klippekort> getKlippekort() {
-        return new ArrayList<>(klippekorts);
+    public static ArrayList<Betalingsmetode> getKlippekort() {
+        return new ArrayList<>();
     }
 
-    public static void storeKlippekort(Klippekort klippekort) {
+    public static void storeKlippekort(Betalingsmetode klippekort) {
         klippekorts.add(klippekort);
     }
 
-    public static void removeKlip(Klippekort klippekort) {
+    public static void removeKlip(Betalingsmetode klippekort) {
         klippekorts.remove(klippekort);
+    }
+
+    public static void storeKlip(Klip klip) {
+        klips.add(klip);
     }
 }

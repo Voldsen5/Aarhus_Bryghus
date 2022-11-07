@@ -13,7 +13,7 @@ public class StartVindueApp {
     public static void main(String[] args) {
         initStorage();
 //      Storage p = new Storage();
-      Storage p = getSaveStorage();
+        Storage p = getSaveStorage();
         saveStorage(p);
 //        Storage k = getSaveStorage();
         Application.launch(OpretOrdreLinje.class);
@@ -21,17 +21,17 @@ public class StartVindueApp {
 
     public static void initStorage() {
         //ProduktKategorier
-        ProduktKategori flaskeØl =  Controller.createProduktkategori("Flaskeøl");
-        ProduktKategori fadøl =  Controller.createProduktkategori("Fadøl");
-        ProduktKategori spiritus =  Controller.createProduktkategori("Spiritus");
-        ProduktKategori fustage =  Controller.createProduktkategori("Fustage");
-        ProduktKategori kulsyre =  Controller.createProduktkategori("Kulsyre");
-        ProduktKategori malt =  Controller.createProduktkategori("Malt");
-        ProduktKategori beklædning =  Controller.createProduktkategori("Beklædning");
-        ProduktKategori anlæg =  Controller.createProduktkategori("Anlæg");
-        ProduktKategori glas =  Controller.createProduktkategori("Glas");
-        ProduktKategori sampakning =  Controller.createProduktkategori("Sampakning");
-        ProduktKategori rundvisning =  Controller.createProduktkategori("Rundvisning");
+        ProduktKategori flaskeØl = Controller.createProduktkategori("Flaskeøl");
+        ProduktKategori fadøl = Controller.createProduktkategori("Fadøl");
+        ProduktKategori spiritus = Controller.createProduktkategori("Spiritus");
+        ProduktKategori fustage = Controller.createProduktkategori("Fustage");
+        ProduktKategori kulsyre = Controller.createProduktkategori("Kulsyre");
+        ProduktKategori malt = Controller.createProduktkategori("Malt");
+        ProduktKategori beklædning = Controller.createProduktkategori("Beklædning");
+        ProduktKategori anlæg = Controller.createProduktkategori("Anlæg");
+        ProduktKategori glas = Controller.createProduktkategori("Glas");
+        ProduktKategori sampakning = Controller.createProduktkategori("Sampakning");
+        ProduktKategori rundvisning = Controller.createProduktkategori("Rundvisning");
         ProduktKategori klippekort = Controller.createProduktkategori("Klippekort");
 
 
@@ -82,22 +82,15 @@ public class StartVindueApp {
         Produkt imperialstout20liter = Controller.createProdukt("Imperial Stout, 20L");
         Produkt pant = Controller.createProdukt("Pant");
 
-        Controller.createProduktMedPant(klosterbryg20liter,200);
-        Controller.createProduktMedPant(jazzClassic25liter,200);
-        Controller.createProduktMedPant(extraPilsner25liter,200);
-        Controller.createProduktMedPant(celebration20liter,200);
-        Controller.createProduktMedPant(blondie25liter,200);
-        Controller.createProduktMedPant(forårsbryg20liter,200);
-        Controller.createProduktMedPant(indiapaleale20liter,200);
-        Controller.createProduktMedPant(Julebryg20liter,200);
-        Controller.createProduktMedPant(imperialstout20liter,200);
-
-
-
-
-
-
-
+        Controller.createProduktMedPant(klosterbryg20liter, 200);
+        Controller.createProduktMedPant(jazzClassic25liter, 200);
+        Controller.createProduktMedPant(extraPilsner25liter, 200);
+        Controller.createProduktMedPant(celebration20liter, 200);
+        Controller.createProduktMedPant(blondie25liter, 200);
+        Controller.createProduktMedPant(forårsbryg20liter, 200);
+        Controller.createProduktMedPant(indiapaleale20liter, 200);
+        Controller.createProduktMedPant(Julebryg20liter, 200);
+        Controller.createProduktMedPant(imperialstout20liter, 200);
 
 
         Produkt kulsyre6kg = Controller.createProdukt("Kulsyre 6kg");
@@ -130,8 +123,6 @@ public class StartVindueApp {
         Produkt rundvisningPrPersonDag = Controller.createProdukt("Rundvisning pr person pr dag");
 
         Produkt klippekort4Klip = Controller.createProdukt("Klippekort, 4 klip");
-
-
 
 
         flaskeØl.addProdukt(klosterbryg);
@@ -219,7 +210,6 @@ public class StartVindueApp {
         klippekort.addProdukt(klippekort4Klip);
 
 
-
         Kontekst fredagsbar = Controller.createKontekst("Fredagsbar");
         Kontekst butik = Controller.createKontekst("Butik");
 
@@ -271,6 +261,44 @@ public class StartVindueApp {
         Pris prisFredagsbarFadøl7Up = Controller.createPris(15, fredagsbar, sevenup);
         Pris prisFredagsbarFadølVand = Controller.createPris(10, fredagsbar, vand);
         Pris prisFredagsbarFadølØlpølser = Controller.createPris(30, fredagsbar, ølpølser);
+        //---------------------------------------------------------------------------------------
+        //pris med klip
+        Pris prisFredagsbarKlosterbrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, klosterbryg,Controller.createKlip(2));
+        Pris prisFredagsbarSweetGeorgiaBrownMedKlip = Controller.createPrisMedKlip(70, fredagsbar, sweetgeorgiabrown,Controller.createKlip(2));
+        Pris prisFredagsbarExtraPilsnerMedKlip = Controller.createPrisMedKlip(70, fredagsbar, extrapilsner,Controller.createKlip(2));
+        Pris prisFredagsbarCelebrationMedKlip = Controller.createPrisMedKlip(70, fredagsbar, celebration, Controller.createKlip(2));
+        Pris prisFredagsbarBlondieMedKlip = Controller.createPrisMedKlip(70, fredagsbar, blondie,Controller.createKlip(2));
+        Pris prisFredagsbarForårsbrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, forårsbryg,Controller.createKlip(2));
+        Pris prisFredagsbarIndiaPaleAleMedKlip = Controller.createPrisMedKlip(70, fredagsbar, indiapaleale,Controller.createKlip(2));
+        Pris prisFredagsbarJulebrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, julebryg,Controller.createKlip(2));
+        Pris prisFredagsbarJuletøndenMedKlip = Controller.createPrisMedKlip(70, fredagsbar, juletønden,Controller.createKlip(2));
+        Pris prisFredagsbarOldStrongAleMedKlip = Controller.createPrisMedKlip(70, fredagsbar, oldstrongale,Controller.createKlip(2));
+        Pris prisFredagsbarFregattenJyllandMedKlip = Controller.createPrisMedKlip(70, fredagsbar, fregattenjylland,Controller.createKlip(2));
+        Pris prisFredagsbarImperialStoutMedKlip = Controller.createPrisMedKlip(70, fredagsbar, imperialstout,Controller.createKlip(2));
+        Pris prisFredagsbarTributeMedKlip = Controller.createPrisMedKlip(70, fredagsbar, tribute,Controller.createKlip(2));
+        Pris prisFredagsbarBlackMonsterMedKlip = Controller.createPrisMedKlip(100, fredagsbar, blackmonster,Controller.createKlip(3));
+
+        Pris prisFredagsbarFadølKlosterbrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, klosterbryg,Controller.createKlip(1));
+        Pris prisFredagsbarFadølJazzClassicMedKlip = Controller.createPrisMedKlip(38, fredagsbar, jazzclassic,Controller.createKlip(1));
+        Pris prisFredagsbarFadølExtraPilsnerMedKlip = Controller.createPrisMedKlip(38, fredagsbar, extrapilsner,Controller.createKlip(1));
+        Pris prisFredagsbarFadølCelebrationMedKlip = Controller.createPrisMedKlip(38, fredagsbar, celebration,Controller.createKlip(1));
+        Pris prisFredagsbarFadølBlondieMedKlip = Controller.createPrisMedKlip(38, fredagsbar, blondie,Controller.createKlip(1));
+        Pris prisFredagsbarFadølForårsbrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, forårsbryg,Controller.createKlip(1));
+        Pris prisFredagsbarFadølIndiaPaleAleMedKlip = Controller.createPrisMedKlip(38, fredagsbar, indiapaleale,Controller.createKlip(1));
+        Pris prisFredagsbarFadølJulebrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, julebryg,Controller.createKlip(1));
+        Pris prisFredagsbarFadølImperialStoutMedKlip = Controller.createPrisMedKlip(38, fredagsbar, imperialstout,Controller.createKlip(1));
+        Pris prisFredagsbarFadølSpecialMedKlip = Controller.createPrisMedKlip(38, fredagsbar, special,Controller.createKlip(1));
+        //Pris prisFredagsbarFadølÆblebrus = Controller.createPris(15, fredagsbar, æblebrus);
+        //Pris prisFredagsbarFadølChips = Controller.createPris(10, fredagsbar, chips);
+        //Pris prisFredagsbarFadølPeanuts = Controller.createPris(15, fredagsbar, peanuts);
+        //Pris prisFredagsbarFadølCola = Controller.createPris(15, fredagsbar, cola);
+        //Pris prisFredagsbarFadølNikoline = Controller.createPris(15, fredagsbar, nikoline);
+        //Pris prisFredagsbarFadøl7Up = Controller.createPris(15, fredagsbar, sevenup);
+        //Pris prisFredagsbarFadølVand = Controller.createPris(10, fredagsbar, vand);
+        //Pris prisFredagsbarFadølØlpølser = Controller.createPris(30, fredagsbar, ølpølser);
+
+
+        //----------------------------------------------------------------------------------------
 
         Pris prisFredagsbarWhisky45procentRør = Controller.createPris(599, fredagsbar, whisky45ProcentRør);
         Pris prisButikWhisky45procentRør = Controller.createPris(599, butik, whisky45ProcentRør);
@@ -339,57 +367,33 @@ public class StartVindueApp {
         Pris prisButikKlippekort4Klip = Controller.createPris(130, butik, klippekort4Klip);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
-    public static void saveStorage(Storage temp){
-    String fileName = "Aarhus_Bryghus\\src\\storage\\storageGem.ser";
-    try(
-            FileOutputStream fileOut = new FileOutputStream(fileName);
-            ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
-            ) {
-               objOut.writeObject(temp);
-                } catch (Exception e){
-                System.out.println(e);
-                }
+    public static void saveStorage(Storage temp) {
+        String fileName = "Aarhus_Bryghus\\src\\storage\\storageGem.ser";
+        try (
+                FileOutputStream fileOut = new FileOutputStream(fileName);
+                ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+        ) {
+            objOut.writeObject(temp);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
-    public static Storage getSaveStorage(){
-        try(
+
+    public static Storage getSaveStorage() {
+        try (
                 FileInputStream fileIn = new FileInputStream("Aarhus_Bryghus\\src\\storage\\storageGem.ser");
                 ObjectInputStream objIn = new ObjectInputStream(fileIn);
 
-        )
-        {
+        ) {
             Object obj = objIn.readObject();
             return (Storage) obj;
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
         return null;
     }
-
 
 
 //    public static void saveStorage3(ArrayList<Ordre>temp){
@@ -407,7 +411,6 @@ public class StartVindueApp {
 //    public static void saveStorage7(ArrayList<Salg>temp){
 //
 //    }
-
 
 
 }
