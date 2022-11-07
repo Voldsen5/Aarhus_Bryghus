@@ -17,7 +17,7 @@ public class StartVindueApp {
       Storage p = getSaveStorage();
         saveStorage(p);
 //        Storage k = getSaveStorage();
-        Application.launch(StartSide.class);
+        Application.launch(OpretOrdreLinje.class);
     }
 
     public static void initStorage() {
@@ -319,30 +319,6 @@ public class StartVindueApp {
 
         Pris prisFredagsbarKlippekort4Klip = Controller.createPris(130, fredagsbar, klippekort4Klip);
         Pris prisButikKlippekort4Klip = Controller.createPris(130, butik, klippekort4Klip);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
