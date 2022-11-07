@@ -5,9 +5,10 @@ import gui.OpretSalg;
 import model.*;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Storage {
+public class Storage implements Serializable {
     private static final ArrayList<ProduktKategori> produktkategori = new ArrayList<>();
     private static final ArrayList<Produkt> produkts = new ArrayList<>();
     private static final ArrayList<Ordre> ordrer = new ArrayList<>();
@@ -17,6 +18,8 @@ public class Storage {
     private static final ArrayList<Pris> priser = new ArrayList<>();
     private static final ArrayList<Statistik> statistiks = new ArrayList<>();
     private static final ArrayList<Salg> salgs = new ArrayList<>();
+    private static final ArrayList<ProduktMedPant> produktMedPants = new ArrayList<>();
+    private static final ArrayList<Klippekort> klippekort = new ArrayList<>();
 
 
 
@@ -55,6 +58,14 @@ public class Storage {
         ordreLinjer.add(ordreLinje);
     }
 
+
+    public static ArrayList<ProduktMedPant> getProduktMedPants() {
+        return new ArrayList<>(produktMedPants);
+    }
+
+    public static void storeProduktMedPant(ProduktMedPant produktMedPant) {
+        produktMedPants.add(produktMedPant);
+    }
 
     public static ArrayList<Statistik> getStatistiks() {
         return new ArrayList<>(statistiks);
@@ -126,5 +137,19 @@ public class Storage {
 
     public static void deletePris(Pris pris) {
         priser.remove(pris);
+    }
+
+    //----------------------------------------------------------------------------------
+
+    public static ArrayList<Klippekort> getKlippekort() {
+        return new ArrayList<>();
+    }
+
+    public static void storeKlippekort(Klippekort klippekort) {
+        klippekort.add(klippekort);
+    }
+
+    public static void removeKlip(Klippekort klippekort) {
+        klippekort.remove(klippekort);
     }
 }

@@ -1,5 +1,5 @@
 package model;
 
 public interface Rabat {
-    public double udregnRabat();
+    public double udregnRabat(double rabat);
 }
