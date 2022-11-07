@@ -82,7 +82,7 @@ public class Controller {
     public static double procentRabat(double procent){
         double x = 0.0;
         x = ((SamletOrdrePris() * procent) / 100);
-        return x - SamletOrdrePris();
+        return SamletOrdrePris() - x;
     }
 
     public static double fastPris(double nyPris){

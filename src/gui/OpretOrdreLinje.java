@@ -121,9 +121,10 @@ public class OpretOrdreLinje extends Application {
         rbAftaltPris.setToggleGroup(tg);
         rbRabatProcent.setToggleGroup(tg);
         GridPane.setValignment(vboxRabat, VPos.BOTTOM);
-        pane.add(vboxRabat,0,1);
+        pane.add(vboxRabat,0,4);
 
         btnTilfojProdukt.setOnAction(event -> this.opretOrdreLinje());
+
 
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
         LvwProduktKategori.getItems().addAll(Storage.getProduktkategori());
@@ -179,7 +180,6 @@ public class OpretOrdreLinje extends Application {
             } else if (rbAftaltPris.isSelected()) {
                 txfSamletPris.setText("" + Controller.fastPris(Integer.parseInt(txfRabat.getText())));
             }
-
         }
 
         if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3) {
