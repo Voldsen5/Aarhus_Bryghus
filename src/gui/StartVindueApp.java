@@ -228,39 +228,39 @@ public class StartVindueApp {
         Pris prisButikTribute = Controller.createPris(36, butik, tribute);
         Pris prisButikBlackMonster = Controller.createPris(60, butik, blackmonster);
 
-        Pris prisFredagsbarKlosterbryg = Controller.createPris(70, fredagsbar, klosterbryg);
-        Pris prisFredagsbarSweetGeorgiaBrown = Controller.createPris(70, fredagsbar, sweetgeorgiabrown);
-        Pris prisFredagsbarExtraPilsner = Controller.createPris(70, fredagsbar, extrapilsner);
-        Pris prisFredagsbarCelebration = Controller.createPris(70, fredagsbar, celebration);
-        Pris prisFredagsbarBlondie = Controller.createPris(70, fredagsbar, blondie);
-        Pris prisFredagsbarForårsbryg = Controller.createPris(70, fredagsbar, forårsbryg);
-        Pris prisFredagsbarIndiaPaleAle = Controller.createPris(70, fredagsbar, indiapaleale);
-        Pris prisFredagsbarJulebryg = Controller.createPris(70, fredagsbar, julebryg);
-        Pris prisFredagsbarJuletønden = Controller.createPris(70, fredagsbar, juletønden);
-        Pris prisFredagsbarOldStrongAle = Controller.createPris(70, fredagsbar, oldstrongale);
-        Pris prisFredagsbarFregattenJylland = Controller.createPris(70, fredagsbar, fregattenjylland);
-        Pris prisFredagsbarImperialStout = Controller.createPris(70, fredagsbar, imperialstout);
-        Pris prisFredagsbarTribute = Controller.createPris(70, fredagsbar, tribute);
-        Pris prisFredagsbarBlackMonster = Controller.createPris(100, fredagsbar, blackmonster);
-
-        Pris prisFredagsbarFadølKlosterbryg = Controller.createPris(38, fredagsbar, klosterbryg);
-        Pris prisFredagsbarFadølJazzClassic = Controller.createPris(38, fredagsbar, jazzclassic);
-        Pris prisFredagsbarFadølExtraPilsner = Controller.createPris(38, fredagsbar, extrapilsner);
-        Pris prisFredagsbarFadølCelebration = Controller.createPris(38, fredagsbar, celebration);
-        Pris prisFredagsbarFadølBlondie = Controller.createPris(38, fredagsbar, blondie);
-        Pris prisFredagsbarFadølForårsbryg = Controller.createPris(38, fredagsbar, forårsbryg);
-        Pris prisFredagsbarFadølIndiaPaleAle = Controller.createPris(38, fredagsbar, indiapaleale);
-        Pris prisFredagsbarFadølJulebryg = Controller.createPris(38, fredagsbar, julebryg);
-        Pris prisFredagsbarFadølImperialStout = Controller.createPris(38, fredagsbar, imperialstout);
-        Pris prisFredagsbarFadølSpecial = Controller.createPris(38, fredagsbar, special);
-        Pris prisFredagsbarFadølÆblebrus = Controller.createPris(15, fredagsbar, æblebrus);
-        Pris prisFredagsbarFadølChips = Controller.createPris(10, fredagsbar, chips);
-        Pris prisFredagsbarFadølPeanuts = Controller.createPris(15, fredagsbar, peanuts);
-        Pris prisFredagsbarFadølCola = Controller.createPris(15, fredagsbar, cola);
-        Pris prisFredagsbarFadølNikoline = Controller.createPris(15, fredagsbar, nikoline);
-        Pris prisFredagsbarFadøl7Up = Controller.createPris(15, fredagsbar, sevenup);
-        Pris prisFredagsbarFadølVand = Controller.createPris(10, fredagsbar, vand);
-        Pris prisFredagsbarFadølØlpølser = Controller.createPris(30, fredagsbar, ølpølser);
+//        Pris prisFredagsbarKlosterbryg = Controller.createPris(70, fredagsbar, klosterbryg);
+//        Pris prisFredagsbarSweetGeorgiaBrown = Controller.createPris(70, fredagsbar, sweetgeorgiabrown);
+//        Pris prisFredagsbarExtraPilsner = Controller.createPris(70, fredagsbar, extrapilsner);
+//        Pris prisFredagsbarCelebration = Controller.createPris(70, fredagsbar, celebration);
+//        Pris prisFredagsbarBlondie = Controller.createPris(70, fredagsbar, blondie);
+//        Pris prisFredagsbarForårsbryg = Controller.createPris(70, fredagsbar, forårsbryg);
+//        Pris prisFredagsbarIndiaPaleAle = Controller.createPris(70, fredagsbar, indiapaleale);
+//        Pris prisFredagsbarJulebryg = Controller.createPris(70, fredagsbar, julebryg);
+//        Pris prisFredagsbarJuletønden = Controller.createPris(70, fredagsbar, juletønden);
+//        Pris prisFredagsbarOldStrongAle = Controller.createPris(70, fredagsbar, oldstrongale);
+//        Pris prisFredagsbarFregattenJylland = Controller.createPris(70, fredagsbar, fregattenjylland);
+//        Pris prisFredagsbarImperialStout = Controller.createPris(70, fredagsbar, imperialstout);
+//        Pris prisFredagsbarTribute = Controller.createPris(70, fredagsbar, tribute);
+//        Pris prisFredagsbarBlackMonster = Controller.createPris(100, fredagsbar, blackmonster);
+//
+//        Pris prisFredagsbarFadølKlosterbryg = Controller.createPris(38, fredagsbar, klosterbryg);
+//        Pris prisFredagsbarFadølJazzClassic = Controller.createPris(38, fredagsbar, jazzclassic);
+//        Pris prisFredagsbarFadølExtraPilsner = Controller.createPris(38, fredagsbar, extrapilsner);
+//        Pris prisFredagsbarFadølCelebration = Controller.createPris(38, fredagsbar, celebration);
+//        Pris prisFredagsbarFadølBlondie = Controller.createPris(38, fredagsbar, blondie);
+//        Pris prisFredagsbarFadølForårsbryg = Controller.createPris(38, fredagsbar, forårsbryg);
+//        Pris prisFredagsbarFadølIndiaPaleAle = Controller.createPris(38, fredagsbar, indiapaleale);
+//        Pris prisFredagsbarFadølJulebryg = Controller.createPris(38, fredagsbar, julebryg);
+//        Pris prisFredagsbarFadølImperialStout = Controller.createPris(38, fredagsbar, imperialstout);
+//        Pris prisFredagsbarFadølSpecial = Controller.createPris(38, fredagsbar, special);
+//        Pris prisFredagsbarFadølÆblebrus = Controller.createPris(15, fredagsbar, æblebrus);
+//        Pris prisFredagsbarFadølChips = Controller.createPris(10, fredagsbar, chips);
+//        Pris prisFredagsbarFadølPeanuts = Controller.createPris(15, fredagsbar, peanuts);
+//        Pris prisFredagsbarFadølCola = Controller.createPris(15, fredagsbar, cola);
+//        Pris prisFredagsbarFadølNikoline = Controller.createPris(15, fredagsbar, nikoline);
+//        Pris prisFredagsbarFadøl7Up = Controller.createPris(15, fredagsbar, sevenup);
+//        Pris prisFredagsbarFadølVand = Controller.createPris(10, fredagsbar, vand);
+//        Pris prisFredagsbarFadølØlpølser = Controller.createPris(30, fredagsbar, ølpølser);
         //---------------------------------------------------------------------------------------
         //pris med klip
         Pris prisFredagsbarKlosterbrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, klosterbryg,Controller.createKlip(2));
@@ -288,14 +288,14 @@ public class StartVindueApp {
         Pris prisFredagsbarFadølJulebrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, julebryg,Controller.createKlip(1));
         Pris prisFredagsbarFadølImperialStoutMedKlip = Controller.createPrisMedKlip(38, fredagsbar, imperialstout,Controller.createKlip(1));
         Pris prisFredagsbarFadølSpecialMedKlip = Controller.createPrisMedKlip(38, fredagsbar, special,Controller.createKlip(1));
-        //Pris prisFredagsbarFadølÆblebrus = Controller.createPris(15, fredagsbar, æblebrus);
-        //Pris prisFredagsbarFadølChips = Controller.createPris(10, fredagsbar, chips);
-        //Pris prisFredagsbarFadølPeanuts = Controller.createPris(15, fredagsbar, peanuts);
-        //Pris prisFredagsbarFadølCola = Controller.createPris(15, fredagsbar, cola);
-        //Pris prisFredagsbarFadølNikoline = Controller.createPris(15, fredagsbar, nikoline);
-        //Pris prisFredagsbarFadøl7Up = Controller.createPris(15, fredagsbar, sevenup);
-        //Pris prisFredagsbarFadølVand = Controller.createPris(10, fredagsbar, vand);
-        //Pris prisFredagsbarFadølØlpølser = Controller.createPris(30, fredagsbar, ølpølser);
+        Pris prisFredagsbarFadølÆblebrus = Controller.createPris(15, fredagsbar, æblebrus);
+        Pris prisFredagsbarFadølChips = Controller.createPris(10, fredagsbar, chips);
+        Pris prisFredagsbarFadølPeanuts = Controller.createPris(15, fredagsbar, peanuts);
+        Pris prisFredagsbarFadølCola = Controller.createPris(15, fredagsbar, cola);
+        Pris prisFredagsbarFadølNikoline = Controller.createPris(15, fredagsbar, nikoline);
+        Pris prisFredagsbarFadøl7Up = Controller.createPris(15, fredagsbar, sevenup);
+        Pris prisFredagsbarFadølVand = Controller.createPris(10, fredagsbar, vand);
+        Pris prisFredagsbarFadølØlpølser = Controller.createPris(30, fredagsbar, ølpølser);
 
 
         //----------------------------------------------------------------------------------------
