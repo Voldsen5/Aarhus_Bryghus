@@ -7,8 +7,8 @@ import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
@@ -34,6 +34,8 @@ public class StartSide extends Application {
         Button btnBillede = new Button();
         Image img = new Image("C:\\Users\\Abdul Baaqi\\IdeaProjects\\Aarhus_Bryghus\\src\\gui\\bryghus.png");
         ImageView view = new ImageView(img);
+        BackgroundFill background_Hvid = new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY);
+        Background backgroundHvid = new Background(background_Hvid);
         private OpretProdukt opretProdukt;
 
     private void initContent(GridPane pane) {
@@ -45,6 +47,7 @@ public class StartSide extends Application {
         pane.setHgap(10);
         // set vertical gap between components
         pane.setVgap(10);
+        pane.setBackground(backgroundHvid);
 
         btnLedelse.setPrefSize(100,50);
         btnKunde.setPrefSize(100,50);
