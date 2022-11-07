@@ -5,9 +5,31 @@ import java.util.ArrayList;
 
 public class Produkt {
     private String navn;
+
+
+    private double PantPris;
     private final ArrayList<Pris> priser = new ArrayList<>();
     private final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
     private ProduktKategori produktKategori;
+
+    public double getPantPris() {
+        return PantPris;
+    }
+
+    public void setPantPris(double pantPris) {
+        PantPris = pantPris;
+    }
+
+    public ProduktMedPant getProduktMedPant() {
+        return produktMedPant;
+    }
+
+    public void setProduktMedPant(ProduktMedPant produktMedPant) {
+        this.produktMedPant = produktMedPant;
+    }
+
+    private ProduktMedPant produktMedPant;
+
 
     public Produkt(String navn) {
         this.navn = navn;

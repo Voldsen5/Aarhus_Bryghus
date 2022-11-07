@@ -187,6 +187,16 @@ public class StartVindueApp {
         fustage.addProdukt(imperialstout20liter);
         fustage.addProdukt(pant);
 
+//        klosterbryg20liter.setPantPris(200);
+//        jazzClassic25liter.setPantPris(200);
+//        extraPilsner25liter.setPantPris(200);
+//        celebration20liter.setPantPris(200);
+//        blondie25liter.setPantPris(200);
+//        forårsbryg20liter.setPantPris(200);
+//        indiapaleale20liter.setPantPris(200);
+//        Julebryg20liter.setPantPris(200);
+//        imperialstout20liter.setPantPris(200);
+
         kulsyre.addProdukt(kulsyre6kg);
         kulsyre.addProdukt(kulsyrePant);
         kulsyre.addProdukt(kulsyre4kg);

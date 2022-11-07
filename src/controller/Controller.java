@@ -1,7 +1,6 @@
 package controller;
 
 
-import gui.OpretOrdreLinje;
 import model.*;
 import storage.Storage;
 
@@ -83,6 +82,13 @@ public class Controller {
         double x = 0.0;
         x = ((SamletOrdrePris() * procent) / 100);
         return SamletOrdrePris() - x;
+    }
+    public static double SamletPantPris(){
+        double x = 0.0;
+        for (Produkt p : Storage.getProdukts()){
+            x = x+p.getPantPris();
+        }
+        return x;
     }
 
     public static double fastPris(double nyPris){

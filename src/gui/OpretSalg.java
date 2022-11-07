@@ -20,7 +20,7 @@ import java.util.Locale;
 public class OpretSalg extends Stage {
 
 
-    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer,ArrayList<ProduktMedPant>tempPant) {
+    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
         this.initModality(Modality.APPLICATION_MODAL);
@@ -103,7 +103,6 @@ public class OpretSalg extends Stage {
 
         gennemført.setOnAction(event -> this.fulføreBetaling());
     }
-
     public void fulføreBetaling(){
         String temp = "";
         for (CheckBox p : tempCheckbox){
@@ -112,7 +111,13 @@ public class OpretSalg extends Stage {
             }
         }
         for (OrdreLinje c : Storage.getOrdreLinjer()){
+            kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
             kvittering.appendText(""+c+"\n");
+            kvittering.appendText("\n");
+            kvittering.appendText("Samlet Pris På Ordre: "+Controller.SamletOrdrePris()+"\n");
+            kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
+            kvittering.appendText("\n");
+
         }
         kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
 
