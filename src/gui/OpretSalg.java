@@ -114,11 +114,10 @@ public class OpretSalg extends Stage {
             kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
             kvittering.appendText(""+c+"\n");
             kvittering.appendText("\n");
-            kvittering.appendText("Samlet Pris På Ordre: "+Controller.SamletOrdrePris()+"\n");
-            kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
-            kvittering.appendText("\n");
 
         }
+        kvittering.appendText("Samlet Pris På Ordre: "+Controller.SamletOrdrePris()+"\n");
+        kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
         kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
 
 

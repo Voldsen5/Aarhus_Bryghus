@@ -80,7 +80,6 @@ public class StartVindueApp {
         Produkt indiapaleale20liter = Controller.createProdukt("India Pale Ale, 20L");
         Produkt Julebryg20liter = Controller.createProdukt("Julebryg, 20L");
         Produkt imperialstout20liter = Controller.createProdukt("Imperial Stout, 20L");
-        Produkt pant = Controller.createProdukt("Pant");
 
         Controller.createProduktMedPant(klosterbryg20liter, 200);
         Controller.createProduktMedPant(jazzClassic25liter, 200);
@@ -176,7 +175,6 @@ public class StartVindueApp {
         fustage.addProdukt(indiapaleale20liter);
         fustage.addProdukt(Julebryg20liter);
         fustage.addProdukt(imperialstout20liter);
-        fustage.addProdukt(pant);
 
 //        klosterbryg20liter.setPantPris(200);
 //        jazzClassic25liter.setPantPris(200);
@@ -332,7 +330,6 @@ public class StartVindueApp {
         Pris prisButikFustageIndiaPaleAle = Controller.createPris(775, butik, indiapaleale20liter);
         Pris prisButikFustageJulebryg = Controller.createPris(775, butik, Julebryg20liter);
         Pris prisButikFustageImperialStout = Controller.createPris(775, butik, imperialstout20liter);
-        Pris prisButikFustagePant = Controller.createPris(200, butik, pant);
 
         Pris prisFredagsbarKulsyre6kg = Controller.createPris(400, fredagsbar, kulsyre6kg);
         Pris prisButikKulsyre6kg = Controller.createPris(400, butik, kulsyre6kg);

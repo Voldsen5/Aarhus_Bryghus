@@ -167,37 +167,27 @@ public class OpretOrdreLinje extends Application {
     }
 
     private void opretOrdreLinje(){
-        if (!txfAntal.getText().isEmpty() && LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3) {
+        if (!txfAntal.getText().isEmpty()) {
             LvwOrdreLinje.getItems().clear();
+            Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
+            Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
+            LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
 
 //            txfPantPris.clear();
 //            int test = Integer.parseInt(txfAntal.getText())*200;
 //            int pant = Integer.parseInt(txfPantPris.getText()+test);
             if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 4){
-                Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
                 double tt = Double.parseDouble(txfAntal.getText())*1000;
                 j.setPantPris(tt);
-                Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
                 txfAntal.clear();
-                LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
                 txfSamletPris.clear();
             }if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3){
-                Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
                 double tt = Double.parseDouble(txfAntal.getText())*200;
                 j.setPantPris(tt);
-                Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
                 txfAntal.clear();
-                LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
                 txfSamletPris.clear();
             }
 
-        }else {
-            LvwOrdreLinje.getItems().clear();
-            Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
-            Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
-            txfAntal.clear();
-            LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
-            txfSamletPris.clear();
         }
             if (txfRabat.getText().isEmpty()) {
                 txfSamletPris.setText("" + Controller.SamletOrdrePris());
