@@ -6,9 +6,11 @@ import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 public class StartSide extends Application {
 
@@ -29,6 +31,9 @@ public class StartSide extends Application {
         Button btnLedelse = new Button("Ledelse");
         Button btnKunde = new Button("Medarbejder");
         Button btnOpretProdukt = new Button("Opret Produkt");
+        Button btnBillede = new Button();
+        Image img = new Image("C:\\Users\\Abdul Baaqi\\IdeaProjects\\Aarhus_Bryghus\\src\\gui\\bryghus.png");
+        ImageView view = new ImageView(img);
         private OpretProdukt opretProdukt;
 
     private void initContent(GridPane pane) {
@@ -51,6 +56,17 @@ public class StartSide extends Application {
         hBoxBtn.setSpacing(80);
         GridPane.setHalignment(hBoxBtn,HPos.CENTER);
         GridPane.setValignment(hBoxBtn,VPos.CENTER);
+
+        pane.add(btnBillede, 0, 1);
+        btnBillede.setPrefSize(500, 500);
+        btnBillede.setFocusTraversable(false);
+        btnBillede.setBackground(null);
+        btnBillede.setGraphic(view);
+        GridPane.setHalignment(btnBillede, HPos.CENTER);
+
+        view.setFitHeight(350);
+        view.setFitWidth(450);
+
 
         btnOpretProdukt.setOnAction(event -> this.openOpretProdukt(new Stage()));
     }

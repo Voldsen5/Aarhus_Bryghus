@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Optional;
 
 public class OpretSalg extends Stage {
 
@@ -43,6 +44,7 @@ public class OpretSalg extends Stage {
     LocalDate now = LocalDate.from(LocalDateTime.now());
     Label datoVisning = new Label("Dato :  "+now);
     Button gennemført = new Button("Fuldføre Betaling");
+    Button godkend = new Button("Godkend Betaling...");
     ArrayList<OrdreLinje>temp = new ArrayList<>();
     private Stage owner;
     TextArea kvittering = new TextArea();
@@ -94,6 +96,10 @@ public class OpretSalg extends Stage {
         pane.add(gennemført, 9, 10);
         GridPane.setHalignment(gennemført, HPos.LEFT);
 
+        pane.add(godkend, 8, 10);
+        GridPane.setHalignment(godkend, HPos.RIGHT);
+        godkend.setVisible(false);
+
         lvwordre.setMaxHeight(250);
         lvwordre.getItems().addAll(Storage.getOrdreLinjer());
 
@@ -102,8 +108,11 @@ public class OpretSalg extends Stage {
         kvittering.setEditable(false);
 
         gennemført.setOnAction(event -> this.fulføreBetaling());
+        godkend.setOnAction(event -> this.godkendBetaling());
     }
     public void fulføreBetaling(){
+        godkend.setVisible(true);
+        gennemført.setDisable(true);
         String temp = "";
         for (CheckBox p : tempCheckbox){
             if (p.isSelected()){
@@ -123,6 +132,20 @@ public class OpretSalg extends Stage {
 
 //        kvittering.appendText(""+Storage.getOrdreLinjer()+"\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
         //Controler liste appent new line
+
+    }
+
+    public void godkendBetaling(){
+       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+       alert.setTitle("Gennemføre Køb.");
+       alert.setContentText("Vil du godkende betalingen? ");
+       alert.setHeaderText("Bekræftelse");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            alert.close();
+            this.close();
+        }
 
     }
 

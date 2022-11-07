@@ -212,6 +212,11 @@ public class OpretOrdreLinje extends Application {
     private void betalNu(Stage owner) {
         salgVindue = new OpretSalg("",owner,Storage.getOrdreLinjer());
         this.salgVindue.showAndWait();
+        LvwOrdreLinje.getItems().clear();
+        txfSamletPris.clear();
+        txfAntal.clear();
+        txfRabat.clear();
+        txfPantPris.clear();
 
     }
 }
