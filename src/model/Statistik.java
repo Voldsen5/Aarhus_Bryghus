@@ -1,6 +1,8 @@
 package model;
 
-public class Statistik implements Observer{
+import java.io.Serializable;
+
+public class Statistik implements Observer, Serializable {
 
     private int dagligSalg;
 

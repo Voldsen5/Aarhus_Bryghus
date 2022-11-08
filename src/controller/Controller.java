@@ -5,44 +5,55 @@ import model.*;
 import storage.Storage;
 
 public class Controller {
+    private static Storage storage;
 
     /**
      * Create a new Company.
      * Pre: name not empty, hours >= 0.
      */
+
+    public static Storage getStorage() {
+        return storage;
+    }
+
+
+    public static void setStorage(Storage storage) {
+        Controller.storage = storage;
+    }
+
     public static ProduktKategori createProduktkategori(String name) {
         ProduktKategori produktKategori = new ProduktKategori(name);
-        Storage.storeProduktKatagori(produktKategori);
+        storage.storeProduktKatagori(produktKategori);
         return produktKategori;
     }
 
     public static Produkt createProdukt(String navn) {
         Produkt produkt = new Produkt(navn);
-        Storage.storeProdukt(produkt);
+        storage.storeProdukt(produkt);
         return produkt;
     }
 
     public static OrdreLinje createOrdreLinje(Produkt produkt, int antal) {
         OrdreLinje ordreLinje = new OrdreLinje(produkt, antal);
-        Storage.storeOrdreLinjer(ordreLinje);
+        storage.storeOrdreLinjer(ordreLinje);
         return ordreLinje;
     }
 
     public static Kontekst createKontekst(String event) {
         Kontekst kontekst = new Kontekst(event);
-        Storage.storeKontekst(kontekst);
+        storage.storeKontekst(kontekst);
         return kontekst;
     }
 
     public static Pris createPris(double beløb, Kontekst kontekst, Produkt produkt) {
         Pris pris = new Pris(beløb, kontekst, produkt);
-        Storage.storePris(pris);
+        storage.storePris(pris);
         return pris;
     }
 
     public static Pris createPrisMedKlip(double beløb, Kontekst kontekst, Produkt produkt, Klip klip) {
         Pris prismedKlip = new Pris(beløb, kontekst, produkt, klip);
-        Storage.storePris(prismedKlip);
+        storage.storePris(prismedKlip);
         return prismedKlip;
     }
 
@@ -52,13 +63,10 @@ public class Controller {
         produkt.setProduktKategori(produktKategori);
     }
 
-    public static void addPristilProdukt(Pris pris, Produkt produkt) {
-        produkt.addPris(pris);
-    }
 
     public static double SamletOrdrePris() {
         double samlet = 0.0;
-        for (OrdreLinje p : Storage.getOrdreLinjer()) {
+        for (OrdreLinje p : storage.getOrdreLinjer()) {
             samlet = samlet + p.ordreLinjePris();
         }
 
@@ -67,22 +75,10 @@ public class Controller {
 
     public static ProduktMedPant createProduktMedPant(Produkt produkt, double pantPris) {
         ProduktMedPant produktMedPant = new ProduktMedPant(produkt, pantPris);
-        Storage.storeProduktMedPant(produktMedPant);
+        storage.storeProduktMedPant(produktMedPant);
         return produktMedPant;
     }
 
-    public static void addPanttoProduktkategori(Produkt produkt, ProduktMedPant produktMedPant) {
-        produktMedPant.setProdukt(produkt);
-    }
-
-
-    public static double samletPantPris() {
-        double samlet = 0.0;
-        for (ProduktMedPant p : Storage.getProduktMedPants()) {
-            samlet = samlet + p.getPantPris();
-        }
-        return samlet;
-    }
 
     public static double procentRabat(double procent) {
         double x = 0.0;
@@ -91,7 +87,7 @@ public class Controller {
     }
     public static double SamletPantPris(){
         double x = 0.0;
-        for (Produkt p : Storage.getProdukts()){
+        for (Produkt p : storage.getProdukts()){
             x = x+p.getPantPris();
         }
         return x;
@@ -103,13 +99,13 @@ public class Controller {
 
     public static Betalingsmetode createKlippekort(String navn, Ordre ordre, Salg salg, Kunde kunde, int klip) {
         Betalingsmetode klippekort = new Betalingsmetode(navn, klip);
-        Storage.storeKlippekort(klippekort);
+        storage.storeKlippekort(klippekort);
         return klippekort;
     }
 
     public static Klip createKlip(int klip) {
         Klip klipper = new Klip(klip);
-        Storage.storeKlip(klipper);
+        storage.storeKlip(klipper);
         return klipper;
     }
 
