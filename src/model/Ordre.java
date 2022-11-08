@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Ordre {
+public class Ordre implements Serializable {
     private int antal;
     private double samletPris;
     private LocalDate dato;

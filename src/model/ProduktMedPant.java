@@ -1,6 +1,8 @@
 package model;
 
-public class ProduktMedPant {
+import java.io.Serializable;
+
+public class ProduktMedPant implements Serializable {
     private double pantPris;
     private Produkt produkt;
 

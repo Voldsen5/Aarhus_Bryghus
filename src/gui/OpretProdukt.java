@@ -87,7 +87,7 @@ public class OpretProdukt extends Stage {
 
 
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
-        LvwProduktKategori.getItems().addAll(Storage.getProduktkategori());
+        LvwProduktKategori.getItems().addAll(Controller.getStorage().getProduktkategori());
 
         tilfojProdukt.setOnAction(event -> this.skabProdukt());
     }
@@ -96,14 +96,14 @@ public class OpretProdukt extends Stage {
         if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == -1) {
             return;
         }
-        ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+        ProduktKategori f = Controller.getStorage().getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
         LvwProduktvisning.getItems().clear();
         LvwProduktvisning.getItems().addAll(f.getProdukter());
     }
 
     private void skabProdukt(){
         Produkt p = Controller.createProdukt(txfnavn.getText());
-        ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+        ProduktKategori f = Controller.getStorage().getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
         Controller.addProduktTilKategori(f,p);
         LvwProduktvisning.getItems().clear();
         LvwProduktvisning.getItems().addAll(f.getProdukter());

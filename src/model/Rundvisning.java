@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Rundvisning {
+public class Rundvisning implements Serializable {
     private LocalDateTime dato;
     private int antalDeltagelser;
     private String navn;

@@ -102,7 +102,7 @@ public class OpretSalg extends Stage {
         godkend.setVisible(false);
 
         lvwordre.setMaxHeight(250);
-        lvwordre.getItems().addAll(Storage.getOrdreLinjer());
+        lvwordre.getItems().addAll(Controller.getStorage().getOrdreLinjer());
 
         pane.add(kvittering, 9, 1);
         kvittering.setMaxWidth(250);
@@ -120,7 +120,7 @@ public class OpretSalg extends Stage {
                 temp = p.getText().toUpperCase(Locale.ROOT);
             }
         }
-        for (OrdreLinje c : Storage.getOrdreLinjer()){
+        for (OrdreLinje c : Controller.getStorage().getOrdreLinjer()){
             kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
             kvittering.appendText(""+c+"\n");
             kvittering.appendText("\n");
@@ -149,6 +149,7 @@ public class OpretSalg extends Stage {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
+            Controller.getStorage().getOrdreLinjer().clear();
             alert.close();
             this.close();
         }

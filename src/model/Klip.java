@@ -1,6 +1,8 @@
 package model;
 
-public class Klip {
+import java.io.Serializable;
+
+public class Klip implements Serializable {
     int klip;
 
     public Klip(int klip) {

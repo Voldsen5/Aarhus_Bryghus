@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Salg {
+public class Salg implements Serializable {
     private double pris;
     private LocalDate dato;
     private Betalingsmetode betalingsmetode;

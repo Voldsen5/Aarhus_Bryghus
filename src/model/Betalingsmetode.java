@@ -2,7 +2,9 @@ package model;
 
 import storage.Storage;
 
-public class Betalingsmetode {
+import java.io.Serializable;
+
+public class Betalingsmetode implements Serializable {
     private String navn;
     private Ordre ordre;
     private Salg salg;

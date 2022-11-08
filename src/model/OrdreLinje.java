@@ -1,9 +1,11 @@
 package model;
 
-public class OrdreLinje {
+import java.io.Serializable;
+
+public class OrdreLinje implements Serializable {
     private int antal;
     private String vareNavn;
-    Produkt produkt;
+    private Produkt produkt;
 
     public void setProdukt(Produkt produkt) {
         this.produkt = produkt;
