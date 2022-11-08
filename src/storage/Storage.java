@@ -1,9 +1,7 @@
 package storage;
 
 
-import gui.OpretSalg;
 import model.*;
-
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -129,8 +127,8 @@ public class Storage implements Serializable {
 
     //----------------------------------------------------------------------------------
 
-    public static ArrayList<Produkt> getPriser() {
-        return new ArrayList<>();
+    public static ArrayList<Pris> getPriser() {
+        return new ArrayList<>(priser);
     }
 
     public static void storePris(Pris pris) {

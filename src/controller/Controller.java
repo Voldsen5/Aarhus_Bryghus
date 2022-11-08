@@ -34,6 +34,12 @@ public class Controller {
         return kontekst;
     }
 
+    public static Klip createKlip(int klip) {
+        Klip klipper = new Klip(klip);
+        Storage.storeKlip(klipper);
+        return klipper;
+    }
+
     public static Pris createPris(double beløb, Kontekst kontekst, Produkt produkt) {
         Pris pris = new Pris(beløb, kontekst, produkt);
         Storage.storePris(pris);
@@ -108,10 +114,14 @@ public class Controller {
     }
 
     public static String  vælgKontekst() {
-        String p = "";
+        String p1 = "";
+        String p2 = "";
         for (Pris pris : Storage.getPriser()) {
             if (pris.getKontekst().equals("Butik")) {
-                p = String.valueOf(pris.getBeløb()+" "+pris.getProdukt().getNavn());
+                p1 = String.valueOf(pris.getBeløb()+" "+pris.getProdukt().getNavn());
+            }
+            else if (pris.getKontekst().equals("Fredagsbar")) {
+                p2 = String.valueOf(pris.getBeløb()+" "+pris.getProdukt().getNavn());
             }
         }
         return p;
