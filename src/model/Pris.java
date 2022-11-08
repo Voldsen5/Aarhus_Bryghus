@@ -1,6 +1,8 @@
 package model;
 
-public class Pris {
+import java.io.Serializable;
+
+public class Pris implements Serializable {
     private double beløb;
     Kontekst kontekst;
     Produkt produkt;

@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Produkt {
+public class Produkt implements Serializable {
     private String navn;
 
 
@@ -90,13 +91,12 @@ public class Produkt {
     /** Pre: The ordreLinje is not connected to a produkt. */
     public void addOrdreLinje (OrdreLinje ordreLinje) {
         ordreLinjer.add(ordreLinje);
-        ordreLinje.produkt = this;
+        ordreLinje.setProdukt(this);
     }
 
     /** Pre: The ordreLinje is connected to this produkt. */
     public void removeOrdreLinje (OrdreLinje ordreLinje) {
         ordreLinjer.remove(ordreLinje);
-        ordreLinje.produkt = null;
     }
 
     public double produktPris () {

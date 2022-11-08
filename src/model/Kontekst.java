@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Kontekst {
+public class Kontekst implements Serializable {
     private String event;
     private final ArrayList<Pris> priser = new ArrayList<>();
 

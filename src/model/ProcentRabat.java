@@ -1,6 +1,8 @@
 package model;
 
-public class ProcentRabat implements Rabat {
+import java.io.Serializable;
+
+public class ProcentRabat implements Rabat, Serializable {
     @Override
     public double udregnRabat(double procentRabat) {
         double x = 0;

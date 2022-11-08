@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProduktKategori {
+public class ProduktKategori implements Serializable {
     private String navn;
     private final ArrayList<Produkt> produkter = new ArrayList<>();
 

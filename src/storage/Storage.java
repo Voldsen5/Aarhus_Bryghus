@@ -1,159 +1,208 @@
 package storage;
 
 
+import controller.Storagein;
+import gui.OpretSalg;
 import model.*;
 
-import java.io.Serializable;
+
+import java.io.*;
 import java.util.ArrayList;
 
-public class Storage implements Serializable {
-    private static final ArrayList<ProduktKategori> produktkategori = new ArrayList<>();
-    private static final ArrayList<Produkt> produkts = new ArrayList<>();
-    private static final ArrayList<Ordre> ordrer = new ArrayList<>();
-    private static final ArrayList<Kunde> kunder = new ArrayList<>();
-    private static final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
-    private static final ArrayList<Kontekst> kontekster = new ArrayList<>();
-    private static final ArrayList<Pris> priser = new ArrayList<>();
-    private static final ArrayList<Statistik> statistiks = new ArrayList<>();
-    private static final ArrayList<Salg> salgs = new ArrayList<>();
-    private static final ArrayList<ProduktMedPant> produktMedPants = new ArrayList<>();
-    private static final ArrayList<Betalingsmetode> klippekorts = new ArrayList<>();
-    private static final ArrayList<Klip> klips = new ArrayList<>();
+public class Storage implements Storagein, Serializable {
+    private  final ArrayList<ProduktKategori> produktkategori = new ArrayList<>();
+    private  final ArrayList<Produkt> produkts = new ArrayList<>();
+    private  final ArrayList<Ordre> ordrer = new ArrayList<>();
+    private  final ArrayList<Kunde> kunder = new ArrayList<>();
+    private  final ArrayList<OrdreLinje> ordreLinjer = new ArrayList<>();
+    private  final ArrayList<Kontekst> kontekster = new ArrayList<>();
+    private  final ArrayList<Pris> priser = new ArrayList<>();
+    private  final ArrayList<Statistik> statistiks = new ArrayList<>();
+    private  final ArrayList<Salg> salgs = new ArrayList<>();
+    private  final ArrayList<ProduktMedPant> produktMedPants = new ArrayList<>();
+    private  final ArrayList<Betalingsmetode> klippekorts = new ArrayList<>();
+    private  final ArrayList<Klip> klips = new ArrayList<>();
 
 
 
 
     // -------------------------------------------------------------------------
 
-    public static ArrayList<ProduktKategori> getProduktkategori() {
-        return new ArrayList<>(produktkategori);
+    public  ArrayList<ProduktKategori> getProduktkategori() {
+        return produktkategori;
     }
 
-    public static void storeProduktKatagori(ProduktKategori produktKategori) {
+    public  void storeProduktKatagori(ProduktKategori produktKategori) {
         produktkategori.add(produktKategori);
     }
 
 
     // -------------------------------------------------------------------------
 
-    public static ArrayList<Produkt> getProdukts() {
-        return new ArrayList<>(produkts);
+    public  ArrayList<Produkt> getProdukts() {
+        return produkts;
     }
 
-    public static void storeProdukt(Produkt produkt) {
+    public  void storeProdukt(Produkt produkt) {
         produkts.add(produkt);
     }
 
-    public static void deleteProdukt(Produkt produkt) {
+    public  void deleteProdukt(Produkt produkt) {
         produkts.remove(produkt);
     }
 //
 //    // -------------------------------------------------------------------------
 
-  public static ArrayList<OrdreLinje> getOrdreLinjer() {
-        return new ArrayList<>(ordreLinjer);
+  public  ArrayList<OrdreLinje> getOrdreLinjer() {
+        return ordreLinjer;
     }
 
-    public static void storeOrdreLinjer(OrdreLinje ordreLinje) {
+    public  void storeOrdreLinjer(OrdreLinje ordreLinje) {
         ordreLinjer.add(ordreLinje);
     }
 
 
-    public static ArrayList<ProduktMedPant> getProduktMedPants() {
-        return new ArrayList<>(produktMedPants);
+    public  ArrayList<ProduktMedPant> getProduktMedPants() {
+        return produktMedPants;
     }
 
-    public static void storeProduktMedPant(ProduktMedPant produktMedPant) {
+    public  void storeProduktMedPant(ProduktMedPant produktMedPant) {
         produktMedPants.add(produktMedPant);
     }
 
-    public static ArrayList<Statistik> getStatistiks() {
-        return new ArrayList<>(statistiks);
+    public  ArrayList<Statistik> getStatistiks() {
+        return statistiks;
     }
 
-    public static void storeStatistik(Statistik statistik) {
+    public  void storeStatistik(Statistik statistik) {
         statistiks.add(statistik);
     }
 
 
-    public static ArrayList<Salg> getSalg() {
-        return new ArrayList<>(salgs);
+    public  ArrayList<Salg> getSalg() {
+        return salgs;
     }
 
-    public static void storeSalg(Salg salg) {
+    public  void storeSalg(Salg salg) {
         salgs.add(salg);
     }
 
 
-    public static ArrayList<Ordre> getOrdrer() {
-    return new ArrayList<>(ordrer);
+    public  ArrayList<Ordre> getOrdrer() {
+    return ordrer;
 }
 
-    public static void storeOrdre(Ordre ordre) {
+    public  void storeOrdre(Ordre ordre) {
         ordrer.add(ordre);
     }
 
-    public static void deleteOrdre(Ordre ordre) {
+    public  void deleteOrdre(Ordre ordre) {
         ordrer.remove(ordre);
     }
 
     //    // -------------------------------------------------------------------------
 
-    public static ArrayList<Kunde> getKunder() {
-        return new ArrayList<>(kunder);
+    public  ArrayList<Kunde> getKunder() {
+        return kunder;
     }
 
-    public static void storeKunde(Kunde kunde) {
+    public  void storeKunde(Kunde kunde) {
         kunder.add(kunde);
     }
 
-    public static void deleteKunde(Kunde kunde) {
+    public  void deleteKunde(Kunde kunde) {
         kunder.remove(kunde);
     }
 
     //----------------------------------------------------------------------------------
 
-    public static ArrayList<Kontekst> getKontekster() {
-        return new ArrayList<>();
+    public  ArrayList<Kontekst> getKontekster() {
+        return kontekster;
     }
 
-    public static void storeKontekst(Kontekst kontekst) {
+    public  void storeKontekst(Kontekst kontekst) {
         kontekster.add(kontekst);
     }
 
-    public static void deleteKontekst(Kontekst kontekst) {
+    public  void deleteKontekst(Kontekst kontekst) {
         kontekster.remove(kontekst);
+    }
+
+    @Override
+    public ArrayList<Produkt> getPriser() {
+        return null;
     }
 
     //----------------------------------------------------------------------------------
 
-    public static ArrayList<Pris> getPriser() {
-        return new ArrayList<>(priser);
-    }
+//    public  ArrayList<Pris> getPriser() {
+//        return priser;
+//    }
 
-    public static void storePris(Pris pris) {
+    public  void storePris(Pris pris) {
         priser.add(pris);
     }
 
-    public static void deletePris(Pris pris) {
+    public  void deletePris(Pris pris) {
         priser.remove(pris);
     }
 
     //----------------------------------------------------------------------------------
 
-    public static ArrayList<Betalingsmetode> getKlippekort() {
-        return new ArrayList<>();
+    public  ArrayList<Betalingsmetode> getKlippekort() {
+        return klippekorts;
     }
 
-    public static void storeKlippekort(Betalingsmetode klippekort) {
+    public  void storeKlippekort(Betalingsmetode klippekort) {
         klippekorts.add(klippekort);
     }
 
-    public static void removeKlip(Betalingsmetode klippekort) {
+    public  void removeKlip(Betalingsmetode klippekort) {
         klippekorts.remove(klippekort);
     }
 
-    public static void storeKlip(Klip klip) {
+    public  void storeKlip(Klip klip) {
         klips.add(klip);
     }
+
+
+    public static Storage loadStorage() {
+        String fileName = "storageGem.ser";
+        try (FileInputStream fileIn = new FileInputStream(fileName);
+             ObjectInputStream objIn = new ObjectInputStream(fileIn)
+        ) {
+            Object obj = objIn.readObject();
+            Storage storage = (Storage) obj;
+            System.out.println("Storage loaded from file " + fileName);
+            return storage;
+        } catch (ClassCastException ex) {
+            System.out.println("Class of serialized object changed");
+            System.out.println(ex);
+            return null;
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Class of serialized object not found");
+            System.out.println(ex);
+            return null;
+        } catch (IOException ex) {
+            System.out.println("Error reading file");
+            System.out.println(ex);
+            return null;
+        }
+    }
+
+    public static void saveStorage(Storage storage) {
+        String fileName = "storageGem.ser";
+        try (FileOutputStream fileOut = new FileOutputStream(fileName);
+             ObjectOutputStream objOut = new ObjectOutputStream(fileOut)
+        ) {
+            objOut.writeObject(storage);
+            System.out.println("Storage saved in file " + fileName);
+        } catch (IOException ex) {
+            System.out.println("Error writing file");
+            System.out.println(ex);
+            throw new RuntimeException();
+        }
+    }
+
+
 }

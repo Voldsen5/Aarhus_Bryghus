@@ -11,12 +11,15 @@ import java.io.*;
 public class StartVindueApp {
 
     public static void main(String[] args) {
-        initStorage();
-//      Storage p = new Storage();
-        Storage p = getSaveStorage();
-        saveStorage(p);
-//        Storage k = getSaveStorage();
+        Storage storage = Storage.loadStorage();
+        if (storage == null){
+            storage = new Storage();
+            System.out.println("Empty Storage created");
+        }
+        Controller.setStorage(storage);
+//        initStorage();
         Application.launch(OpretOrdreLinje.class);
+        Storage.saveStorage(Controller.getStorage());
     }
 
     public static void initStorage() {
@@ -376,31 +379,6 @@ public class StartVindueApp {
 
     }
 
-    public static void saveStorage(Storage temp) {
-        String fileName = "Aarhus_Bryghus\\src\\storage\\storageGem.ser";
-        try (
-                FileOutputStream fileOut = new FileOutputStream(fileName);
-                ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
-        ) {
-            objOut.writeObject(temp);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public static Storage getSaveStorage() {
-        try (
-                FileInputStream fileIn = new FileInputStream("Aarhus_Bryghus\\src\\storage\\storageGem.ser");
-                ObjectInputStream objIn = new ObjectInputStream(fileIn);
-
-        ) {
-            Object obj = objIn.readObject();
-            return (Storage) obj;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
 
 
 //    public static void saveStorage3(ArrayList<Ordre>temp){
