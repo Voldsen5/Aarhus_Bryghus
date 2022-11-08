@@ -8,6 +8,7 @@ import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.OrdreLinje;
@@ -16,6 +17,8 @@ import model.Produkt;
 import model.ProduktKategori;
 import model.ProduktMedPant;
 import storage.Storage;
+
+import java.awt.event.ActionListener;
 
 public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
@@ -41,7 +44,7 @@ public class OpretOrdreLinje extends Application {
     private final TextField txfSamletPris = new TextField();
     private final TextField txfPantPris = new TextField();
     private final Label lblSamletPris = new Label("Samlet Pris:");
-    private final Label lblPantPris = new Label("Pant Pr prod:");
+    private final Label lblPantPris = new Label("Pant Pris:");
     private final Label lblProduktKatagori = new Label("Produkt katagori:");
     private final Label lblProdukter = new Label("Produkter:");
     private final Label lblKvittering = new Label("   Navn           Antal   Pris     OrdreLinjePris");
@@ -53,6 +56,11 @@ public class OpretOrdreLinje extends Application {
     private final RadioButton rbRabatProcent = new RadioButton("Procent Rabat");
     private final RadioButton rbAftaltPris = new RadioButton("Aftalt Pris");
     private final ToggleGroup tg = new ToggleGroup();
+
+    private final Button btnRegnRabat = new Button("Regn Rabat");
+
+    private final TextField txfRabatSamletPris = new TextField();
+    private final Label lblRabatSamletPris = new Label("Pris med Rabat: ");
 
 
 
@@ -78,10 +86,11 @@ public class OpretOrdreLinje extends Application {
         VBox vboxP = new VBox(lblProdukter,LvwProduktvisning);
         pane.add(vboxP,1,0);
 
-
         VBox vboxK = new VBox(lblKvittering,LvwOrdreLinje);
         pane.add(vboxK,1,2);
         Controller.getStorage().getOrdreLinjer().clear();
+
+
 
 
 //        VBox vboxO = new VBox(lblKvittering,LvwProductmedPant);
@@ -105,6 +114,12 @@ public class OpretOrdreLinje extends Application {
         txfSamletPris.setMaxWidth(145);
         txfSamletPris.setEditable(false);
 
+        HBox hboxRabat = new HBox(lblRabatSamletPris,txfRabatSamletPris);
+        pane.add(hboxRabat,1,4);
+        txfRabatSamletPris.setMaxWidth(100);
+        txfRabatSamletPris.setEditable(false);
+        GridPane.setValignment(lblRabatSamletPris,VPos.BOTTOM);
+
         pane.add(txfPantPris,0,2);
         GridPane.setValignment(txfPantPris, VPos.BOTTOM);
         GridPane.setHalignment(txfPantPris,HPos.RIGHT);
@@ -117,7 +132,7 @@ public class OpretOrdreLinje extends Application {
         GridPane.setHalignment(lblPantPris,HPos.LEFT);
         lblPantPris.setDisable(true);
 
-        VBox vboxRabat = new VBox(lblRabat, rbRabatProcent, rbAftaltPris, txfRabat);
+        VBox vboxRabat = new VBox(lblRabat, rbRabatProcent, rbAftaltPris, txfRabat, btnRegnRabat);
         vboxRabat.setSpacing(10);
         txfRabat.setMaxWidth(100);
         rbAftaltPris.setToggleGroup(tg);
@@ -127,21 +142,26 @@ public class OpretOrdreLinje extends Application {
 
         btnTilfojProdukt.setOnAction(event -> this.opretOrdreLinje());
 
+        btnRegnRabat.setOnAction(event -> this.rabatfelt());
+
 
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
         LvwProduktKategori.getItems().addAll(Controller.getStorage().getProduktkategori());
 
         btnBetal.setOnAction(event -> this.betalNu(new Stage()));
 
-//        LvwOrdreLinje.getItems().addAll(Controller.getStorage().getOrdreLinjer());
-        
+        LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
 
+//        LvwOrdreLinje.getItems().addAll(Controller.getStorage().getOrdreLinjer());
     }
 
     private void visProdukter() {
         if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == -1) {
             return;
         }
+
+        ProduktKategori f = Storage.getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+
 
         if (LvwProduktKategori.getSelectionModel().getSelectedIndex() == 3) {
             txfPantPris.setDisable(false);
@@ -163,15 +183,28 @@ public class OpretOrdreLinje extends Application {
         }
 
         ProduktKategori f = Controller.getStorage().getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
+
         LvwProduktvisning.getItems().clear();
         LvwProduktvisning.getItems().addAll(f.getProdukter());
+
 
     }
 
     private void opretOrdreLinje(){
-        if (!txfAntal.getText().isEmpty()) {
+        if (!txfAntal.getText().isEmpty()){
             LvwOrdreLinje.getItems().clear();
             Produkt j = LvwProduktvisning.getSelectionModel().getSelectedItem();
+            Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
+            txfAntal.clear();
+            LvwOrdreLinje.getItems().addAll(Storage.getOrdreLinjer());
+            txfSamletPris.clear();
+            txfSamletPris.setText("" + Controller.SamletOrdrePris());
+        }
+    }
+
+    private void rabatfelt(){
+       if (rbRabatProcent.isSelected()) {
+            txfRabatSamletPris.setText("" + Controller.procentRabat(Integer.parseInt(txfRabat.getText())));
             if (j==null) return;
             OrdreLinje k = Controller.createOrdreLinje(j, Integer.parseInt(txfAntal.getText()));
             LvwOrdreLinje.getItems().addAll(Controller.getStorage().getOrdreLinjer());
@@ -187,15 +220,20 @@ public class OpretOrdreLinje extends Application {
                 txfSamletPris.clear();
             }
 
+
         }
-            if (txfRabat.getText().isEmpty()) {
-                txfSamletPris.setText("" + Controller.SamletOrdrePris());
-            } else if (rbRabatProcent.isSelected()) {
-                txfSamletPris.setText("" + Controller.procentRabat(Integer.parseInt(txfRabat.getText())));
-            } else if (rbAftaltPris.isSelected()) {
-                txfSamletPris.setText("" + Controller.fastPris(Integer.parseInt(txfRabat.getText())));
-            }
+        else if (rbAftaltPris.isSelected()){
+            txfRabatSamletPris.setText("" + Controller.fastPris(Integer.parseInt(txfRabat.getText())));
         }
+    }
+
+    private void betalNu(Stage owner) {
+        salgVindue = new OpretSalg("",owner,Storage.getOrdreLinjer(),txfRabatSamletPris);
+        this.salgVindue.showAndWait();
+
+
+
+
 
 
     private void betalNu(Stage owner) {
@@ -206,5 +244,6 @@ public class OpretOrdreLinje extends Application {
         txfAntal.clear();
         txfRabat.clear();
         txfPantPris.clear();
+
     }
 }
