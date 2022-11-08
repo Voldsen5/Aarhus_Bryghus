@@ -21,7 +21,7 @@ import java.util.Optional;
 public class OpretSalg extends Stage {
 
 
-    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer, TextField rabat) {
+    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
         this.initModality(Modality.APPLICATION_MODAL);
