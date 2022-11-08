@@ -32,13 +32,14 @@ public class StartSide extends Application {
         Button btnKunde = new Button("Medarbejder");
         Button btnOpretProdukt = new Button("Opret Produkt");
         Button btnBillede = new Button();
-        Image img = new Image("IdeaProjects\\Aarhus_Bryghus\\src\\gui\\bryghus.png");
+        Image img = null;//new Image("src/bryghus.png");
         ImageView view = new ImageView(img);
         BackgroundFill background_Hvid = new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY);
         Background backgroundHvid = new Background(background_Hvid);
         private OpretProdukt opretProdukt;
 
     private void initContent(GridPane pane) {
+        //System.out.println(System.getProperty("User.dir"));
         // show or hide grid lines
         pane.setGridLinesVisible(false);
         // set padding of the pane
