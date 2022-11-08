@@ -61,7 +61,6 @@ public class Controller {
         for (OrdreLinje p : Storage.getOrdreLinjer()) {
             samlet = samlet + p.ordreLinjePris();
         }
-
         return samlet;
     }
 
