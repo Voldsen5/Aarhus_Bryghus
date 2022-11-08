@@ -32,7 +32,7 @@ public class StartSide extends Application {
         Button btnKunde = new Button("Medarbejder");
         Button btnOpretProdukt = new Button("Opret Produkt");
         Button btnBillede = new Button();
-        Image img = new Image("C:\\Users\\Abdul Baaqi\\IdeaProjects\\Aarhus_Bryghus\\src\\gui\\bryghus.png");
+        Image img = new Image("IdeaProjects\\Aarhus_Bryghus\\src\\gui\\bryghus.png");
         ImageView view = new ImageView(img);
         BackgroundFill background_Hvid = new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY);
         Background backgroundHvid = new Background(background_Hvid);
