@@ -1,7 +1,9 @@
 package storage;
 
 
+import gui.OpretSalg;
 import model.*;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,9 +19,10 @@ public class Storage implements Serializable {
     private static final ArrayList<Statistik> statistiks = new ArrayList<>();
     private static final ArrayList<Salg> salgs = new ArrayList<>();
     private static final ArrayList<ProduktMedPant> produktMedPants = new ArrayList<>();
-    private static final ArrayList<Klippekort> klippekorts = new ArrayList<>();
-    private static final ArrayList<Pris> fredagsbarsPriser = new ArrayList<>();
-    private static final ArrayList<Pris> butiksPriser = new ArrayList<>();
+    private static final ArrayList<Betalingsmetode> klippekorts = new ArrayList<>();
+    private static final ArrayList<Klip> klips = new ArrayList<>();
+
+
 
 
     // -------------------------------------------------------------------------
@@ -49,7 +52,7 @@ public class Storage implements Serializable {
 //
 //    // -------------------------------------------------------------------------
 
-    public static ArrayList<OrdreLinje> getOrdreLinjer() {
+  public static ArrayList<OrdreLinje> getOrdreLinjer() {
         return new ArrayList<>(ordreLinjer);
     }
 
@@ -85,8 +88,8 @@ public class Storage implements Serializable {
 
 
     public static ArrayList<Ordre> getOrdrer() {
-        return new ArrayList<>(ordrer);
-    }
+    return new ArrayList<>(ordrer);
+}
 
     public static void storeOrdre(Ordre ordre) {
         ordrer.add(ordre);
@@ -126,7 +129,7 @@ public class Storage implements Serializable {
 
     //----------------------------------------------------------------------------------
 
-    public static ArrayList<Pris> getPriser() {
+    public static ArrayList<Produkt> getPriser() {
         return new ArrayList<>();
     }
 
@@ -140,45 +143,19 @@ public class Storage implements Serializable {
 
     //----------------------------------------------------------------------------------
 
-    public static ArrayList<Klippekort> getKlippekort() {
-        return new ArrayList<>(klippekorts);
+    public static ArrayList<Betalingsmetode> getKlippekort() {
+        return new ArrayList<>();
     }
 
-    public static void storeKlippekort(Klippekort klippekort) {
+    public static void storeKlippekort(Betalingsmetode klippekort) {
         klippekorts.add(klippekort);
     }
 
-    public static void removeKlip(Klippekort klippekort) {
+    public static void removeKlip(Betalingsmetode klippekort) {
         klippekorts.remove(klippekort);
     }
 
-    //----------------------------------------------------------------------------------
-
-    public static ArrayList<Pris> getFredagsbarsPriser() {
-        return new ArrayList<>(fredagsbarsPriser);
+    public static void storeKlip(Klip klip) {
+        klips.add(klip);
     }
-
-    public static void storeFredagsbarsPriser(Pris fredagsbarsPris) {
-        fredagsbarsPriser.add(fredagsbarsPris);
-    }
-
-    public static void removeFredagsbarsPriser(Pris fredagsbarsPris) {
-        fredagsbarsPriser.remove(fredagsbarsPris);
-    }
-
-    //----------------------------------------------------------------------------------
-
-    public static ArrayList<Pris> getButiksPriser() {
-        return new ArrayList<>(butiksPriser);
-    }
-
-    public static void storeButiksPriser(Pris butiksPris) {
-        butiksPriser.add(butiksPris);
-    }
-
-    public static void removeButiksPriser(Pris butiksPris) {
-        butiksPriser.remove(butiksPris);
-    }
-
-
 }

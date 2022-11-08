@@ -12,5 +12,8 @@
     <orderEntry type="library" name="javafx.base3" level="application" />
     <orderEntry type="library" name="javafx.base" level="application" />
     <orderEntry type="library" name="javafx.controls" level="application" />
+    <orderEntry type="library" exported="" name="javafx" level="application" />
+    <orderEntry type="library" exported="" name="javafx-sdk.17.0" level="application" />
+    <orderEntry type="library" exported="" name="mssql-jdbc-7.0.0.jre10" level="application" />
   </component>
 </module>
