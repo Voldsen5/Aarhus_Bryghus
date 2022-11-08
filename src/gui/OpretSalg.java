@@ -21,7 +21,7 @@ import java.util.Optional;
 public class OpretSalg extends Stage {
 
 
-    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer, TextField rabat) {
+    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
         this.initModality(Modality.APPLICATION_MODAL);
@@ -120,8 +120,8 @@ public class OpretSalg extends Stage {
                 temp = p.getText().toUpperCase(Locale.ROOT);
             }
         }
+        kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
         for (OrdreLinje c : Controller.getStorage().getOrdreLinjer()){
-            kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
             kvittering.appendText(""+c+"\n");
             kvittering.appendText("\n");
 
@@ -133,6 +133,9 @@ public class OpretSalg extends Stage {
         }
         kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
         kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
+        for (Produkt p : Controller.getStorage().getProdukts()){
+            p.setPantPris(0);
+        }
 
 
 

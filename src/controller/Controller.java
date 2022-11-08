@@ -4,6 +4,8 @@ package controller;
 import model.*;
 import storage.Storage;
 
+import java.time.LocalDate;
+
 public class Controller {
     private static Storage storage;
 
@@ -107,6 +109,7 @@ public class Controller {
         storage.storeKlip(klipper);
         return klipper;
     }
+
 
 }
 
