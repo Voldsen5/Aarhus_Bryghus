@@ -10,7 +10,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.*;
-import storage.Storage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,7 +19,7 @@ import java.util.Optional;
 
 public class OpretSalg extends Stage {
 
-
+    TextField rabat;
     public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer, TextField rabat) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
@@ -28,6 +27,7 @@ public class OpretSalg extends Stage {
         this.setMinHeight(100);
         this.setMinWidth(200);
         this.setResizable(false);
+        this.rabat = rabat;
 
         this.setTitle("Salg");
         GridPane pane = new GridPane();
@@ -48,7 +48,7 @@ public class OpretSalg extends Stage {
     ArrayList<OrdreLinje>temp = new ArrayList<>();
     private Stage owner;
     TextArea kvittering = new TextArea();
-    TextField rabat = new TextField();
+
     ArrayList<CheckBox>tempCheckbox = new ArrayList<>();
     private final ArrayList<Observer> observers = new ArrayList<>();
 
