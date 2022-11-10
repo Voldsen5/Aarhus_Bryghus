@@ -74,7 +74,7 @@ public class OpretOrdreLinje extends Stage {
     private final RadioButton rbRabatProcent = new RadioButton("Procent Rabat");
     private final RadioButton rbAftaltPris = new RadioButton("Aftalt Pris");
     private final ToggleGroup tg = new ToggleGroup();
-    private final Button btnRegnRabat = new Button("Regn Rabat");
+    private final Button btnRegnRabat = new Button("Beregn Rabat");
     private final TextField txfRabatSamletPris = new TextField();
     private final Label lblRabatSamletPris = new Label("Pris med Rabat: ");
 
@@ -94,6 +94,10 @@ public class OpretOrdreLinje extends Stage {
 //        VBox vboxL = new VBox(lblProdukter,LvwProduktmedpantVisning);
 //        pane.add(vboxL,1,0);
 
+
+        LvwOrdreLinje.setMaxHeight(150);
+        LvwProduktKategori.setMaxHeight(150);
+        LvwProduktvisning.setMaxHeight(150);
 
         VBox vboxPK = new VBox(lblProduktKatagori,LvwProduktKategori);
         pane.add(vboxPK,0,0);

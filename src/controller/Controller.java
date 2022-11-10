@@ -82,7 +82,7 @@ public class Controller {
     }
 
 
-    public static double SamletOrdrePris() {
+    public static double samletOrdrePris() {
         double samlet = 0.0;
         for (OrdreLinje p : storage.getOrdreLinjer()) {
             samlet = samlet + p.ordreLinjePris();
@@ -105,11 +105,11 @@ public class Controller {
      */
     public static double procentRabat(double procent) {
         double x = 0.0;
-        x = ((SamletOrdrePris() * procent) / 100);
-        return SamletOrdrePris() - x;
+        x = ((samletOrdrePris() * procent) / 100);
+        return samletOrdrePris() - x;
     }
 
-    public static double SamletPantPris(){
+    public static double samletPantPris(){
         double x = 0.0;
         for (Produkt p : storage.getProdukts()){
             x = x+p.getPantPris();

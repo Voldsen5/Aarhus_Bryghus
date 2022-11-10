@@ -52,6 +52,9 @@ public class OpretSalg extends Stage {
 
     ArrayList<CheckBox>tempCheckbox = new ArrayList<>();
     private final ArrayList<Observer> observers = new ArrayList<>();
+    private int antalSalg;
+    private  Label lblAntalSalg = new Label("Antal dagligsalg: "+antalSalg);
+
 
 
     private void initContent(GridPane pane) {
@@ -98,6 +101,9 @@ public class OpretSalg extends Stage {
         pane.add(gennemført, 9, 10);
         GridPane.setHalignment(gennemført, HPos.LEFT);
 
+        pane.add(lblAntalSalg, 0, 0);
+        GridPane.setHalignment(lblAntalSalg, HPos.LEFT);
+
         pane.add(godkend, 8, 10);
         GridPane.setHalignment(godkend, HPos.RIGHT);
         godkend.setVisible(false);
@@ -121,8 +127,8 @@ public class OpretSalg extends Stage {
                 temp = p.getText().toUpperCase(Locale.ROOT);
             }
         }
+        kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
         for (OrdreLinje c : Controller.getStorage().getOrdreLinjer()){
-            kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
             kvittering.appendText(""+c+"\n");
             kvittering.appendText("\n");
 
@@ -134,6 +140,9 @@ public class OpretSalg extends Stage {
         }
         kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
         kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
+        for (Produkt p : Controller.getStorage().getProdukts()){
+            p.setPantPris(0);
+        }
 
 
 
@@ -151,6 +160,7 @@ public class OpretSalg extends Stage {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             Controller.getStorage().getOrdreLinjer().clear();
+            antalSalg = antalSalg+1;
             alert.close();
             this.close();
         }
