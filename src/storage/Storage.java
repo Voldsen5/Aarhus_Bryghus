@@ -2,7 +2,6 @@ package storage;
 
 
 import controller.Storagein;
-import gui.OpretSalg;
 import model.*;
 
 
@@ -128,16 +127,16 @@ public class Storage implements Storagein, Serializable {
         kontekster.remove(kontekst);
     }
 
-    @Override
-    public ArrayList<Produkt> getPriser() {
-        return null;
-    }
 
     //----------------------------------------------------------------------------------
 
 //    public  ArrayList<Pris> getPriser() {
 //        return priser;
 //    }
+
+    public ArrayList<Pris> getPriser() {
+        return priser;
+    }
 
     public  void storePris(Pris pris) {
         priser.add(pris);

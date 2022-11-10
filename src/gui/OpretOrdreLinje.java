@@ -10,12 +10,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.OrdreLinje;
-import model.ProcentRabat;
-import model.Produkt;
-import model.ProduktKategori;
-import model.ProduktMedPant;
+import model.*;
 import storage.Storage;
+
+import java.util.ArrayList;
 
 public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
@@ -134,6 +132,9 @@ public class OpretOrdreLinje extends Application {
 
         btnTilfojProdukt.setOnAction(event -> this.opretOrdreLinje());
 
+        fredagsbarBox.setOnAction(event -> this.visFredagsbar());
+        butikBox.setOnAction(event -> this.visButiksbar());
+
 
         LvwProduktKategori.setOnMouseClicked(event -> this.visProdukter());
         LvwProduktKategori.getItems().addAll(Controller.getStorage().getProduktkategori());
@@ -204,6 +205,35 @@ public class OpretOrdreLinje extends Application {
             }
         }
 
+    private void visFredagsbar() {
+        ArrayList<?> test = new ArrayList<>();
+        if (fredagsbarBox.isSelected()){
+            for (Pris p : Controller.getStorage().getPriser()){
+                if (p.getKontekst().getEvent().equalsIgnoreCase("fredagsbar")){
+                    LvwProduktvisning.getItems().clear();
+                    LvwProduktvisning.getItems().add(p.getProdukt());
+                }
+            }
+
+        }
+
+    }
+
+
+
+
+    private void visButiksbar() {
+        if (butikBox.isSelected()){
+            for (Pris p : Controller.getStorage().getPriser()){
+                if (p.getKontekst().getEvent().equalsIgnoreCase("butik")){
+                    LvwProduktvisning.getItems().clear();
+                    LvwProduktvisning.getItems().add(p.getProdukt());
+                }
+            }
+
+        }
+    }
+
 
     private void betalNu(Stage owner) {
         salgVindue = new OpretSalg("",owner,Controller.getStorage().getOrdreLinjer());
@@ -214,4 +244,6 @@ public class OpretOrdreLinje extends Application {
         txfRabat.clear();
         txfPantPris.clear();
     }
+
+
 }
