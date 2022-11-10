@@ -2,10 +2,11 @@ package gui;
 
 import controller.Controller;
 import javafx.application.Application;
-import model.*;
+import model.Kontekst;
+import model.Pris;
+import model.Produkt;
+import model.ProduktKategori;
 import storage.Storage;
-
-import java.io.*;
 
 
 public class StartVindueApp {
@@ -19,6 +20,7 @@ public class StartVindueApp {
         Controller.setStorage(storage);
 //        initStorage();
         Application.launch(OpretOrdreLinje.class);
+        System.out.println(Controller.getStorage().getPriser());
         Storage.saveStorage(Controller.getStorage());
     }
 

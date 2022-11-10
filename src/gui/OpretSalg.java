@@ -10,7 +10,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.*;
-import storage.Storage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -125,8 +124,8 @@ public class OpretSalg extends Stage {
             kvittering.appendText("\n");
 
         }
-        kvittering.appendText("Samlet Pris På Ordre: "+Controller.SamletOrdrePris()+"\n");
-        kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
+        kvittering.appendText("Samlet Pris På Ordre: "+Controller.samletOrdrePris()+"\n");
+        kvittering.appendText("Samlet Pris på pant: "+Controller.samletPantPris()+"\n");
         kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
 
 

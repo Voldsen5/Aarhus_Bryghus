@@ -11,11 +11,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.OrdreLinje;
-import model.ProcentRabat;
 import model.Produkt;
 import model.ProduktKategori;
 import model.ProduktMedPant;
-import storage.Storage;
 
 public class OpretOrdreLinje extends Application {
     public void start(Stage stage) {
@@ -189,7 +187,7 @@ public class OpretOrdreLinje extends Application {
 
         }
             if (txfRabat.getText().isEmpty()) {
-                txfSamletPris.setText("" + Controller.SamletOrdrePris());
+                txfSamletPris.setText("" + Controller.samletOrdrePris());
             } else if (rbRabatProcent.isSelected()) {
                 txfSamletPris.setText("" + Controller.procentRabat(Integer.parseInt(txfRabat.getText())));
             } else if (rbAftaltPris.isSelected()) {
