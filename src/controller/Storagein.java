@@ -65,7 +65,7 @@ public interface Storagein {
 
     //----------------------------------------------------------------------------------
 
-    public ArrayList<Pris> getPriser();
+    public  ArrayList<Pris> getPriser();
 
     public  void storePris(Pris pris);
 

@@ -42,4 +42,9 @@ public class Pris extends Produkt implements Serializable {
     public void setProdukt(Produkt produkt) {
         this.produkt = produkt;
     }
+
+    @Override
+    public String toString() {
+        return ""+beløb+" "+kontekst+" "+produkt;
+    }
 }

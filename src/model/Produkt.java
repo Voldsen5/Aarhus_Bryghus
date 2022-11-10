@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Produkt implements Serializable {
     private String navn;
+    private int pris;
 
 
     private double PantPris;
@@ -50,7 +51,13 @@ public class Produkt implements Serializable {
         this.produktKategori = produktKategori;
     }
 
+    public int getPris() {
+        return pris;
+    }
 
+    public void setPris(int pris) {
+        this.pris = pris;
+    }
 
     private final ArrayList<Rundvisning>rundvisninger = new ArrayList<>();
 
@@ -67,6 +74,7 @@ public class Produkt implements Serializable {
         rundvisning.produkt = this;
         return rundvisning;
     }
+
 
     public String getNavn() {
         return navn;
@@ -111,6 +119,6 @@ public class Produkt implements Serializable {
 
     @Override
     public String toString() {
-        return "Navn: " + navn+" Pris: "+produktPris();
-    }
+        return "Navn: " + navn+" Pris: "+produktPris();}
+
 }

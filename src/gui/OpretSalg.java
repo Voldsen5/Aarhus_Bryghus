@@ -20,14 +20,15 @@ import java.util.Optional;
 
 public class OpretSalg extends Stage {
 
-
-    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer) {
+    TextField rabat;
+    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer, TextField rabat) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
         this.initModality(Modality.APPLICATION_MODAL);
         this.setMinHeight(100);
         this.setMinWidth(200);
         this.setResizable(false);
+        this.rabat = rabat;
 
         this.setTitle("Salg");
         GridPane pane = new GridPane();
@@ -48,9 +49,12 @@ public class OpretSalg extends Stage {
     ArrayList<OrdreLinje>temp = new ArrayList<>();
     private Stage owner;
     TextArea kvittering = new TextArea();
-    TextField rabat = new TextField();
+
     ArrayList<CheckBox>tempCheckbox = new ArrayList<>();
     private final ArrayList<Observer> observers = new ArrayList<>();
+    private int antalSalg;
+    private  Label lblAntalSalg = new Label("Antal dagligsalg: "+antalSalg);
+
 
 
     private void initContent(GridPane pane) {
@@ -97,6 +101,9 @@ public class OpretSalg extends Stage {
         pane.add(gennemført, 9, 10);
         GridPane.setHalignment(gennemført, HPos.LEFT);
 
+        pane.add(lblAntalSalg, 0, 0);
+        GridPane.setHalignment(lblAntalSalg, HPos.LEFT);
+
         pane.add(godkend, 8, 10);
         GridPane.setHalignment(godkend, HPos.RIGHT);
         godkend.setVisible(false);
@@ -120,8 +127,8 @@ public class OpretSalg extends Stage {
                 temp = p.getText().toUpperCase(Locale.ROOT);
             }
         }
+        kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
         for (OrdreLinje c : Controller.getStorage().getOrdreLinjer()){
-            kvittering.appendText("Produkt       Antal      Pris    OrdreLinjePris"+"\n");
             kvittering.appendText(""+c+"\n");
             kvittering.appendText("\n");
 
@@ -129,10 +136,13 @@ public class OpretSalg extends Stage {
         if (!rabat.getText().isEmpty()){
             kvittering.appendText("Samlet Pris På Ordre: "+rabat.getText()+"\n");
         } else if (rabat.getText().isEmpty()) {
-            kvittering.appendText("Samlet Pris På Ordre: "+Controller.SamletOrdrePris()+"\n");
+            kvittering.appendText("Samlet Pris På Ordre: "+Controller.samletOrdrePris()+"\n");
         }
-        kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
+        kvittering.appendText("Samlet Pris på pant: "+Controller.samletPantPris()+"\n");
         kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
+        for (Produkt p : Controller.getStorage().getProdukts()){
+            p.setPantPris(0);
+        }
 
 
 
@@ -150,6 +160,7 @@ public class OpretSalg extends Stage {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             Controller.getStorage().getOrdreLinjer().clear();
+            antalSalg = antalSalg+1;
             alert.close();
             this.close();
         }

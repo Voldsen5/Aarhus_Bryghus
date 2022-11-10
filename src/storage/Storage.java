@@ -4,7 +4,6 @@ package storage;
 import controller.Storagein;
 import model.*;
 
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -21,6 +20,7 @@ public class Storage implements Storagein, Serializable {
     private  final ArrayList<ProduktMedPant> produktMedPants = new ArrayList<>();
     private  final ArrayList<Betalingsmetode> klippekorts = new ArrayList<>();
     private  final ArrayList<Klip> klips = new ArrayList<>();
+
 
 
 
@@ -127,14 +127,8 @@ public class Storage implements Storagein, Serializable {
         kontekster.remove(kontekst);
     }
 
-
     //----------------------------------------------------------------------------------
-
-//    public  ArrayList<Pris> getPriser() {
-//        return priser;
-//    }
-
-    public ArrayList<Pris> getPriser() {
+    public  ArrayList<Pris> getPriser() {
         return priser;
     }
 

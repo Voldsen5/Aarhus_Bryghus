@@ -11,6 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.OrdreLinje;
+import model.Pris;
 import model.Produkt;
 import model.ProduktKategori;
 import storage.Storage;
@@ -27,7 +28,7 @@ public class OpretProdukt extends Stage {
         this.setMinWidth(200);
         this.setResizable(false);
 
-        this.setTitle("Salg");
+        this.setTitle("Opret Produkt");
         GridPane pane = new GridPane();
         this.initContent(pane);
 
@@ -64,6 +65,7 @@ public class OpretProdukt extends Stage {
 
         pane.add(LvwProduktKategori, 0, 0);
         pane.add(LvwProduktvisning, 1, 0);
+
 
 
 
