@@ -10,6 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.*;
+import storage.Storage;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,14 +20,15 @@ import java.util.Optional;
 
 public class OpretSalg extends Stage {
 
-
-    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer) {
+    TextField rabat;
+    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer, TextField rabat) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
         this.initModality(Modality.APPLICATION_MODAL);
         this.setMinHeight(100);
         this.setMinWidth(200);
         this.setResizable(false);
+        this.rabat = rabat;
 
         this.setTitle("Salg");
         GridPane pane = new GridPane();
@@ -47,6 +49,7 @@ public class OpretSalg extends Stage {
     ArrayList<OrdreLinje>temp = new ArrayList<>();
     private Stage owner;
     TextArea kvittering = new TextArea();
+
     ArrayList<CheckBox>tempCheckbox = new ArrayList<>();
     private final ArrayList<Observer> observers = new ArrayList<>();
 
@@ -124,13 +127,18 @@ public class OpretSalg extends Stage {
             kvittering.appendText("\n");
 
         }
-        kvittering.appendText("Samlet Pris På Ordre: "+Controller.samletOrdrePris()+"\n");
-        kvittering.appendText("Samlet Pris på pant: "+Controller.samletPantPris()+"\n");
+        if (!rabat.getText().isEmpty()){
+            kvittering.appendText("Samlet Pris På Ordre: "+rabat.getText()+"\n");
+        } else if (rabat.getText().isEmpty()) {
+            kvittering.appendText("Samlet Pris På Ordre: "+Controller.SamletOrdrePris()+"\n");
+        }
+        kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
         kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
 
 
-//        kvittering.appendText(""+Storage.getOrdreLinjer()+"\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
-        //Controler liste appent new line
+
+//        kvittering.appendText(""+Storage.getOrdreLinjer()+"\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now
+//        Controler liste appent new line
 
     }
 
