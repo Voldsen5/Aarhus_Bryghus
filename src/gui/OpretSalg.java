@@ -51,6 +51,9 @@ public class OpretSalg extends Stage {
     TextField rabat = new TextField();
     ArrayList<CheckBox>tempCheckbox = new ArrayList<>();
     private final ArrayList<Observer> observers = new ArrayList<>();
+    private int antalSalg;
+    private  Label lblAntalSalg = new Label("Antal dagligsalg: "+antalSalg);
+
 
 
     private void initContent(GridPane pane) {
@@ -96,6 +99,9 @@ public class OpretSalg extends Stage {
 
         pane.add(gennemført, 9, 10);
         GridPane.setHalignment(gennemført, HPos.LEFT);
+
+        pane.add(lblAntalSalg, 0, 0);
+        GridPane.setHalignment(lblAntalSalg, HPos.LEFT);
 
         pane.add(godkend, 8, 10);
         GridPane.setHalignment(godkend, HPos.RIGHT);
@@ -153,6 +159,7 @@ public class OpretSalg extends Stage {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             Controller.getStorage().getOrdreLinjer().clear();
+            antalSalg = antalSalg+1;
             alert.close();
             this.close();
         }

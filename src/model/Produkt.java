@@ -110,6 +110,6 @@ public class Produkt implements Serializable {
 
     @Override
     public String toString() {
-        return "Navn: " + navn+" Pris: "+produktPris();
-    }
+        return "Navn: " + navn+" Pris: "+produktPris();}
+
 }
