@@ -48,6 +48,8 @@ public class OpretOrdreLinje extends Application {
     private final Label lblAntal = new Label("Antal:");
     private final Button btnBetal = new Button("Betal");
     private OpretSalg salgVindue;
+    private final CheckBox fredagsbarBox = new CheckBox("Fredagsbar");
+    private final CheckBox butikBox = new CheckBox("Butik");
     private final Label lblRabat = new Label("Rabatter:");
     private final TextField txfRabat = new TextField();
     private final RadioButton rbRabatProcent = new RadioButton("Procent Rabat");
@@ -89,6 +91,11 @@ public class OpretOrdreLinje extends Application {
 
         pane.add(btnTilfojProdukt,1,1);
         GridPane.setHalignment(btnTilfojProdukt,HPos.LEFT);
+
+        pane.add(fredagsbarBox, 0, 1);
+
+        pane.add(butikBox, 0, 1);
+        GridPane.setHalignment(butikBox, HPos.CENTER);
 
         pane.add(lblAntal,1,1);
         GridPane.setHalignment(lblAntal,HPos.CENTER);
