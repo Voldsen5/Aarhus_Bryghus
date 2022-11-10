@@ -136,9 +136,9 @@ public class OpretSalg extends Stage {
         if (!rabat.getText().isEmpty()){
             kvittering.appendText("Samlet Pris På Ordre: "+rabat.getText()+"\n");
         } else if (rabat.getText().isEmpty()) {
-            kvittering.appendText("Samlet Pris På Ordre: "+Controller.SamletOrdrePris()+"\n");
+            kvittering.appendText("Samlet Pris På Ordre: "+Controller.samletOrdrePris()+"\n");
         }
-        kvittering.appendText("Samlet Pris på pant: "+Controller.SamletPantPris()+"\n");
+        kvittering.appendText("Samlet Pris på pant: "+Controller.samletPantPris()+"\n");
         kvittering.appendText("\n"+"Betalingsmetode valgt : "+temp+"\n"+"Dato : "+now);
         for (Produkt p : Controller.getStorage().getProdukts()){
             p.setPantPris(0);
