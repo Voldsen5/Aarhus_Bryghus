@@ -20,14 +20,15 @@ import java.util.Optional;
 
 public class OpretSalg extends Stage {
 
-
-    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer) {
+    TextField rabat;
+    public OpretSalg(String title, Stage owner, ArrayList<OrdreLinje>tempOrdreLinjer, TextField rabat) {
         this.initOwner(owner);
         this.initStyle(StageStyle.UTILITY);
         this.initModality(Modality.APPLICATION_MODAL);
         this.setMinHeight(100);
         this.setMinWidth(200);
         this.setResizable(false);
+        this.rabat = rabat;
 
         this.setTitle("Salg");
         GridPane pane = new GridPane();
@@ -48,7 +49,7 @@ public class OpretSalg extends Stage {
     ArrayList<OrdreLinje>temp = new ArrayList<>();
     private Stage owner;
     TextArea kvittering = new TextArea();
-    TextField rabat = new TextField();
+
     ArrayList<CheckBox>tempCheckbox = new ArrayList<>();
     private final ArrayList<Observer> observers = new ArrayList<>();
     private int antalSalg;
