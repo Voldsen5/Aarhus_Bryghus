@@ -27,7 +27,7 @@ public class OpretProdukt extends Stage {
         this.setMinWidth(200);
         this.setResizable(false);
 
-        this.setTitle("Salg");
+        this.setTitle("Opret Produkt");
         GridPane pane = new GridPane();
         this.initContent(pane);
 

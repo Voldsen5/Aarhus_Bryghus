@@ -29,14 +29,15 @@ public class StartSide extends Application {
 
         private Stage owner;
         Button btnLedelse = new Button("Ledelse");
-        Button btnKunde = new Button("Medarbejder");
-        Button btnOpretProdukt = new Button("Opret Produkt");
+        Button btnMedarbejder = new Button("Medarbejder");
+
         Button btnBillede = new Button();
         Image img = null;//new Image("src/bryghus.png");
         ImageView view = new ImageView(img);
         BackgroundFill background_Hvid = new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY);
         Background backgroundHvid = new Background(background_Hvid);
         private OpretProdukt opretProdukt;
+        private OpretOrdreLinje opretOrdreLinje;
 
     private void initContent(GridPane pane) {
         //System.out.println(System.getProperty("User.dir"));
@@ -51,11 +52,10 @@ public class StartSide extends Application {
         pane.setBackground(backgroundHvid);
 
         btnLedelse.setPrefSize(100,50);
-        btnKunde.setPrefSize(100,50);
-        btnOpretProdukt.setPrefSize(100,50);
+        btnMedarbejder.setPrefSize(100,50);
 
 
-        HBox hBoxBtn = new HBox(btnLedelse, btnKunde,btnOpretProdukt);
+        HBox hBoxBtn = new HBox(btnLedelse, btnMedarbejder);
         pane.add(hBoxBtn,0,0);
         hBoxBtn.setSpacing(80);
         GridPane.setHalignment(hBoxBtn,HPos.CENTER);
@@ -72,13 +72,22 @@ public class StartSide extends Application {
         view.setFitWidth(450);
 
 
-        btnOpretProdukt.setOnAction(event -> this.openOpretProdukt(new Stage()));
+        btnLedelse.setOnAction(event -> this.openOpretProdukt(new Stage()));
+        btnMedarbejder.setOnAction(event -> this.openOpretOrdrelinje(new Stage()));
     }
 
     private void openOpretProdukt(Stage owner){
         opretProdukt = new OpretProdukt("",owner);
         this.opretProdukt.showAndWait();
     }
+
+    private void openOpretOrdrelinje(Stage owner){
+        opretOrdreLinje = new OpretOrdreLinje("",owner);
+        this.opretOrdreLinje.showAndWait();
+    }
+
+
+
 
 
 

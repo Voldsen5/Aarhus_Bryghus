@@ -10,7 +10,9 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.OrdreLinje;
 import model.ProcentRabat;
 import model.Produkt;
@@ -18,16 +20,32 @@ import model.ProduktKategori;
 import model.ProduktMedPant;
 import storage.Storage;
 
-public class OpretOrdreLinje extends Application {
-    public void start(Stage stage) {
-        stage.setTitle("AarhusBryghus");
+public class OpretOrdreLinje extends Stage {
+
+    public OpretOrdreLinje(String title, Stage owner) {
+        this.initOwner(owner);
+        this.initStyle(StageStyle.UTILITY);
+        this.initModality(Modality.APPLICATION_MODAL);
+        this.setMinHeight(100);
+        this.setMinWidth(200);
+        this.setResizable(false);
+
+        this.setTitle("Opret Ordre linje");
         GridPane pane = new GridPane();
         this.initContent(pane);
-        this.owner = stage;
 
-        Scene scene = new Scene(pane, 500, 500);
-        stage.setScene(scene);
-        stage.show();
+        Scene scene = new Scene(pane);
+        this.setScene(scene);
+
+//    public void start(Stage stage) {
+//        stage.setTitle("AarhusBryghus");
+//        GridPane pane = new GridPane();
+//        this.initContent(pane);
+//        this.owner = stage;
+//
+//        Scene scene = new Scene(pane, 500, 500);
+//        stage.setScene(scene);
+//        stage.show();
 
     }
 
