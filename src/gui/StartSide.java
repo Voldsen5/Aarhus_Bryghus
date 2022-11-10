@@ -56,10 +56,12 @@ public class StartSide extends Application {
 
 
         HBox hBoxBtn = new HBox(btnLedelse, btnMedarbejder);
-        pane.add(hBoxBtn,0,0);
-        hBoxBtn.setSpacing(80);
-        GridPane.setHalignment(hBoxBtn,HPos.CENTER);
-        GridPane.setValignment(hBoxBtn,VPos.CENTER);
+        pane.add(btnLedelse, 0, 0);
+        pane.add(btnMedarbejder, 0, 0);
+        GridPane.setValignment(btnMedarbejder,VPos.BOTTOM);
+        GridPane.setHalignment(btnLedelse, HPos.RIGHT);
+
+
 
         pane.add(btnBillede, 0, 1);
         btnBillede.setPrefSize(500, 500);

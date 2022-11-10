@@ -17,7 +17,7 @@ public class StartVindueApp {
             System.out.println("Empty Storage created");
         }
         Controller.setStorage(storage);
-//        initStorage();
+        initStorage();
         Application.launch(StartSide.class);
         Storage.saveStorage(Controller.getStorage());
     }
