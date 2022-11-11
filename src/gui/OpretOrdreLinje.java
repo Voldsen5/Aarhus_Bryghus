@@ -227,7 +227,7 @@ public class OpretOrdreLinje extends Stage {
                 txfAntal.clear();
                 txfSamletPris.clear();
             }
-            txfSamletPris.setText("" + Controller.SamletOrdrePris());
+            txfSamletPris.setText("" + Controller.samletOrdrePris());
         }
     }
 

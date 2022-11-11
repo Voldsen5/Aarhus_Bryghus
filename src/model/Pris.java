@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Pris implements Serializable {
+public class Pris extends Produkt implements Serializable {
     private double beløb;
     Kontekst kontekst;
     Produkt produkt;
@@ -10,21 +10,18 @@ public class Pris implements Serializable {
 
 
 
-    public Pris(double beløb, Kontekst kontekst, Produkt produkt) {
+    public Pris(double beløb, Kontekst kontekst, Produkt produkt, String navn) {
+        super(navn);
         this.beløb = beløb;
         this.kontekst = kontekst;
         this.produkt = produkt;
         produkt.addPris(this);
+
     }
 
-    public Pris(double beløb, Kontekst kontekst, Produkt produkt, Klip klip) {
-        this.beløb = beløb;
+    public void setKontekst(Kontekst kontekst) {
         this.kontekst = kontekst;
-        this.produkt = produkt;
-        this.klip = klip;
-        produkt.addPris(this);
     }
-
 
     public double getBeløb() {
         return beløb;

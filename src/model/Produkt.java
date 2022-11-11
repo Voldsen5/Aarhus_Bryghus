@@ -90,6 +90,7 @@ public class Produkt implements Serializable {
         pris.produkt = this;
     }
 
+
     /** Pre: The pris is connected to this produkt. */
     public void removePris (Pris pris) {
         priser.remove(pris);

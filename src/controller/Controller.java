@@ -61,13 +61,13 @@ public class Controller {
      */
 
     public static Pris createPris(double beløb, Kontekst kontekst, Produkt produkt) {
-        Pris pris = new Pris(beløb, kontekst, produkt);
+        Pris pris = new Pris(beløb, kontekst, produkt,null);
         storage.storePris(pris);
         return pris;
     }
 
-    public static Pris createPrisMedKlip(double beløb, Kontekst kontekst, Produkt produkt, Klip klip) {
-        Pris prismedKlip = new Pris(beløb, kontekst, produkt, klip);
+    public static Pris createPrisMedKlip(double beløb, Kontekst kontekst, Produkt produkt) {
+        Pris prismedKlip = new Pris(beløb, kontekst, produkt,null);
         storage.storePris(prismedKlip);
         return prismedKlip;
     }

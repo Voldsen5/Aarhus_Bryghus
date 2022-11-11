@@ -107,6 +107,7 @@ public class OpretProdukt extends Stage {
         Produkt p = Controller.createProdukt(txfnavn.getText());
         ProduktKategori f = Controller.getStorage().getProduktkategori().get(LvwProduktKategori.getSelectionModel().getSelectedIndex());
         Controller.addProduktTilKategori(f,p);
+        Pris c = Controller.createPris(Integer.parseInt(txfpris.getText()), null, p);
         LvwProduktvisning.getItems().clear();
         LvwProduktvisning.getItems().addAll(f.getProdukter());
         txfpris.clear();

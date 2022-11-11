@@ -273,33 +273,33 @@ public class StartVindueApp {
 //        Pris prisFredagsbarFadølVand = Controller.createPris(10, fredagsbar, vand);
 //        Pris prisFredagsbarFadølØlpølser = Controller.createPris(30, fredagsbar, ølpølser);
         //---------------------------------------------------------------------------------------
-        //pris med klip
-        Pris prisFredagsbarKlosterbrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, klosterbryg,Controller.createKlip(2));
-        Pris prisFredagsbarSweetGeorgiaBrownMedKlip = Controller.createPrisMedKlip(70, fredagsbar, sweetgeorgiabrown,Controller.createKlip(2));
-        Pris prisFredagsbarExtraPilsnerMedKlip = Controller.createPrisMedKlip(70, fredagsbar, extrapilsner,Controller.createKlip(2));
-        Pris prisFredagsbarCelebrationMedKlip = Controller.createPrisMedKlip(70, fredagsbar, celebration, Controller.createKlip(2));
-        Pris prisFredagsbarBlondieMedKlip = Controller.createPrisMedKlip(70, fredagsbar, blondie,Controller.createKlip(2));
-        Pris prisFredagsbarForårsbrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, forårsbryg,Controller.createKlip(2));
-        Pris prisFredagsbarIndiaPaleAleMedKlip = Controller.createPrisMedKlip(70, fredagsbar, indiapaleale,Controller.createKlip(2));
-        Pris prisFredagsbarJulebrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, julebryg,Controller.createKlip(2));
-        Pris prisFredagsbarJuletøndenMedKlip = Controller.createPrisMedKlip(70, fredagsbar, juletønden,Controller.createKlip(2));
-        Pris prisFredagsbarOldStrongAleMedKlip = Controller.createPrisMedKlip(70, fredagsbar, oldstrongale,Controller.createKlip(2));
-        Pris prisFredagsbarFregattenJyllandMedKlip = Controller.createPrisMedKlip(70, fredagsbar, fregattenjylland,Controller.createKlip(2));
-        Pris prisFredagsbarImperialStoutMedKlip = Controller.createPrisMedKlip(70, fredagsbar, imperialstout,Controller.createKlip(2));
-        Pris prisFredagsbarTributeMedKlip = Controller.createPrisMedKlip(70, fredagsbar, tribute,Controller.createKlip(2));
-        Pris prisFredagsbarBlackMonsterMedKlip = Controller.createPrisMedKlip(100, fredagsbar, blackmonster,Controller.createKlip(3));
-
-        Pris prisFredagsbarFadølKlosterbrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, klosterbryg,Controller.createKlip(1));
-        Pris prisFredagsbarFadølJazzClassicMedKlip = Controller.createPrisMedKlip(38, fredagsbar, jazzclassic,Controller.createKlip(1));
-        Pris prisFredagsbarFadølExtraPilsnerMedKlip = Controller.createPrisMedKlip(38, fredagsbar, extrapilsner,Controller.createKlip(1));
-        Pris prisFredagsbarFadølCelebrationMedKlip = Controller.createPrisMedKlip(38, fredagsbar, celebration,Controller.createKlip(1));
-        Pris prisFredagsbarFadølBlondieMedKlip = Controller.createPrisMedKlip(38, fredagsbar, blondie,Controller.createKlip(1));
-        Pris prisFredagsbarFadølForårsbrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, forårsbryg,Controller.createKlip(1));
-        Pris prisFredagsbarFadølIndiaPaleAleMedKlip = Controller.createPrisMedKlip(38, fredagsbar, indiapaleale,Controller.createKlip(1));
-        Pris prisFredagsbarFadølJulebrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, julebryg,Controller.createKlip(1));
-        Pris prisFredagsbarFadølImperialStoutMedKlip = Controller.createPrisMedKlip(38, fredagsbar, imperialstout,Controller.createKlip(1));
-        Pris prisFredagsbarFadølSpecialMedKlip = Controller.createPrisMedKlip(38, fredagsbar, special,Controller.createKlip(1));
-        Pris prisFredagsbarFadølÆblebrus = Controller.createPris(15, fredagsbar, æblebrus);
+//        //pris med klip
+//        Pris prisFredagsbarKlosterbrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, klosterbryg,Controller.createKlip(2));
+//        Pris prisFredagsbarSweetGeorgiaBrownMedKlip = Controller.createPrisMedKlip(70, fredagsbar, sweetgeorgiabrown,Controller.createKlip(2));
+//        Pris prisFredagsbarExtraPilsnerMedKlip = Controller.createPrisMedKlip(70, fredagsbar, extrapilsner,Controller.createKlip(2));
+//        Pris prisFredagsbarCelebrationMedKlip = Controller.createPrisMedKlip(70, fredagsbar, celebration, Controller.createKlip(2));
+//        Pris prisFredagsbarBlondieMedKlip = Controller.createPrisMedKlip(70, fredagsbar, blondie,Controller.createKlip(2));
+//        Pris prisFredagsbarForårsbrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, forårsbryg,Controller.createKlip(2));
+//        Pris prisFredagsbarIndiaPaleAleMedKlip = Controller.createPrisMedKlip(70, fredagsbar, indiapaleale,Controller.createKlip(2));
+//        Pris prisFredagsbarJulebrygMedKlip = Controller.createPrisMedKlip(70, fredagsbar, julebryg,Controller.createKlip(2));
+//        Pris prisFredagsbarJuletøndenMedKlip = Controller.createPrisMedKlip(70, fredagsbar, juletønden,Controller.createKlip(2));
+//        Pris prisFredagsbarOldStrongAleMedKlip = Controller.createPrisMedKlip(70, fredagsbar, oldstrongale,Controller.createKlip(2));
+//        Pris prisFredagsbarFregattenJyllandMedKlip = Controller.createPrisMedKlip(70, fredagsbar, fregattenjylland,Controller.createKlip(2));
+//        Pris prisFredagsbarImperialStoutMedKlip = Controller.createPrisMedKlip(70, fredagsbar, imperialstout,Controller.createKlip(2));
+//        Pris prisFredagsbarTributeMedKlip = Controller.createPrisMedKlip(70, fredagsbar, tribute,Controller.createKlip(2));
+//        Pris prisFredagsbarBlackMonsterMedKlip = Controller.createPrisMedKlip(100, fredagsbar, blackmonster,Controller.createKlip(3));
+//
+//        Pris prisFredagsbarFadølKlosterbrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, klosterbryg,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølJazzClassicMedKlip = Controller.createPrisMedKlip(38, fredagsbar, jazzclassic,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølExtraPilsnerMedKlip = Controller.createPrisMedKlip(38, fredagsbar, extrapilsner,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølCelebrationMedKlip = Controller.createPrisMedKlip(38, fredagsbar, celebration,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølBlondieMedKlip = Controller.createPrisMedKlip(38, fredagsbar, blondie,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølForårsbrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, forårsbryg,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølIndiaPaleAleMedKlip = Controller.createPrisMedKlip(38, fredagsbar, indiapaleale,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølJulebrygMedKlip = Controller.createPrisMedKlip(38, fredagsbar, julebryg,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølImperialStoutMedKlip = Controller.createPrisMedKlip(38, fredagsbar, imperialstout,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølSpecialMedKlip = Controller.createPrisMedKlip(38, fredagsbar, special,Controller.createKlip(1));
+//        Pris prisFredagsbarFadølÆblebrus = Controller.createPris(15, fredagsbar, æblebrus);
         Pris prisFredagsbarFadølChips = Controller.createPris(10, fredagsbar, chips);
         Pris prisFredagsbarFadølPeanuts = Controller.createPris(15, fredagsbar, peanuts);
         Pris prisFredagsbarFadølCola = Controller.createPris(15, fredagsbar, cola);
